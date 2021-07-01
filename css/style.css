@@ -15,7 +15,7 @@ body:after {
     z-index: -999;
 }
 
-li a{
+.backup{
         display: block;
         width: 26vw;
         height: 26vh;
