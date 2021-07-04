@@ -6,65 +6,97 @@
 </head>
 
 <body>
+    <dl id="cover">
+        <dt></dt>
+        <dd></dd>
+    </dl>
 
-    <ul>
-        <li><a href="../AfterEffectsPresets/">AE Presets</a></li>
-        <li><a href="../AfterEffectsExpressions/">AE Expressions</a></li>
-        <li><a href="javascript:alert('coming soon'')">coming soon</a></li>
+    <dl id="header">
+        <dt></dt>
+        <dd></dd>
+    </dl>
+
+    <ul id="main">
+        <li id="menu" class="active" data-title='menu'>
+            <ul>
+                <li data-text="projects">
+                    <ul>
+                        <li><a href="">expressions</a></li>
+                        <li><a href="">presets</a></li>
+                    </ul>
+                </li>
+                <li data-text="tutorials" data-title="recent">
+                    <ul>
+                        <li data-title="recent">
+                            <ul>
+                                <li><a href="page"></a></li>
+                                <li><a href="page"></a></li>
+                                <li><a href="../tutorials">readmore</a></li>
+                            </ul>
+                        </li>
+                        <li data-title="platform">
+                            <ul>
+                                <li><a href="uiiiuiii.com"></a></li>
+                                <li><a href=""></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li data-text="more">
+                    <ul>
+                        <li data-text="recent" data-title="design">
+                            <ul>
+                                <li><a href=""></a></li>
+                                <li><a href=""></a></li>
+                                <li><a href=""></a></li>
+                                <li><a href=""></a></li>
+                            </ul>
+                        </li>
+                        <li data-text="platform" data-title="design">
+                            <ul>
+                                <li><a href=""></a></li>
+                                <li><a href=""></a></li>
+                                <li><a href=""></a></li>
+                            </ul>
+                        </li>
+                        <li data-title="blog" readmore>
+                            <ul>
+                                <li><a href=""></a></li>
+                                <li><a href=""></a></li>
+                                <li><a href=""></a></li>
+                                <li><a href=""></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li data-text="about & Contact">
+
+                </li>
+            </ul>
+        </li>
+        <li id="recent" class="active" data-title="recent">
+            <ul>
+            </ul>
+        </li>
     </ul>
 
     <!-- 统计 -->
     <script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1280029923&web_id=1280029923"></script>
+    <script>
+        var activeClassName = 'active';
+        [...document.querySelectorAll('#main li')].map(function (li) {
+            li.addEventListener('click', function clickLi() {
+                console.log(this);
+                document.querySelector('.' + activeClassName).classList.remove(activeClassName)
+
+                if (this.className.indexOf(activeClassName) == -1) {
+                    this.classList.add(activeClassName);
+                }
+                event.stopPropagation();
+                return false;
+            }, false)
+        })
+    </script>
 </body>
 
 </html>
-
-<!-- 
-menu
-    ul
-        li
-            ul:projects
-                li
-                li
-                li
-                ...
-        li
-            ul:turtorials
-                li
-                li
-                li
-                ...
-        li
-            ul:more
-                li
-                    dl
-                        dt:design
-                        dd
-                            ul:recent
-                                li<a<img
-                                li<a<img
-                                li<a<img
-                                ...
-                            ul:online platform
-                                li<a<icon
-                                li<a<icon
-                                li<a<icon
-                                ...
-                li
-                    a:blog
-        li
-            dl
-                dt:about&contact
-                dd
-
-
-recent
-    ul
-        li
-        li
-        li
-        ...
-
-
-
- -->
