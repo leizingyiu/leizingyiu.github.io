@@ -1,182 +1,161 @@
 body {
-    /* background: url(https://source.unsplash.com/random) no-repeat center/cover fixed; */
-    background: #fafafa;
-    width: 90vw;
-    margin: 0 auto;
+  /* background: url(https://source.unsplash.com/random) no-repeat center/cover fixed; */
+  background: #fafafa;
+  width: 90vw;
+  margin: 0 auto;
+  font-size: 5vmin;
+
+  background-image: url(http://bradjasper.com/subtle-patterns-bookmarklet/patterns/rockywall.png);
+  background-repeat: repeat;
+  background-size: auto;
 }
 
-/* body:after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    left: 0;
-    top: 0;
-    background: inherit;
-    filter: blur(2px);
-    z-index: -999;
+#main li {
+  width: 100%;
+  height: auto;
+}
+/* #main li::before,
+#main li::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
 } */
-
-/* #menu * {
-    visibility: hidden;
-    height: 1px;
-    opacity: 0;
-    overflow: hidden;
-}
-
-#menu.active,
-#menu .active,
-#menu.active>*,
-#menu .active>* {
-height: auto;
-opacity: 1;
-    margin: 1rem;
-    visibility: visible;
-    overflow: auto;
-}
-
-#menu.active,#menu .active{
-    display: flex;
-    flex-flow: row wrap-reverse;
-  
-
-}
-#menu.active::after,
-#menu .active::after {
-    content: attr(data-title);
-    display: block;
-    font-size: 1em;
-
-}
-#menu.active li,
-#menu .active li {
-    display: inline-block;
-width: 10vmin;
-height: 10vmin;
-}
-
-#menu.active li:before,
-#menu .active li:before {
-    content: attr(data-text);
-    display: inline-block;
-    font-size: 1em;
-    width: 10vmin;
-    height: 10vmin;
-} */
-
-
-  #main li {
-    max-width: 0;
-    max-height: 0;
-    opacity: 0;
-    margin: 0;
-    padding: 0;
-} 
-
-#main li.active,
-#main li.active>ul,
-#main li.active>ul>li {
-    max-width: 999vw !important;
-    max-height: 999vh !important;
-    opacity: 1 !important;
-}
-
 #main {
-    height: auto;
-    position: relative;
+  /* main整体 */
+  height: auto;
+  position: relative;
+  font-size: 0;
+}
+#main li.active * {
+  /* 活动容器下方所有，包含活动容器中未激活部分 */
+  opacity: 0;
+}
+#main li.active > ul,
+#main li.active > ul > li {
+  max-width: 999vw !important;
+  max-height: 999vh !important;
+  opacity: 1 !important;
+  font-size: 2rem;
 }
 
-#main li.active {
-    height: auto;
-    position: relative;
-    padding-top: 2em;
-    margin-bottom: 4em;
-    /* overflow: hidden; */
+#main li.active[data-title],
+#main li.active[data-text] > ul > li[data-title] {
+  /* 已经激活 带标题 容器 */
+  height: auto;
+  position: relative;
+  font-size: 2rem;
+  padding-top: 2em;
+  margin-bottom: 4em;
+}
+#main li.active[data-title] > ul > li[data-text] * {
+  /* 已激活 内层 折叠 部分 */
+  display: none;
 }
 
-#main li.active::before {
-    content: attr(data-title);
-    position: absolute;
-    left: 0;
-    top: 0;
+#main li.active[data-title]::before,
+#main li.active[data-text] > ul > li[data-title]::before {
+  /* 容器本身的before标题
+     子级别被点击后成为容器 的before标题 */
+  opacity: 1;
+  content: attr(data-title);
+  font-size: 2rem;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
-#main li.active>ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100% !important;
-
+#main li.active[data-title] > ul,
+#main li.active[data-text] > ul > li[data-title] > ul {
+  /* 已激活的容器 */
+  opacity: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: ;
+  width: 100% !important;
 }
 
-#main li.active>ul>li {
-    display: block;
-    max-width: 22.5% !important;
-    /* border: solid 1px #666; */
-    text-align: center;
-    position: relative;
+#main li.active[data-title] > ul > li,
+#main li.active[data-text] > ul > li[data-title] > ul > li {
+  /* 激活 容器里面的 方块 */
+  display: block;
+  opacity: 1;
+  max-width: 22.5% !important;
+  text-align: center;
+  position: relative;
+  font-size: 1.25rem;
 
-    flex: 1 0 24%;
+  flex: 1 0 24%;
 
-    height: 100%;
+  height: 100%;
+  cursor: pointer;
 
-    cursor: pointer;
-
-    backdrop-filter: blur(4px);
-    background: hsla(0, 0%, 0%, 0.1) !important;
-    box-shadow: 0 0 12px 0 hsl(0deg 0% 0% / 24%);
+  backdrop-filter: blur(4px);
+  background: hsla(0, 0%, 100%, 0.1) !important;
+  box-shadow: 0 0 12px 0 hsl(0deg 0% 0% / 24%);
 }
 
-#main li.active>ul>li:before {
-    content: attr(data-text);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+#main li.active[data-title] > ul > li[data-text]:before,
+#main li.active[data-text] > ul > li[data-title] > ul > li[data-text]::before {
+  /* 方块的data文本 */
+  opacity: 1;
+  content: attr(data-text);
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-#main li.active>ul>li::after {
-    content: "";
-    padding-top: 100%;
-    vertical-align: middle;
-    display: block;
-}
-#main li.active>ul>li>*{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-#main li.active>ul>li[data-text] *{
-    display: none;
+#main li.active[data-title] > ul > li::after,
+#main li.active[data-text] > ul > li[data-title] > ul > li::after {
+  /* 把方块撑成正方形 */
+  opacity: 1;
+  content: "";
+  padding-top: 100%;
+  vertical-align: middle;
+  display: block;
 }
 
+#main li.active[data-title] > ul > li > *,
+#main li.active[data-text] > ul > li[data-title] > ul > li > * {
+  /* 方块内部的超链接 */
+  /* 
+  width: 100%; */
+  height: 0;
 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-a[title=站长统计]{
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
+  opacity: 1;
+}
+
+a[title="站长统计"] {
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
 }
 
 .backup {
-    display: block;
-    width: 26vw;
-    height: 26vh;
-    position: fixed;
-    z-index: 999;
-    backdrop-filter: blur(4px);
-    background: hsla(0, 0%, 100%, 0.1) !important;
-    box-shadow: 0 0 12px 0 hsl(0deg 0% 0% / 24%);
-    color: #fefefe !important;
-    /* border: 1px solid hsla(0,0%,100%,0.8)!important; */
-    left: 8vmin;
-    top: 3vmin;
-   
-
+  display: block;
+  width: 26vw;
+  height: 26vh;
+  position: fixed;
+  z-index: 999;
+  backdrop-filter: blur(4px);
+  background: hsla(0, 0%, 100%, 0.1) !important;
+  box-shadow: 0 0 12px 0 hsl(0deg 0% 0% / 24%);
+  color: #fefefe !important;
+  /* border: 1px solid hsla(0,0%,100%,0.8)!important; */
+  left: 8vmin;
+  top: 3vmin;
 }

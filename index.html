@@ -19,18 +19,21 @@
     <ul id="main">
         <li id="menu" class="active" data-title='menu'>
             <ul>
-                <li data-text="projects">
+                <li data-text="projects" data-title="projects">
                     <ul>
-                        <li><a href="">expressions</a></li>
-                        <li><a href="">presets</a></li>
+                        <li><a href="#">expressions</a></li>
+                        <li><a href="#">presets</a></li>
+                        <li><a href="#">presets</a></li>
+                        <li><a href="#">presets</a></li>
                     </ul>
                 </li>
-                <li data-text="tutorials" data-title="recent">
+                <li data-text="tutorials">
                     <ul>
                         <li data-title="recent">
                             <ul>
-                                <li><a href="page"></a></li>
-                                <li><a href="page"></a></li>
+                                <li><a href="page">aaa</a></li>
+                                <li><a href="page">bbb</a></li>
+                                <li><a href="page">ccc</a></li>
                                 <li><a href="../tutorials">readmore</a></li>
                             </ul>
                         </li>
@@ -87,11 +90,13 @@
         [...document.querySelectorAll('#main li')].map(function (li) {
             li.addEventListener('click', function clickLi() {
                 console.log(this);
-                document.querySelector('.' + activeClassName).classList.remove(activeClassName)
-
-                if (this.className.indexOf(activeClassName) == -1) {
-                    this.classList.add(activeClassName);
+                if (li.querySelector('ul,ol') != null) {
+                    document.querySelector('.' + activeClassName).classList.remove(activeClassName)
+                    if (this.className.indexOf(activeClassName) == -1) {
+                        this.classList.add(activeClassName);
+                    }
                 }
+
                 event.stopPropagation();
                 return false;
             }, false)
