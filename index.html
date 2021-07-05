@@ -87,9 +87,16 @@
         var activeClassName = 'active';
         [...document.querySelectorAll('#main li')].map(function (li) {
             li.addEventListener('click', function clickLi() {
+
+                console.log(li.className, li.innerHTML);
+                /* TODO */
+
                 if (li.querySelector('ul,ol') != null && li.className.indexOf(activeClassName) == -1) {
                     /*document.querySelector('.' + activeClassName).classList.remove(activeClassName)*/
-                    var p = li.parentNode;
+
+                    console.log(1);
+
+                    let p = li.parentNode;
 
                     while (p.className.indexOf(activeClassName) == -1) {
 
@@ -98,11 +105,17 @@
                     }
                     p.classList.remove(activeClassName);
                     this.classList.add(activeClassName);
-                } else if ([...li.children].map(c => c.localName).indexOf('a') != -1) {
+                } else if ([...li.children].map(c => c.localName).indexOf('a') != -1 && li.className.indexOf(activeClassName) == -1) {
+
+                    console.log(2);
+
                     li.children[[...li.children].map(c => c.localName).indexOf('a')].click();
                     console.log(li.children[[...li.children].map(c => c.localName).indexOf('a')])
                 } else if (li.className.indexOf(activeClassName) != -1) {
-                    var p = li.parentNode;
+
+                    console.log(3);
+
+                    let p = li.parentNode;
                     while (p.localName != 'li' && !p.hasAttribute('data-title')) {
                         console.log(li, p);
                         /*TODO*/
