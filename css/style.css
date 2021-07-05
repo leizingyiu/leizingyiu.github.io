@@ -14,25 +14,23 @@ body {
   width: 100%;
   height: auto;
 }
-/* #main li::before,
-#main li::after {
-  content: "";
-  display: block;
-  width: 0;
-  height: 0;
-} */
+
 #main {
   /* main整体 */
   height: auto;
   position: relative;
   font-size: 0;
+  transition: all 0.5s ease !important;
 }
+
 #main li.active * {
   /* 活动容器下方所有，包含活动容器中未激活部分 */
   opacity: 0;
+  transition: all 0.5s ease !important;
 }
-#main li.active > ul,
-#main li.active > ul > li {
+
+#main li.active>ul,
+#main li.active>ul>li {
   max-width: 999vw !important;
   max-height: 999vh !important;
   opacity: 1 !important;
@@ -40,21 +38,23 @@ body {
 }
 
 #main li.active[data-title],
-#main li.active[data-text] > ul > li[data-title] {
+#main li.active[data-text]>ul>li[data-title] {
   /* 已经激活 带标题 容器 */
   height: auto;
   position: relative;
   font-size: 2rem;
   padding-top: 2em;
   margin-bottom: 4em;
+  pointer-events: none;
 }
-#main li.active[data-title] > ul > li[data-text] * {
+
+#main li.active[data-title]>ul>li[data-text] * {
   /* 已激活 内层 折叠 部分 */
   display: none;
 }
 
 #main li.active[data-title]::before,
-#main li.active[data-text] > ul > li[data-title]::before {
+#main li.active[data-text]>ul>li[data-title]::before {
   /* 容器本身的before标题
      子级别被点击后成为容器 的before标题 */
   opacity: 1;
@@ -65,8 +65,20 @@ body {
   top: 0;
 }
 
-#main li.active[data-title] > ul,
-#main li.active[data-text] > ul > li[data-title] > ul {
+#main li.active[data-text][data-title]::after,
+#main li.active[data-text]>ul>li[data-title]::after {
+  opacity: 1;
+  content: '⇪';
+  font-size: 2rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+#main li.active[data-title]>ul,
+#main li.active[data-text]>ul>li[data-title]>ul {
   /* 已激活的容器 */
   opacity: 1;
   display: flex;
@@ -75,10 +87,11 @@ body {
   justify-content: space-between;
   align-content: ;
   width: 100% !important;
+  pointer-events: all;
 }
 
-#main li.active[data-title] > ul > li,
-#main li.active[data-text] > ul > li[data-title] > ul > li {
+#main li.active[data-title]>ul>li,
+#main li.active[data-text]>ul>li[data-title]>ul>li {
   /* 激活 容器里面的 方块 */
   display: block;
   opacity: 1;
@@ -97,8 +110,8 @@ body {
   box-shadow: 0 0 12px 0 hsl(0deg 0% 0% / 24%);
 }
 
-#main li.active[data-title] > ul > li[data-text]:before,
-#main li.active[data-text] > ul > li[data-title] > ul > li[data-text]::before {
+#main li.active[data-title]>ul>li[data-text]:before,
+#main li.active[data-text]>ul>li[data-title]>ul>li[data-text]::before {
   /* 方块的data文本 */
   opacity: 1;
   content: attr(data-text);
@@ -110,8 +123,8 @@ body {
   transform: translate(-50%, -50%);
 }
 
-#main li.active[data-title] > ul > li::after,
-#main li.active[data-text] > ul > li[data-title] > ul > li::after {
+#main li.active[data-title]>ul>li::after,
+#main li.active[data-text]>ul>li[data-title]>ul>li::after {
   /* 把方块撑成正方形 */
   opacity: 1;
   content: "";
@@ -120,18 +133,15 @@ body {
   display: block;
 }
 
-#main li.active[data-title] > ul > li > *,
-#main li.active[data-text] > ul > li[data-title] > ul > li > * {
+#main li.active[data-title]>ul>li>*,
+#main li.active[data-text]>ul>li[data-title]>ul>li>* {
   /* 方块内部的超链接 */
   /* 
   width: 100%; */
-  height: 0;
-
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   opacity: 1;
 }
 

@@ -83,25 +83,51 @@
         </li>
     </ul>
 
-    <!-- 统计 -->
-    <script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1280029923&web_id=1280029923"></script>
     <script>
         var activeClassName = 'active';
         [...document.querySelectorAll('#main li')].map(function (li) {
             li.addEventListener('click', function clickLi() {
-                console.log(this);
-                if (li.querySelector('ul,ol') != null) {
-                    document.querySelector('.' + activeClassName).classList.remove(activeClassName)
-                    if (this.className.indexOf(activeClassName) == -1) {
-                        this.classList.add(activeClassName);
-                    }
-                }
+                if (li.querySelector('ul,ol') != null && li.className.indexOf(activeClassName) == -1) {
+                    /*document.querySelector('.' + activeClassName).classList.remove(activeClassName)*/
+                    var p = li.parentNode;
 
+                    while (p.className.indexOf(activeClassName) == -1) {
+
+                        p = p.parentNode;
+                        if (p.localName == 'body') { return; }
+                    }
+                    p.classList.remove(activeClassName);
+                    this.classList.add(activeClassName);
+                } else if ([...li.children].map(c => c.localName).indexOf('a') != -1) {
+                    li.children[[...li.children].map(c => c.localName).indexOf('a')].click();
+                    console.log(li.children[[...li.children].map(c => c.localName).indexOf('a')])
+                } else if (li.className.indexOf(activeClassName) != -1) {
+                    var p = li.parentNode;
+                    while (p.localName != 'li' && !p.hasAttribute('data-title')) {
+                        console.log(li, p);
+                        /*TODO*/
+                        p = p.parentNode;
+                    }
+                    p.classList.add(activeClassName);
+                    this.classList.remove(activeClassName);
+                }
                 event.stopPropagation();
                 return false;
             }, false)
         })
     </script>
+
+    <!-- 统计 -->
+    <!-- <script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1280029923&web_id=1280029923"></script> -->
+    <script>
+        window.onload = function () {
+            var script = document.createElement('script');
+            script.src = "https://s9.cnzz.com/z_stat.php?id=1280029923&web_id=1280029923";
+            script.type = "text/javascript";
+            document.body.appendChild(script);
+        }
+    </script>
+
 </body>
 
 </html>
