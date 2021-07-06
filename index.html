@@ -91,39 +91,47 @@
                 console.log(li.className, li.innerHTML);
                 /* TODO */
 
-                if (li.querySelector('ul,ol') != null && li.className.indexOf(activeClassName) == -1) {
-                    /*document.querySelector('.' + activeClassName).classList.remove(activeClassName)*/
+                switch (true) {
+                    case li.querySelector('ul,ol') != null && li.className.indexOf(activeClassName) == -1 && li.hasAttribute('data-text'):
+                        /* 点击方块，方块切换成active */
+                        console.log(1);
 
-                    console.log(1);
+                        let p = li.parentNode;
 
-                    let p = li.parentNode;
+                        while (p.className.indexOf(activeClassName) == -1) {
 
-                    while (p.className.indexOf(activeClassName) == -1) {
+                            p = p.parentNode;
+                            if (p.localName == 'body') { return; }
+                        }
+                        p.classList.remove(activeClassName);
+                        this.classList.add(activeClassName);
+                        break;
 
-                        p = p.parentNode;
-                        if (p.localName == 'body') { return; }
-                    }
-                    p.classList.remove(activeClassName);
-                    this.classList.add(activeClassName);
-                } else if ([...li.children].map(c => c.localName).indexOf('a') != -1 && li.className.indexOf(activeClassName) == -1) {
+                    case [...li.children].map(c => c.localName).indexOf('a') != -1 && li.className.indexOf(activeClassName) == -1:
+                        /* 点击方块，方块点击内部超链接 */
+                        console.log(2);
 
-                    console.log(2);
+                        li.children[[...li.children].map(c => c.localName).indexOf('a')].click();
+                        console.log(li.children[[...li.children].map(c => c.localName).indexOf('a')])
+                        break;
 
-                    li.children[[...li.children].map(c => c.localName).indexOf('a')].click();
-                    console.log(li.children[[...li.children].map(c => c.localName).indexOf('a')])
-                } else if (li.className.indexOf(activeClassName) != -1) {
+                    case li.className.indexOf(activeClassName) != -1:
+                        /* 点击标题右侧返回按钮，返回上一级 */
+                        console.log(3);
 
-                    console.log(3);
-
-                    let p = li.parentNode;
-                    while (p.localName != 'li' && !p.hasAttribute('data-title')) {
-                        console.log(li, p);
-                        /*TODO*/
-                        p = p.parentNode;
-                    }
-                    p.classList.add(activeClassName);
-                    this.classList.remove(activeClassName);
+                        let p = li.parentNode;
+                        while (p.localName != 'li' && !p.hasAttribute('data-title')) {
+                            console.log(li, p);
+                            /*TODO*/
+                            p = p.parentNode;
+                        }
+                        p.classList.add(activeClassName);
+                        this.classList.remove(activeClassName);
+                        break;
+                    default:
+                        ;
                 }
+
                 event.stopPropagation();
                 return false;
             }, false)
