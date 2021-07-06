@@ -21,33 +21,35 @@
             <ul>
                 <li data-text="projects" data-title="projects">
                     <ul>
-                        <li><a href="#">expressions</a></li>
-                        <li><a href="#">presets</a></li>
-                        <li><a href="#">presets</a></li>
-                        <li><a href="#">presets</a></li>
+                        <li><a href="http://leizingyiu.net/AfterEffectsExpressions/">expressions</a></li>
+                        <li><a href="https://leizingyiu.net/AfterEffectsPresets/">presets</a></li>
+                        <li><a href="javascript:void 0">comming</a></li>
+                        <li><a href="javascript:void 0">soon</a></li>
                     </ul>
                 </li>
                 <li data-text="tutorials">
                     <ul>
                         <li data-title="recent">
                             <ul>
-                                <li><a href="page">aaa</a></li>
-                                <li><a href="page">bbb</a></li>
-                                <li><a href="page">ccc</a></li>
-                                <li><a href="../tutorials">readmore</a></li>
+                                <li><a href="javascript:void 0">1</a></li>
+                                <li><a href="javascript:void 0">2</a></li>
+                                <li><a href="javascript:void 0">3</a></li>
+                                <li><a href="javascript:void 0">4</a></li>
                             </ul>
                         </li>
                         <li data-title="platform">
                             <ul>
-                                <li><a href="uiiiuiii.com"></a></li>
-                                <li><a href=""></a></li>
+                                <li><a href="uiiiuiii.com">1</a></li>
+                                <li><a href="javascript:void 0">2</a></li>
+                                <li style="opacity: 0;">3</li>
+                                <li style="opacity: 0;">4</li>
                             </ul>
                         </li>
                     </ul>
                 </li>
                 <li data-text="more">
                     <ul>
-                        <li data-text="recent" data-title="design">
+                        <li data-title="recent" data-sub="design">
                             <ul>
                                 <li><a href=""></a></li>
                                 <li><a href=""></a></li>
@@ -55,7 +57,7 @@
                                 <li><a href=""></a></li>
                             </ul>
                         </li>
-                        <li data-text="platform" data-title="design">
+                        <li data-title="platform" data-sub="design">
                             <ul>
                                 <li><a href=""></a></li>
                                 <li><a href=""></a></li>
@@ -72,8 +74,8 @@
                         </li>
                     </ul>
                 </li>
-                <li data-text="about & Contact">
-
+                <li data-text="about & Contact" data-title="about & Contact">
+                    <ul></ul>
                 </li>
             </ul>
         </li>
@@ -83,60 +85,8 @@
         </li>
     </ul>
 
-    <script>
-        var activeClassName = 'active';
-        [...document.querySelectorAll('#main li')].map(function (li) {
-            li.addEventListener('click', function clickLi() {
 
-                console.log(li.className, li.innerHTML);
-                /* TODO */
-
-                switch (true) {
-                    case li.querySelector('ul,ol') != null && li.className.indexOf(activeClassName) == -1 && li.hasAttribute('data-text'):
-                        /* 点击方块，方块切换成active */
-                        console.log(1);
-
-                        let p = li.parentNode;
-
-                        while (p.className.indexOf(activeClassName) == -1) {
-
-                            p = p.parentNode;
-                            if (p.localName == 'body') { return; }
-                        }
-                        p.classList.remove(activeClassName);
-                        this.classList.add(activeClassName);
-                        break;
-
-                    case [...li.children].map(c => c.localName).indexOf('a') != -1 && li.className.indexOf(activeClassName) == -1:
-                        /* 点击方块，方块点击内部超链接 */
-                        console.log(2);
-
-                        li.children[[...li.children].map(c => c.localName).indexOf('a')].click();
-                        console.log(li.children[[...li.children].map(c => c.localName).indexOf('a')])
-                        break;
-
-                    case li.className.indexOf(activeClassName) != -1:
-                        /* 点击标题右侧返回按钮，返回上一级 */
-                        console.log(3);
-
-                        let p = li.parentNode;
-                        while (p.localName != 'li' && !p.hasAttribute('data-title')) {
-                            console.log(li, p);
-                            /*TODO*/
-                            p = p.parentNode;
-                        }
-                        p.classList.add(activeClassName);
-                        this.classList.remove(activeClassName);
-                        break;
-                    default:
-                        ;
-                }
-
-                event.stopPropagation();
-                return false;
-            }, false)
-        })
-    </script>
+    <script type="text/javascript" src=".\js\script.js"></script>
 
     <!-- 统计 -->
     <!-- <script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1280029923&web_id=1280029923"></script> -->
@@ -148,6 +98,7 @@
             document.body.appendChild(script);
         }
     </script>
+
 
 </body>
 
