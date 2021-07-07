@@ -13,7 +13,8 @@ body {
 
 * {
   opacity: 1;
-  transition: all 1s ease;
+  transition: opacity background-color 1s ease; 
+  /* TODO */
 }
 .fadeOut {
   opacity: 0;
@@ -35,6 +36,19 @@ body {
   background-image: none;
   opacity: 1;
 }
+
+#cover{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items:center;
+
+height: 60vh;
+padding: 10vh 0;
+}
+
+
 
 #main li {
   width: 100%;

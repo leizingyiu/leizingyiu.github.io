@@ -1,4 +1,5 @@
 var debugBoo = false;
+debugBoo = window.location.hostname.match(/[a-zA-Z]/) == null ? true : debugBoo;
 console.log = debugBoo ? console.log : function () { return };
 
 
@@ -51,15 +52,19 @@ var activeClassName = 'active';
     }, false)
 });
 
-var clickAThenGoto = function () { window.location.href = document.querySelector('a[gotoNextStation]').getAttribute("gotoNextStation"); };
+function gotoNextStation() {
+    console.log(Date())
+    window.location.href = document.querySelector('a[gotoNextStation]').getAttribute("gotoNextStation");
+};
 [...document.querySelectorAll('a')].map(function (a) {
 
     if (a.hasAttribute('href') && (a.href.length != 0) && (a.href.indexOf('http') != -1)) {
         a.setAttribute('gotoNextStation', a.href)
         a.href = 'javascript:void 0';
-        a.addEventListener('click', function clickAFadeOut() {
+        a.addEventListener('click', function clickLinkFadeOut() {
+            console.log(Date())
             document.body.classList.add('fadeOut');
-            setTimeout('clickAThenGoto()', 1000);
+            setTimeout('gotoNextStation()', 1000);
         }, false);
     }
 })
