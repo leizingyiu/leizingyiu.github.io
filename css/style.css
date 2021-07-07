@@ -2,7 +2,7 @@ body {
   /* background: url(https://source.unsplash.com/random) no-repeat center/cover fixed; */
   background: #fafafa;
   width: 1280px;
-  max-width: 80vw;
+  max-width: 75vw;
   margin: 0 auto;
   font-size: 5vmin;
 
@@ -11,6 +11,30 @@ body {
   background-size: auto;
 }
 
+* {
+  opacity: 1;
+  transition: all 1s ease;
+}
+.fadeOut {
+  opacity: 0;
+  background-color: white;
+  transition: all 0.8s ease;
+  z-index: -1;
+  background-image: none;
+}
+.fadeOut::before{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  background-color: #fff;
+  background-image: none;
+  opacity: 1;
+}
 
 #main li {
   width: 100%;
@@ -53,7 +77,10 @@ body {
 #main li.active[data-title]>ul>li[data-text] * {
   /* 已激活 内层 折叠 部分 */
   /* display: none; */
-width: 100%;  height: 0; opacity: 0;overflow: hidden;
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
 }
 
 #main li.active[data-title]::before,
@@ -64,16 +91,21 @@ width: 100%;  height: 0; opacity: 0;overflow: hidden;
   content: attr(data-title);
   font-size: 2rem;
   position: absolute;
-  left: 0;  top: 0;
+  left: 0;
+  top: 0;
 }
 
 #main li.active[data-text][data-title]::after,
 #main li.active[data-text]>ul>li[data-title]::after {
   opacity: 1;
-  content: '⤬';  font-size: 0.8em;  font-weight: 100;
+  content: '⤬';
+  font-size: 0.8em;
+  font-weight: 100;
   position: absolute;
-  right: 0;  top: 0;
-  cursor: pointer;  pointer-events: all;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  pointer-events: all;
 }
 
 #main li.active[data-title]>ul,
@@ -120,7 +152,23 @@ width: 100%;  height: 0; opacity: 0;overflow: hidden;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 1rem;
+  font-size: 1rem;
 }
+
+#main li.active[data-title]>ul>li>*,
+#main li.active[data-text]>ul>li[data-title]>ul>li>* {
+  /* 方块内部的超链接 */
+  opacity: 1;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  font-size: 1rem;
+}
+
 
 #main li.active[data-title]>ul>li::after,
 #main li.active[data-text]>ul>li[data-title]>ul>li::after {
@@ -132,17 +180,6 @@ width: 100%;  height: 0; opacity: 0;overflow: hidden;
   display: block;
 }
 
-#main li.active[data-title]>ul>li>*,
-#main li.active[data-text]>ul>li[data-title]>ul>li>* {
-  /* 方块内部的超链接 */
-  /* 
-  width: 100%; */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 1;
-}
 
 a[title="站长统计"] {
   height: 1px;

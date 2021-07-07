@@ -1,6 +1,9 @@
 var debugBoo = false;
 console.log = debugBoo ? console.log : function () { return };
 
+
+
+
 var activeClassName = 'active';
 [...document.querySelectorAll('#main li')].map(function (li) {
     li.addEventListener('click', function clickLi() {
@@ -46,7 +49,19 @@ var activeClassName = 'active';
         window.event.stopPropagation();
         return false;
     }, false)
+});
+
+var clickAThenGoto = function () { window.location.href = document.querySelector('a[gotoNextStation]').getAttribute("gotoNextStation"); };
+[...document.querySelectorAll('a')].map(function (a) {
+
+    if (a.hasAttribute('href') && (a.href.length != 0) && (a.href.indexOf('http') != -1)) {
+        a.setAttribute('gotoNextStation', a.href)
+        a.href = 'javascript:void 0';
+        a.addEventListener('click', function clickAFadeOut() {
+            document.body.classList.add('fadeOut');
+            setTimeout('clickAThenGoto()', 1000);
+        }, false);
+    }
 })
 
-
-console.log('loaded script.js')
+console.log('loaded script.js');
