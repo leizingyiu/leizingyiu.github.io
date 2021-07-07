@@ -1,7 +1,8 @@
 body {
   /* background: url(https://source.unsplash.com/random) no-repeat center/cover fixed; */
   background: #fafafa;
-  width: 90vw;
+  width: 1280px;
+  max-width: 80vw;
   margin: 0 auto;
   font-size: 5vmin;
 
@@ -9,12 +10,7 @@ body {
   background-repeat: repeat;
   background-size: auto;
 }
-a{
-  color: inherit;
-}
-a:hover{
-  text-decoration: inherit;
-}
+
 
 #main li {
   width: 100%;
@@ -56,7 +52,8 @@ a:hover{
 
 #main li.active[data-title]>ul>li[data-text] * {
   /* 已激活 内层 折叠 部分 */
-  display: none;
+  /* display: none; */
+width: 100%;  height: 0; opacity: 0;overflow: hidden;
 }
 
 #main li.active[data-title]::before,
@@ -67,20 +64,16 @@ a:hover{
   content: attr(data-title);
   font-size: 2rem;
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 0;  top: 0;
 }
 
 #main li.active[data-text][data-title]::after,
 #main li.active[data-text]>ul>li[data-title]::after {
   opacity: 1;
-  content: '⇪';
-  font-size: 2rem;
+  content: '⤬';  font-size: 0.8em;  font-weight: 100;
   position: absolute;
-  right: 0;
-  top: 0;
-  cursor: pointer;
-  pointer-events: all;
+  right: 0;  top: 0;
+  cursor: pointer;  pointer-events: all;
 }
 
 #main li.active[data-title]>ul,
