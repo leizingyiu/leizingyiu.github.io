@@ -1,30 +1,19 @@
-body {
-  /* background: url(https://source.unsplash.com/random) no-repeat center/cover fixed; */
-  background: #fafafa;
-  width: 1280px;
-  max-width: 75vw;
-  margin: 0 auto;
-  font-size: 5vmin;
-
-  background-image: url(http://bradjasper.com/subtle-patterns-bookmarklet/patterns/rockywall.png);
-  background-repeat: repeat;
-  background-size: auto;
-}
-
 * {
+  transition: opacity 0.8s ease, background-color 0.8s ease, transform 0.8s ease;
   opacity: 1;
-  transition: opacity background-color 1s ease; 
-  /* TODO */
+  transform: translate(0 0) scale(1);
+  transform-origin: top center;
 }
 .fadeOut {
   opacity: 0;
-  background-color: white;
-  transition: all 0.8s ease;
+  transform: translate(0, 0) scale(1, 0);
+
+  /* background-color: white;
   z-index: -1;
-  background-image: none;
+  background-image: none; */
 }
-.fadeOut::before{
-  content: '';
+/* .fadeOut::before {
+  content: "";
   display: block;
   width: 100%;
   height: 100%;
@@ -35,20 +24,33 @@ body {
   background-color: #fff;
   background-image: none;
   opacity: 1;
+} */
+
+body {
+  /* background: url(https://source.unsplash.com/random) no-repeat center/cover fixed; */
+  background: #fafafa;
+  width: 1280px;
+  max-width: 75vw;
+  margin: 0 auto;
+  font-size: 5vmin;
+
+  /* background-image: url(http://bradjasper.com/subtle-patterns-bookmarklet/patterns/rockywall.png);
+  background-repeat: repeat;
+  background-size: auto; */
+
+  transform: translate(0 0) scale(1);
 }
 
-#cover{
+#cover {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items:center;
+  align-items: center;
 
-height: 60vh;
-padding: 10vh 0;
+  height: 60vh;
+  padding: 10vh 0;
 }
-
-
 
 #main li {
   width: 100%;
@@ -60,17 +62,15 @@ padding: 10vh 0;
   height: auto;
   position: relative;
   font-size: 0;
-  transition: all 0.5s ease !important;
 }
 
 #main li.active * {
   /* 活动容器下方所有，包含活动容器中未激活部分 */
   opacity: 0;
-  transition: all 0.5s ease !important;
 }
 
-#main li.active>ul,
-#main li.active>ul>li {
+#main li.active > ul,
+#main li.active > ul > li {
   max-width: 999vw !important;
   max-height: 999vh !important;
   opacity: 1 !important;
@@ -78,7 +78,7 @@ padding: 10vh 0;
 }
 
 #main li.active[data-title],
-#main li.active[data-text]>ul>li[data-title] {
+#main li.active[data-text] > ul > li[data-title] {
   /* 已经激活 带标题 容器 */
   height: auto;
   position: relative;
@@ -86,19 +86,23 @@ padding: 10vh 0;
   padding-top: 2em;
   margin-bottom: 4em;
   pointer-events: none;
+  transform: scale(1);
 }
 
-#main li.active[data-title]>ul>li[data-text] * {
+#main li.active[data-title] > ul > li[data-text] * {
   /* 已激活 内层 折叠 部分 */
   /* display: none; */
   width: 100%;
-  height: 0;
+  /* height: 0; */
   opacity: 0;
-  overflow: hidden;
+  transform: scale(1, 0);
+  left: 0;
+  pointer-events: none;
+  /* overflow: hidden; */
 }
 
 #main li.active[data-title]::before,
-#main li.active[data-text]>ul>li[data-title]::before {
+#main li.active[data-text] > ul > li[data-title]::before {
   /* 容器本身的before标题
      子级别被点击后成为容器 的before标题 */
   opacity: 1;
@@ -107,12 +111,14 @@ padding: 10vh 0;
   position: absolute;
   left: 0;
   top: 0;
+  transform: scale(1);
 }
 
 #main li.active[data-text][data-title]::after,
-#main li.active[data-text]>ul>li[data-title]::after {
+#main li.active[data-text] > ul > li[data-title]::after {
+  /* 已激活容器的标题栏 右边的关闭 */
   opacity: 1;
-  content: '⤬';
+  content: "⤬";
   font-size: 0.8em;
   font-weight: 100;
   position: absolute;
@@ -120,23 +126,25 @@ padding: 10vh 0;
   top: 0;
   cursor: pointer;
   pointer-events: all;
+  transform: scale(1);
 }
 
-#main li.active[data-title]>ul,
-#main li.active[data-text]>ul>li[data-title]>ul {
+#main li.active[data-title] > ul,
+#main li.active[data-text] > ul > li[data-title] > ul {
   /* 已激活的容器 */
   opacity: 1;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-content: ;
+  align-content: center;
   width: 100% !important;
   pointer-events: all;
+  transform: scale(1);
 }
 
-#main li.active[data-title]>ul>li,
-#main li.active[data-text]>ul>li[data-title]>ul>li {
+#main li.active[data-title] > ul > li,
+#main li.active[data-text] > ul > li[data-title] > ul > li {
   /* 激活 容器里面的 方块 */
   display: block;
   opacity: 1;
@@ -147,6 +155,7 @@ padding: 10vh 0;
 
   flex: 1 0 24%;
 
+  transform: scale(1);
   height: 100%;
   cursor: pointer;
 
@@ -155,8 +164,8 @@ padding: 10vh 0;
   box-shadow: 0 0 12px 0 hsl(0deg 0% 0% / 24%);
 }
 
-#main li.active[data-title]>ul>li[data-text]:before,
-#main li.active[data-text]>ul>li[data-title]>ul>li[data-text]::before {
+#main li.active[data-title] > ul > li[data-text]:before,
+#main li.active[data-text] > ul > li[data-title] > ul > li[data-text]::before {
   /* 方块的data文本 */
   opacity: 1;
   content: attr(data-text);
@@ -165,35 +174,34 @@ padding: 10vh 0;
   height: auto;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
   padding: 1rem;
   font-size: 1rem;
 }
 
-#main li.active[data-title]>ul>li>*,
-#main li.active[data-text]>ul>li[data-title]>ul>li>* {
+#main li.active[data-title] > ul > li > *,
+#main li.active[data-text] > ul > li[data-title] > ul > li > * {
   /* 方块内部的超链接 */
   opacity: 1;
   width: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
   padding: 1rem;
   font-size: 1rem;
 }
 
-
-#main li.active[data-title]>ul>li::after,
-#main li.active[data-text]>ul>li[data-title]>ul>li::after {
+#main li.active[data-title] > ul > li::after,
+#main li.active[data-text] > ul > li[data-title] > ul > li::after {
   /* 把方块撑成正方形 */
   opacity: 1;
   content: "";
   padding-top: 100%;
+  transform: scale(1);
   vertical-align: middle;
   display: block;
 }
-
 
 a[title="站长统计"] {
   height: 1px;
