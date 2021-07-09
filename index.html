@@ -10,10 +10,10 @@
 <body class="fadeOut">
     <dl id="cover">
         <dt>
-            <h1>你好呀！<br></h1>
+            <h1>你好呀！<br>我是Leizingyiu <br>可以叫我镇妖蜀黍🧍‍♂️<br></h1>
         </dt>
         <dd>
-            <div>yiu</div>
+            <div><img width="150px" height="150px" src="./img/yiu.svg" alt=""></div>
         </dd>
     </dl>
 
@@ -116,7 +116,42 @@
     </script>
 
 
+    <!-- 打字动画 -->
+    <script>
+        function typing(selector) {
+            let dom = document.querySelector(selector);
+
+            if ('undefined' == typeof i) { i = 1; }
+            if ('undefined' == typeof timer) { timer = 0; }
+            if ('undefined' == typeof str) {
+                if (dom.innerText) {
+                    str = dom.innerText.replace(/\n/g, '➾');
+
+                } else { str = ""; }
+            }
+            if ('undefined' == typeof html) { html = dom.innerHTML; }
+
+            if (i <= str.length) {
+                dom.innerHTML = str.slice(0, i++).replace(/➾/g, '<br>') + (Date.now() % 2 == 0 ? ' |' : '');
+                let ranTime = Math.random() * 200;
+                var nextTyping = function () { typing(selector) };
+                timer = setTimeout(nextTyping, ranTime)
+            }
+            else {
+                /*dom.innerHTML = str.replace(/➾/g, '<br>');*/
+                dom.innerHTML = html;
+                clearTimeout(timer)
+            }
+        };
+        document.querySelector('#cover h1').onmouseover = function () {
+            typing('#cover h1');
+            document.querySelector('#cover h1').onmouseover = function () { };
+        };
+    </script>
+
     <script>setTimeout("document.body.classList.remove('fadeOut');", 10);</script>
+
+
 </body>
 
 
