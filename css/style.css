@@ -18,11 +18,23 @@ body {
   margin: 0 auto;
   font-size: 4vmin;
 
-  /* background-image: url(http://bradjasper.com/subtle-patterns-bookmarklet/patterns/rockywall.png);
-  background-repeat: repeat;
-  background-size: auto; */
+  /* background-image: url(http://bradjasper.com/subtle-patterns-bookmarklet/patterns/rockywall.png);*/
+/* background-image: url(../temp.svg);
+  background-repeat: no-repeat;
+  background-size: auto;  */
 
   transform: translate(0 0) scale(1);
+}
+#background{
+  transform: none;
+  transition: none;
+  width: 150%;
+  height: 150%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -9999999999;
+opacity: 0.5;
 }
 
 #cover {
