@@ -1,0 +1,71 @@
+<?xml version="1.0" standalone="no"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 360 360" style="enable-background: new 0 0 360 360" xml:space="preserve">
+
+  <path d="M 10 80 C 40 10 65 10 95 80 S 150 150 180 80" 
+  stroke="black" fill="transparent">
+  </path>
+
+   <path d="M 0 0 
+   L 120 0 
+   Q 180 0 95 80 
+   T 180 280 
+   Q 290 360 180 360 
+   L 120 360 
+   L 0 360 
+   Z" 
+  stroke="none" fill="cyan">
+  </path>
+
+     <path d="M 360 0 
+     L 320 0 
+     Q 180 0 195 100 
+     Q 205 200 240 260 
+     Q 275 320 180 360 
+     L 320 360 
+     L 360 360 
+     Z" 
+  stroke="none" fill="blue">
+  </path>
+
+<script type="text/javascript" >
+function vAdd(){
+    let arg=[...arguments];
+    if(arg.length>2){                let v=arg.pop();   let V=vAdd(...arg);        return [V[0]+v[0],V[1]+v[1]];    }else{        return [arg[0][0]+arg[1][0],arg[0][1]+arg[1][1]];    }}
+
+var viewBox = document.getElementsByTagName('svg')[0].getAttribute('viewBox');
+var w = viewBox.split(' ')[2] - 0;
+var h = viewBox.split(' ')[3] - 0;
+var m = [0, 0];
+var l1 = [w * Math.random(), 0];
+var q = [];
+var points = [m, l1];
+console.log(points);
+points[points.length-1]=q[0]=[Math.random(l1[0],w),0];
+points[points.length-1]=q[1]=[Math.random(w),Math.random(h)];
+
+for (let i = 3; i >0; i--) {
+	let random = Math.random();
+	q[q.length] = vAdd(  vAdd(  points[points.length - 1]  , points[points.length - 2].map(v => v * -1)  ).map(v => v * random)  ,  points[points.length - 1]  );
+	points[points.length] = q[q.length - 1];
+	q[q.length] = [Math.random() * w, Math.random(q[q.length-1][1],h)];
+	points[points.length] = q[q.length - 1];
+}
+
+var b = points[points.length - 1];
+var a = points[points.length - 2];
+q[q.length] = [(b[0] - a[0]) * (h - b[1]) / (b[1] - a[1]), h];
+q[q.length] = [w * Math.random(), h];
+var l2 = [0, h];
+
+var d=('M '+m.join(' ')+" L "+l1.join(' ')+q.map((v, i) =>  i % 2 != 1 ? ' Q ' + [v.join(' '), q[i + 1].join(' ')].join(' ') : '').join(' ')+' L '+l2.join(' ')+' Z');
+
+var path=document.createElement('path');
+path.setAttribute('d',d);
+path.setAttribute('fill','red');
+path.setAttribute('stroke','yellow');
+path.setAttribute('stroke-width','20')
+document.getElementsByTagName('svg')[0].appendChild(path);
+
+</script>
+</svg>

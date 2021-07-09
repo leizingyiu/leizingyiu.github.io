@@ -64,7 +64,7 @@ function gotoNextStation() {
         a.addEventListener('click', function clickLinkFadeOut() {
             console.log(Date())
             document.body.classList.add('fadeOut');
-            setTimeout('gotoNextStation()', 1000);
+            setTimeout('gotoNextStation()', 750);
         }, false);
     }
 })

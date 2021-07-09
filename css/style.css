@@ -7,24 +7,8 @@
 .fadeOut {
   opacity: 0;
   transform: translate(0, 0) scale(1, 0);
-
-  /* background-color: white;
-  z-index: -1;
-  background-image: none; */
 }
-/* .fadeOut::before {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 99999;
-  background-color: #fff;
-  background-image: none;
-  opacity: 1;
-} */
+
 
 body {
   /* background: url(https://source.unsplash.com/random) no-repeat center/cover fixed; */
@@ -32,7 +16,7 @@ body {
   width: 1280px;
   max-width: 75vw;
   margin: 0 auto;
-  font-size: 5vmin;
+  font-size: 4vmin;
 
   /* background-image: url(http://bradjasper.com/subtle-patterns-bookmarklet/patterns/rockywall.png);
   background-repeat: repeat;
@@ -48,9 +32,10 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  height: 60vh;
-  padding: 10vh 0;
+  height: 60vmin;
+  padding: 5vmin 0;
 }
+
 
 #main li {
   width: 100%;
@@ -205,6 +190,7 @@ body {
   vertical-align: middle;
   display: block;
 }
+>
 
 a[title="站长统计"] {
   height: 1px;
