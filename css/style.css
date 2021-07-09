@@ -1,7 +1,7 @@
 * {
   transition: opacity 0.8s ease, background-color 0.8s ease, transform 0.8s ease;
   opacity: 1;
-  transform: translate(0 0) scale(1);
+  transform: translate(0 ,0) scale(1);
   transform-origin: top center;
 }
 .fadeOut {
