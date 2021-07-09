@@ -67,6 +67,8 @@ body {
 #main li.active * {
   /* 活动容器下方所有，包含活动容器中未激活部分 */
   opacity: 0;
+  text-align: left;
+  font-size: 0.5rem;
 }
 
 #main li.active > ul,
@@ -190,6 +192,7 @@ body {
   transform: translate(-50%, -50%) scale(1);
   padding: 1rem;
   font-size: 1rem;
+  text-align: center;
 }
 
 #main li.active[data-title] > ul > li::after,
