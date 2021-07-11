@@ -17,7 +17,14 @@
             <h1>你好呀！<br>我是Leizingyiu <br>可以叫我镇妖蜀黍🧍‍♂️<br></h1>
         </dt>
         <dd>
-            <div><img width="150px" height="150px" src="./img/yiu.svg" alt=""></div>
+            <div id="coverSvg_yiu" style="transform: scale(0.6);transform-origin: right center;"></div>
+            <script>
+                fetch('../img/yiu.svg').then(function (response) {
+                    return response.text();
+                }).then(function (r) {
+                    document.getElementById('coverSvg_yiu').innerHTML = r;
+                });
+            </script>
         </dd>
     </dl>
 
@@ -109,7 +116,7 @@
     <script type="text/javascript" src=".\js\script.js"></script>
 
     <!-- 统计 -->
-    <!-- <script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1280029923&web_id=1280029923"></script> -->
+    <!-- <script script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1280029923&web_id=1280029923"></script> -->
     <script>
         window.onload = function () {
             var script = document.createElement('script');
@@ -120,7 +127,7 @@
     </script>
 
 
-    <!-- 打字动画 -->
+
     <script>
         function typing(selector) {
             let dom = document.querySelector(selector);
@@ -133,30 +140,25 @@
 
                 } else { str = ""; }
             }
-            if ('undefined' == typeof html) { html = dom.innerHTML; }
+            if ('undefined' == typeof typingHtml) { typingHtml = dom.innerHTML; }
 
             if (i <= str.length) {
-                dom.innerHTML = str.slice(0, i++).replace(/➾/g, '<br>') + (Date.now() % 2 == 0 ? ' |' : '');
-                let ranTime = Math.random() * 200;
+                dom.innerHTML = str.slice(0, i++).replace(/➾/g, '<br>') + (Date.now() % 2 == 0 ? '|' : '');
+                let ranTime = Math.random() * 249;
                 var nextTyping = function () { typing(selector) };
-                timer = setTimeout(nextTyping, ranTime)
+                timer = setTimeout(nextTyping, ranTime);
             }
             else {
                 /*dom.innerHTML = str.replace(/➾/g, '<br>');*/
-                dom.innerHTML = html;
+                dom.innerHTML = typingHtml;
                 clearTimeout(timer)
             }
         };
-        document.querySelector('#cover h1').onmouseover = function () {
-            typing('#cover h1');
-            document.querySelector('#cover h1').onmouseover = function () { };
-        };
+        typing('#cover h1');
     </script>
 
     <script>setTimeout("document.body.classList.remove('fadeOut');", 10);</script>
 
-
 </body>
-
 
 </html>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 360 360" style="enable-background:new 0 0 360 360;" xml:space="preserve">
+width='100%' height='100%'	 viewBox="0 0 360 360" style="enable-background:new 0 0 360 360;overflow: visible;" xml:space="preserve">
 
 <style>
-svg{filter: url(#goo);}
+/*svg{filter: url(#goo);}*/
 
 #y,#i,#u{display:none;}
 
@@ -27,10 +27,16 @@ svg{filter: url(#goo);}
 	<feGaussianBlur stdDeviation="20" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur">
 	<animate attributeName='stdDeviation'
 			 attributeType="XML"
-             values="0;12;20;20;12;0"
+             values="0;8;2;10;6;0"
 			 keyTimes="0;0.3;0.4;0.6;0.7;1"
+			 keySplines=".42 0 .58 1;
+						 .42 0 .58 1;
+						 .42 0 .58 1;
+						 .42 0 .58 1;
+						 .42 0 .58 1;
+						 " calcmode='spline'
 
-             begin="-1" dur="2" repeatCount="indefinite"
+             begin="-1" dur="4" repeatCount="indefinite"
              fill="freeze"></animate>
 			 </feGaussianBlur> 
 	<feColorMatrix type="matrix" values="1 0 0 0 0
@@ -42,15 +48,37 @@ svg{filter: url(#goo);}
 
 </defs>
 
+<!--
 
-<!-- <circle cx="175" cy="75" r="20" fill="red">
-    <animate attributeName="r"
-             attributeType="XML"
-             values="20;50;20"
-             begin="0" dur="1" repeatCount="indefinite"
-             fill="freeze"></animate>
-</circle> -->
+<circle cx="175" cy="75" r="20" fill="hsla(30deg,100%,50%,1)">
+<animate 	attributeName="cx" attributeType="XML" 
+			values="20;240;480" 
+			keyTimes='0;0.4;1'
+			begin="0" dur="1" 
+			repeatCount="indefinite" fill="freeze"></animate>
+<animate 	attributeName="cy" attributeType="XML" 
+			values="75;360;25" 
+			keyTimes='0;0.4;1'
+			begin="0" dur="1"
+			 
+			calcmode='spline'
+			keySplines=".42 0 .58 1;.42 0 .58 1"
 
+			repeatCount="indefinite" fill="freeze"></animate>	
+
+<animate 	attributeName="fill" attributeType="XML" 
+			values="hsla(330deg,100%,50%,0);
+					hsla(0deg,100%,50%,0.4);
+					hsla(30deg,100%,50%,1);
+					hsla(60deg,100%,50%,0.4);
+					hsla(120deg,100%,50%,0)" 
+			keyTimes='0;0.2;0.4;0.6;1'
+
+			begin="0" dur="1" 
+			repeatCount="indefinite" fill="freeze"></animate>	
+</circle>
+
+-->
 
 
 <g id="bold">
