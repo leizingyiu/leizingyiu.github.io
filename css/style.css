@@ -1,12 +1,16 @@
 * {
   transition: opacity 0.8s ease, background-color 0.8s ease, transform 0.8s ease;
   opacity: 1;
-  transform: translate(0 ,0) scale(1);
+  /* transform: translate(0 ,0) scale(1); */
   transform-origin: top center;
 }
-.fadeOut {
+
+body *{
+  transform: translate(0 ,0) scale(1);
+}
+.fadeOut *{
   opacity: 0;
-  transform: translate(0, 0) scale(1, 0);
+  transform: translate(0,-25%) scale(1, 0.5);
 }
 
 
@@ -17,7 +21,8 @@ body {
   max-width: 75vw;
   margin: 0 auto;
   font-size: 4vmin;
-
+  overflow-x: hidden;
+transform: none;
   /* background-image: url(http://bradjasper.com/subtle-patterns-bookmarklet/patterns/rockywall.png);*/
 /* background-image: url(../temp.svg);
   background-repeat: no-repeat;
@@ -26,16 +31,18 @@ body {
   transform: translate(0 0) scale(1);
 }
 #background{
-  transform: none;
-  transition: none;
-  width: 150%;
-  height: 150%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -9999999999;
-opacity: 0.5;
+    transition: none;
+    width: 100vmax;
+    height: 100vmax;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,0) scale(1)!important;
+    z-index: -9999999999;
+    opacity: 0.08;
+    filter: blur(0px);
 }
+
 
 #cover {
   display: flex;
@@ -106,11 +113,21 @@ opacity: 0.5;
      子级别被点击后成为容器 的before标题 */
   opacity: 1;
   content: attr(data-title);
+  color:hsla(200deg 80% 10% / 48%);
   font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
   position: absolute;
   left: 0;
   top: 0;
   transform: scale(1);
+  transition:letter-spacing 0.2s ease,opacity 0.2s ease,color 0.2s ease;
+}
+#main li.active[data-title]:hover::before,
+#main li.active[data-text] > ul > li[data-title]:hover::before {
+  color:hsla(210deg 80% 10% / 72%);
+letter-spacing: 0.2em;
 }
 
 #main li.active[data-text][data-title]::after,
@@ -158,13 +175,25 @@ opacity: 0.5;
   height: 100%;
   cursor: pointer;
 
-  backdrop-filter: blur(4px);
-  background: hsla(0, 0%, 100%, 0.1) !important;
-  box-shadow: 0 0 12px 0 hsl(0deg 0% 0% / 24%);
+  backdrop-filter: blur(12px);
+  background: hsla(0, 100%, 100%, 0.1) !important;
+  box-shadow: 0 0 12px 0 hsl(0deg 0% 0% / 8%) ,0 0px 0px 0 hsl(0deg 0% 0% / 0%);
+  border-radius: 4px;
 }
 
+/*TODO  hover 方块 hover效果 参考 downloa的按钮 */
+#main li.active[data-title] > ul > li:hover,
+#main li.active[data-text] > ul > li[data-title] > ul > li:hover{
+  transform: translate(0,-6px);
+  box-shadow: 0 0 0px 0 hsl(0deg 0% 0% / 8%) , 0 6px 12px 0 hsl(0deg 0% 0% / 8%);
+
+}
+
+
 #main li.active[data-title] > ul > li[data-text]:before,
-#main li.active[data-text] > ul > li[data-title] > ul > li[data-text]::before {
+#main li.active[data-text] > ul > li[data-title] > ul > li[data-text]::before,
+#main li.active[data-title] > ul > li > *,
+#main li.active[data-text] > ul > li[data-title] > ul > li > *  {
   /* 方块的data文本 */
   opacity: 1;
   content: attr(data-text);
@@ -175,12 +204,16 @@ opacity: 0.5;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   padding: 1rem;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  text-align: center;
 }
 
+/* 方块内部的超链接 */
+
+/* 
 #main li.active[data-title] > ul > li > *,
 #main li.active[data-text] > ul > li[data-title] > ul > li > * {
-  /* 方块内部的超链接 */
+  
   opacity: 1;
   width: 100%;
   position: absolute;
@@ -190,7 +223,7 @@ opacity: 0.5;
   padding: 1rem;
   font-size: 1rem;
   text-align: center;
-}
+} */
 
 #main li.active[data-title] > ul > li::after,
 #main li.active[data-text] > ul > li[data-title] > ul > li::after {

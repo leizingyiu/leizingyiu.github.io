@@ -1,25 +1,14 @@
 <?xml version="1.0" standalone="no"?>
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-  viewBox="0 0 360 360" style="enable-background: new 0 0 360 360" xml:space="preserve">
+  viewBox="0 0 360 360" style="enable-background: new 0 0 360 360" xml:space="preserve" class=''>
   <style>
-    .hue {
-      mix-blend-mode: hue;
-    }
-
-    .blur {
-      filter: url(#blur);
-    }
+    .hue {mix-blend-mode: hue;}
+    .blur {filter: url(#blur);}
   </style>
 
-
   <filter id="blur">
-    <feGaussianBlur in="SourceGraphic" stdDeviation="24" result="blur" />
+    <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur" />
   </filter>
-
-
-
-  <!-- <path d="M 10 80 C 40 10 65 10 95 80 S 150 150 180 80" stroke="black" fill="transparent">
-  </path> -->
 
   <!-- <path d="M 0 0 
    L 120 0 
@@ -53,16 +42,8 @@
       }
     }
 
-    var viewBox = document.getElementsByTagName('svg')[0].getAttribute('viewBox');
-
     function drawRanPath(l, t, r, b, fillColor, classList) {
-
-      /*
-      var vLeft = 0;
-      var vTop = 0;
-      var vRight = viewBox.split(' ')[2] - 0;
-      var vBottom = viewBox.split(' ')[3] - 0;
-  */
+      console.log('drawRanPath by leizingyiu \n visit leizingyiu.net');
       var vLeft = l;
       var vTop = t;
       var vRight = r;
@@ -72,7 +53,7 @@
       var l1 = [vLeft + (vRight - vLeft) * Math.random() / 2, vTop];
       var q = [];
       var points = [m, l1];
-      console.log(points.join('\n'));
+      //console.log(points.join('\n'));
 
       var a, b;
       var len = 4;
@@ -85,9 +66,7 @@
       points[points.length] = q[0];
       q[1] = [q[q.length - 1][0] + Math.random() * vRight * pointOffset, ranArr.shift() * vBottom];
       points[points.length] = q[1];
-
-
-      console.log(points.join('\n'));
+      //console.log(points.join('\n'));
 
       for (let i = len - 1; i > 0; i--) {
         let rd = Math.random() / 2;
@@ -97,21 +76,14 @@
         points[points.length] = q[q.length] = [Math.abs(vRight - vLeft) / 2 + (vRight - vLeft) / 2 * pointOffset * Math
           .random(), vBottom * ranArr.shift()
         ];
-        //q[q.length - 1][1] +
       }
-      console.log(points.join('\n'));
-
-      b = points[points.length - 1];
+      //console.log(points.join('\n'));
       a = points[points.length - 2];
+      b = points[points.length - 1];
       q[q.length] = [(b[0] - a[0]) * (vBottom - b[1]) / (b[1] - a[1]) + b[0], vBottom];
       q[q.length] = [(vRight - vLeft) * Math.random(), vBottom];
       var l2 = [vLeft, vBottom];
-
-      var d = ('M ' + m.join(' ') + " L " + l1.join(' ') + q.map((v, i) => i % 2 != 1 ? ' Q ' + [v.join(' '), q[i + 1]
-        .join(' ')
-      ].join(' ') : '').join(' ') + ' L ' + l2.join(' ') + ' Z');
-
-      console.log(d.replace(/([a-zA-Z])/g, '\n$1'));
+      var d = ('M ' + m.join(' ') + " L " + l1.join(' ') + q.map((v, i) => i % 2 != 1 ? ' Q ' + [v.join(' '), q[i + 1].join(' ')].join(' ') : '').join(' ') + ' L ' + l2.join(' ') + ' Z');
 
       var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       path.setAttribute('d', d);
@@ -123,11 +95,15 @@
       document.getElementsByTagName('svg')[0].appendChild(path);
     }
 
-    drawRanPath(360, 0, 160, 360, 'rgba(255,255,255,0.6)', ['blur']);
-    drawRanPath(0, 0, 120, 360, 'rgba(255,255,255,0.4)', ['blur']);
+    drawRanPath(360, 0, 160, 360, 'rgba(255,255,255,0.5)', []);
+    drawRanPath(0, 0, 120, 360, 'rgba(255,255,255,0.5)', []);
 
-    drawRanPath(360, 0, 0, 360, 'yellow', ['hue', 'blur']);
-    drawRanPath(0, 0, 360, 360, 'cyan', ['hue', 'blur']);
+    drawRanPath(-100, -100, 360, 360, 'hsla(' + Math.floor((Math.random()*24)) * 360/24 + ',100%,80%,0.2)', []);
+    drawRanPath(360, -100, -100, 360, 'hsla(' + Math.floor((Math.random()*24)) * 360/24  + ',100%,80%,0.2)', []);
+
+    drawRanPath(-10, -10, 360, 360, 'hsla(' + Math.floor((Math.random()*9)) * 360/9 +Math.random()*15  + ',100%,50%,1)', ['hue']);
+    drawRanPath(360, -10, -10, 360, 'hsla(' + Math.floor((Math.random()*9)) * 360/9 +Math.random()*15  * 360 + ',100%,50%,1)', ['hue']);
+
 
 
   </script>

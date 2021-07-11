@@ -9,7 +9,7 @@ var activeClassName = 'active';
 [...document.querySelectorAll('#main li')].map(function (li) {
     li.addEventListener('click', function clickLi() {
 
-        /* TODO */
+
         var p = li.parentNode;
         switch (true) {
             case (li.querySelector('ul,ol') != null && li.className.indexOf(activeClassName) == -1 && li.hasAttribute('data-text')):
@@ -25,6 +25,7 @@ var activeClassName = 'active';
 
             case (li.hasAttribute('data-title') && li.clientHeight != 0):
                 /* 点击标题右侧返回按钮，返回上一级 */
+                /* TODO :参考 a 点击 */
 
                 if (li.className.indexOf(activeClassName) == -1) {
                     while (p.className.indexOf(activeClassName) == -1) {
@@ -52,8 +53,8 @@ var activeClassName = 'active';
     }, false)
 });
 
+
 function gotoNextStation() {
-    console.log(Date())
     window.location.href = document.querySelector('a[gotoNextStation]').getAttribute("gotoNextStation");
 };
 [...document.querySelectorAll('a')].map(function (a) {
@@ -62,7 +63,6 @@ function gotoNextStation() {
         a.setAttribute('gotoNextStation', a.href)
         a.href = 'javascript:void 0';
         a.addEventListener('click', function clickLinkFadeOut() {
-            console.log(Date())
             document.body.classList.add('fadeOut');
             setTimeout('gotoNextStation()', 750);
         }, false);
