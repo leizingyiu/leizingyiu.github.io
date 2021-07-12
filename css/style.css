@@ -5,14 +5,13 @@
   transform-origin: top center;
 }
 
-body *{
-  transform: translate(0 ,0) scale(1);
+body * {
+  transform: translate(0, 0) scale(1);
 }
-.fadeOut *{
+.fadeOut * {
   opacity: 0;
-  transform: translate(0,-25%) scale(1, 0.5);
+  transform: translate(0, -25%) scale(1, 0.5);
 }
-
 
 body {
   /* background: url(https://source.unsplash.com/random) no-repeat center/cover fixed; */
@@ -22,27 +21,26 @@ body {
   margin: 0 auto;
   font-size: 4vmin;
   overflow-x: hidden;
-transform: none;
+  transform: none;
   /* background-image: url(http://bradjasper.com/subtle-patterns-bookmarklet/patterns/rockywall.png);*/
-/* background-image: url(../temp.svg);
+  /* background-image: url(../temp.svg);
   background-repeat: no-repeat;
   background-size: auto;  */
 
   transform: translate(0 0) scale(1);
 }
-#background{
-    transition: none;
-    width: 100vmax;
-    height: 100vmax;
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%,0) scale(1)!important;
-    z-index: -9999999999;
-    opacity: 0.08;
-    filter: blur(0px);
+#background {
+  transition: none;
+  width: 100vmax;
+  height: 100vmax;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0) scale(1) !important;
+  z-index: -9999999999;
+  opacity: 0.08;
+  filter: blur(0px);
 }
-
 
 #cover {
   display: flex;
@@ -54,7 +52,6 @@ transform: none;
   height: 60vmin;
   padding: 5vmin 0;
 }
-
 
 #main li {
   width: 100%;
@@ -113,7 +110,7 @@ transform: none;
      子级别被点击后成为容器 的before标题 */
   opacity: 1;
   content: attr(data-title);
-  color:hsla(200deg 80% 10% / 48%);
+  color: hsla(200deg 80% 10% / 48%);
   font-size: 2rem;
   font-weight: 400;
   letter-spacing: 0.05em;
@@ -122,12 +119,12 @@ transform: none;
   left: 0;
   top: 0;
   transform: scale(1);
-  transition:letter-spacing 0.2s ease,opacity 0.2s ease,color 0.2s ease;
+  transition: letter-spacing 0.2s ease, opacity 0.2s ease, color 0.2s ease;
 }
 #main li.active[data-title]:hover::before,
 #main li.active[data-text] > ul > li[data-title]:hover::before {
-  color:hsla(210deg 80% 10% / 72%);
-letter-spacing: 0.2em;
+  color: hsla(210deg 80% 10% / 72%);
+  letter-spacing: 0.2em;
 }
 
 #main li.active[data-text][data-title]::after,
@@ -171,30 +168,32 @@ letter-spacing: 0.2em;
 
   flex: 1 0 24%;
 
-  transform: scale(1);
+  transform: translate(0, 0) scale(1);
+  transform-origin: bottom;
   height: 100%;
   cursor: pointer;
 
   backdrop-filter: blur(6px);
-  background: hsla(0, 100%, 100%, 0.1) !important;
-  box-shadow: 0 0 12px 0 hsl(0deg 0% 0% / 8%) ,0 0px 0px 0 hsl(0deg 0% 0% / 0%);
+  background: hsla(0, 100%, 100%, 0.12) !important;
+  box-shadow: 0 0 12px 0 hsl(0deg 0% 0% / 8%), 0 0px 0px 0 hsl(0deg 0% 0% / 0%);
   border-radius: 4px;
+
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
 }
 
 /*TODO  hover 方块 hover效果 参考 downloa的按钮 */
 #main li.active[data-title] > ul > li:hover,
-#main li.active[data-text] > ul > li[data-title] > ul > li:hover{
-  transform: translate(0,-6px);
-  box-shadow: 0 0 0px 0 hsl(0deg 0% 0% / 8%) , 0 6px 12px 0 hsl(0deg 0% 0% / 8%);
-
+#main li.active[data-text] > ul > li[data-title] > ul > li:hover {
+  transform: translate(0, -6px) scale(1.02);
+  box-shadow: 0 0 0px 0 hsl(0deg 0% 0% / 8%), 0 6px 12px 0 hsl(0deg 0% 0% / 8%);
 }
-
 
 #main li.active[data-title] > ul > li[data-text]:before,
 #main li.active[data-text] > ul > li[data-title] > ul > li[data-text]::before,
 #main li.active[data-title] > ul > li > *,
-#main li.active[data-text] > ul > li[data-title] > ul > li > *  {
+#main li.active[data-text] > ul > li[data-title] > ul > li > * {
   /* 方块的data文本 */
+  /* 方块内部的超链接 */
   opacity: 1;
   content: attr(data-text);
   position: absolute;
@@ -208,12 +207,10 @@ letter-spacing: 0.2em;
   text-align: center;
 }
 
-/* 方块内部的超链接 */
-
 /* 
 #main li.active[data-title] > ul > li > *,
 #main li.active[data-text] > ul > li[data-title] > ul > li > * {
-  
+  /* 方块内部的超链接 
   opacity: 1;
   width: 100%;
   position: absolute;
@@ -235,7 +232,6 @@ letter-spacing: 0.2em;
   vertical-align: middle;
   display: block;
 }
-
 
 a[title="站长统计"] {
   height: 1px;
