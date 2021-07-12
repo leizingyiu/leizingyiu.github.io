@@ -1,8 +1,10 @@
 * {
   transition: opacity 0.8s ease, background-color 0.8s ease, transform 0.8s ease;
   opacity: 1;
+  color: hsla(0, 0%, 0%, 1);
   /* transform: translate(0 ,0) scale(1); */
   transform-origin: top center;
+  box-sizing: border-box;
 }
 
 body * {
@@ -165,7 +167,6 @@ body {
   text-align: center;
   position: relative;
   font-size: 1.25rem;
-
   flex: 1 0 24%;
 
   transform: translate(0, 0) scale(1);
@@ -178,10 +179,10 @@ body {
   box-shadow: 0 0 12px 0 hsl(0deg 0% 0% / 8%), 0 0px 0px 0 hsl(0deg 0% 0% / 0%);
   border-radius: 4px;
 
-  transition: box-shadow 0.4s ease, transform 0.4s ease;
+  transition: box-shadow 0.4s ease, transform 0.4s ease, color 0.4s ease;
 }
 
-/*TODO  hover 方块 hover效果 参考 downloa的按钮 */
+/* hover 方块 hover效果 参考 downloa的按钮 */
 #main li.active[data-title] > ul > li:hover,
 #main li.active[data-text] > ul > li[data-title] > ul > li:hover {
   transform: translate(0, -6px) scale(1.02);
@@ -202,25 +203,14 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
-  padding: 1rem;
-  font-size: 0.8rem;
+  padding: 1em;
+  font-size: 0.6rem;
+  line-height: 2em;
+  letter-spacing: 0.05em;
   text-align: center;
-}
+  color: hsla(0, 0%, 0%, 0.8);
 
-/* 
-#main li.active[data-title] > ul > li > *,
-#main li.active[data-text] > ul > li[data-title] > ul > li > * {
-  /* 方块内部的超链接 
-  opacity: 1;
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  padding: 1rem;
-  font-size: 1rem;
-  text-align: center;
-} */
+}
 
 #main li.active[data-title] > ul > li::after,
 #main li.active[data-text] > ul > li[data-title] > ul > li::after {
@@ -231,6 +221,44 @@ body {
   transform: scale(1);
   vertical-align: middle;
   display: block;
+}
+
+#main  a[title]{
+  transition: transform 0.5s ease , opacity 0.5s ease,color 0.5s ease !important;
+  opacity: 1;
+}
+#main  li:hover>a[title],
+#main  li>a[title]:hover{
+  /* TODO COLOR不在 animate中 */
+  transition: transform 0.5s ease , opacity 0.5s ease!important;
+  transform:translate(-50%,-150%)!important;
+  color: hsla(0, 0%, 0%, 0)!important;
+  opacity: 1!important;
+}
+
+#main  li>a[title]::before,
+#main  a[title]::before {
+  content: attr(title);
+  position: absolute;
+  right: 0%;
+  bottom: 0%;
+  transform: translate(0, 100%) scale(0);
+  transform-origin: left center;
+  opacity: 0;
+  padding-left: 1em;
+  font-size: 0.5em;
+  color: hsla(0, 0%, 0%, 0);
+  text-align: left;
+  transition: transform 0.5s ease , opacity 0.5s ease;
+}
+
+#main  li:hover>a[title]::before,
+#main  a[title]:hover::before {
+  transform: translate(0%, 100%) scale(1);
+  transform-origin: center bottom;
+  color: hsla(0, 0%, 0%, 0.8);
+  opacity: 1;
+  transition: transform 0.5s ease , opacity 0.5s ease;
 }
 
 a[title="站长统计"] {

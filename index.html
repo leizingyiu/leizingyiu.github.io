@@ -17,14 +17,8 @@
             <h1>你好呀！<br>我是Leizingyiu <br>可以叫我镇妖蜀黍😉<br></h1>
         </dt>
         <dd>
-            <div id="coverSvg_yiu" style="transform: scale(0.6);transform-origin: right center;"></div>
-            <script>
-                fetch('../img/yiu.svg').then(function (response) {
-                    return response.text();
-                }).then(function (r) {
-                    document.getElementById('coverSvg_yiu').innerHTML = r;
-                });
-            </script>
+            <div id="coverSvg_yiu" style="transform: scale(0.6);transform-origin: right center;"
+                svg_src='../img/yiu.svg'></div>
         </dd>
     </dl>
 
@@ -38,9 +32,11 @@
             <ul>
                 <li data-text="projects" data-title="projects menu">
                     <ul>
-                        <li><a href="http://leizingyiu.net/AfterEffectsExpressions/">AfterEffects<br>expressions</a>
+                        <li><a href="http://leizingyiu.net/AfterEffectsExpressions/"
+                                title='原创表达式，和一些见解'>AfterEffects<br>expressions</a>
                         </li>
-                        <li><a href="https://leizingyiu.net/AfterEffectsPresets/">AfterEffects<br>presets</a></li>
+                        <li><a href="https://leizingyiu.net/AfterEffectsPresets/"
+                                title="AE预设">AfterEffects<br>presets</a></li>
                         <li><a href="javascript:void 0">comming</a></li>
                         <li><a href="javascript:void 0">soon</a></li>
                     </ul>
@@ -160,6 +156,7 @@
 
     <script>setTimeout("document.body.classList.remove('fadeOut');", 10);</script>
 
+    <script src="./js/writeSvg.js"></script>
 </body>
 
 </html>
