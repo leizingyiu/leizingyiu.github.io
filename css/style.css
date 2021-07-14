@@ -21,7 +21,7 @@ body {
   width: 1280px;
   max-width: 75vw;
   margin: 0 auto;
-  font-size: 4vmin;
+  font-size: 6vmin;
   overflow-x: hidden;
   transform: none;
   /* background-image: url(http://bradjasper.com/subtle-patterns-bookmarklet/patterns/rockywall.png);*/
@@ -217,7 +217,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   padding: 1em;
-  font-size: 0.8rem;
+  font-size: 1rem;
   line-height: 2em;
   letter-spacing: 0.05em;
   text-align: center;
