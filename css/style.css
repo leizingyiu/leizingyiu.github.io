@@ -16,7 +16,6 @@ body * {
 }
 
 body {
-
   /* background: url(https://source.unsplash.com/random) no-repeat center/cover fixed; */
   background: #fafafa;
   width: 1280px;
@@ -55,12 +54,12 @@ body {
   padding: 5vmin 0;
 }
 
-#cover>*{
-  flex-grow:1;
-  flex-shrink:1;
+#cover > * {
+  flex-grow: 1;
+  flex-shrink: 1;
 }
 
-#cover>dt{
+#cover > dt {
   flex-shrink: 0;
 }
 
@@ -212,6 +211,7 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
 
   top: 50%;
   left: 50%;
@@ -222,7 +222,6 @@ body {
   letter-spacing: 0.05em;
   text-align: center;
   color: hsla(0, 0%, 0%, 0.8);
-
 }
 
 #main li.active[data-title] > ul > li::after,
@@ -236,21 +235,21 @@ body {
   display: block;
 }
 
-#main  a[data-description]{
-  transition: transform 0.5s ease , opacity 0.5s ease,color 0.5s ease !important;
+#main a[data-description] {
+  transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
   opacity: 1;
 }
 
-#main  li:hover>a[data-description],
-#main  li>a[data-description]:hover{
-  transition: transform 0.5s ease , opacity 0.5s ease,color 0.5s ease!important;
-  transform:translate(-50%,-100%)!important;
-  color: hsla(0, 0%, 0%, 0)!important;
-  opacity: 1!important;
+#main li:hover > a[data-description],
+#main li > a[data-description]:hover {
+  transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
+  transform: translate(-50%, -100%) !important;
+  color: hsla(0, 0%, 0%, 0) !important;
+  opacity: 1 !important;
 }
 
-#main  li>a[data-description]::before,
-#main  a[data-description]::before {
+#main li > a[data-description]::before,
+#main a[data-description]::before {
   content: attr(data-description);
   position: absolute;
   bottom: 0%;
@@ -261,35 +260,33 @@ body {
   font-size: 0.5em;
   color: hsla(0, 0%, 0%, 0);
   text-align: center;
-  transition: transform 0.5s ease , opacity 0.5s ease,color 0.5s ease!important;
+  transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
   width: 90%;
 }
 
-#main  li:hover>a[data-description]::before,
-#main  a[data-description]:hover::before {
+#main li:hover > a[data-description]::before,
+#main a[data-description]:hover::before {
   transform: translate(-50%, 50%) scale(1);
   color: hsla(0, 0%, 0%, 0.8);
   opacity: 1;
-  transition: transform 0.5s ease , opacity 0.5s ease,color 0.5s ease!important;
+  transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
 }
 
-
-#main  a[data-preview]{
-  transition: transform 0.5s ease , opacity 0.5s ease,color 0.5s ease !important;
+#main a[data-preview] {
+  transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
   opacity: 1;
-  
 }
 
-#main  li:hover>a[data-preview],
-#main  li>a[data-preview]:hover{
-  transition:height 0.5s ease;
-  height: 100%!important;
+#main li:hover > a[data-preview],
+#main li > a[data-preview]:hover {
+  transition: height 0.5s ease;
+  height: 100% !important;
 }
 
-#main  li>a[data-preview]::before,
-#main  a[data-preview]::before{
-  transition:opacity 0.5s ease;
-  content: '';
+#main li > a[data-preview]::before,
+#main a[data-preview]::before {
+  transition: opacity 0.5s ease;
+  content: "";
   background-image: var(--bg-image);
   display: block;
   width: 100%;
@@ -301,10 +298,10 @@ body {
   opacity: 0.2;
 }
 
-#main  li:hover>a[data-preview]::before,
-#main  a[data-preview]:hover::before {
-  transition:opacity 0.5s ease;
-opacity: 0.8;
+#main li:hover > a[data-preview]::before,
+#main a[data-preview]:hover::before {
+  transition: opacity 0.5s ease;
+  opacity: 0.8;
 }
 
 a[title="站长统计"] {
