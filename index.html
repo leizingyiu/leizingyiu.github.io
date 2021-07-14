@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css">
 
     <embed id='background' type="image/svg+xml" src="./img/background.svg"></embed>
+
+    <script src="./js/getAttrContentWriteHtml.js"></script>
 </head>
 
 <body class="fadeOut">
@@ -20,14 +22,12 @@
         </dt>
         <dd>
             <div id="coverSvg_yiu" style="transform: scale(0.6);transform-origin: right center;"
-                svg_src='../img/yiu.svg'></div>
+                data-svg-src='../img/yiu.svg'>
+                <script>getAttrContentWriteHtml('#coverSvg_yiu', 'data-svg-src')</script>
+            </div>
         </dd>
     </dl>
 
-    <dl id="header">
-        <dt></dt>
-        <dd></dd>
-    </dl>
 
     <ul id="main">
         <li id="menu" class="active" data-title='menu'>
@@ -38,9 +38,12 @@
                                 data-description='原创表达式，和一些笔记'>AfterEffects<br>expressions</a>
                         </li>
                         <li><a href="https://leizingyiu.net/AfterEffectsPresets/"
-                                data-description="AE预设">AfterEffects<br>presets</a></li>
-                        <li style="opacity: 0!important;"><a href="javascript:void 0">comming</a></li>
-                        <li style="opacity: 0!important;"><a href="javascript:void 0">soon</a></li>
+                                data-description="一些AE预设，基本都是针对特定场景使用的">AfterEffects<br>presets</a>
+                        </li>
+                        <li style="opacity: 0!important;"><a href="javascript:void 0">comming</a>
+                        </li>
+                        <li style="opacity: 0!important;"><a href="javascript:void 0">soon</a>
+                        </li>
                     </ul>
                 </li>
                 <li data-text="tutorials">
@@ -165,8 +168,23 @@
         typing('#cover h1');
     </script>
 
-    <script src="./js/writeSvg.js"></script>
     <script src="./js/writeDataPreview.js"></script>
+    <!-- <script>
+        [...document.querySelectorAll('a[data-preview]')].map(a => {
+            var bgImage = "--bg-image: url('" + a.getAttribute('data-preview') + "');";
+            if (a.hasAttribute('style') && a.style.cssText.indexOf("--bg-image") == -1) {
+                a.style = a.style + ';' + bgImage;
+            } else if (a.hasAttribute('style') && a.style.cssText.indexOf('--bg-image') != -1) {
+
+                a.style = a.style.cssText.replace(/(--bg-image:\surl\(['"])[^'"]*(['"]\);)/g, '$1' + a.getAttribute('data-preview') + '$2');
+            } else {
+                a.setAttribute('style', bgImage);
+            }
+        })
+    </script> -->
+
+    <!-- <script src="./js/writeSvg.js"></script> -->
+
 </body>
 
 </html>

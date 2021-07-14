@@ -52,6 +52,9 @@ body {
 
   height: 60vmin;
   padding: 5vmin 0;
+
+  font-size: 2.5rem;
+  letter-spacing: 0.25em;
 }
 
 #cover > * {
@@ -218,10 +221,12 @@ body {
   transform: translate(-50%, -50%) scale(1);
   padding: 1em;
   font-size: 1rem;
+
   line-height: 2em;
   letter-spacing: 0.05em;
   text-align: center;
   color: hsla(0, 0%, 0%, 0.8);
+  letter-spacing: 0.2em;
 }
 
 #main li.active[data-title] > ul > li::after,
@@ -257,7 +262,7 @@ body {
   transform: translate(-50%, 100%) scale(0);
   transform-origin: center top;
   opacity: 0;
-  font-size: 0.5em;
+  font-size: 0.9em;
   color: hsla(0, 0%, 0%, 0);
   text-align: center;
   transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
