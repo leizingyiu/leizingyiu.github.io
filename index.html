@@ -1,6 +1,7 @@
 <html>
 
 <head>
+    <meta name="referrer" content="no-referrer" />
 
     <link rel="icon" href="animated_favicon.gif" type="image/gif">
     <link rel="stylesheet" type="text/css" href="./css/tbDefaultCss.min.css">
@@ -45,19 +46,24 @@
                     <ul>
                         <li data-title="tutorials : recent">
                             <ul>
-                                <li><a href="https://uiiiuiii.com/other/121291164.html" 
-                                    style="--bg-image: url('https://images.uiiiuiii.com/wp-content/uploads/2018/08/leizingyiu-0812-deviceorientation_370x250.gif');"
-                                    data-preview='https://images.uiiiuiii.com/wp-content/uploads/2018/08/leizingyiu-0812-deviceorientation_370x250.gif'>酷毙了！7分钟学会插画视差效果小技巧</a></li>
-                                <li><a href="https://uiiiuiii.com/aftereffects/121212834.html">AE教程！火焰粒子循环动效（含插件）</a>
+                                <li><a href="https://uiiiuiii.com/other/121291164.html"
+                                        data-preview='https://images.uiiiuiii.com/wp-content/uploads/2018/08/leizingyiu-0812-deviceorientation_370x250.gif'>酷毙了！7分钟学会插画视差效果小技巧</a>
                                 </li>
-                                <li><a href="https://uiiiuiii.com/illustrator/121243588.html">AI教程！7分钟学会视错觉插画</a></li>
-                                <li><a href="https://weibo.com/1688314062/EkQaMdPoM">yiu_2016-12-6 12:58</a></li>
+                                <li><a href="https://uiiiuiii.com/aftereffects/121212834.html"
+                                        data-preview='https://images.uiiiuiii.com/wp-content/uploads/2017/09/leizingyiu_0902_AE_fireLoop_header_870x588.gif'>AE教程！火焰粒子循环动效（含插件）</a>
+                                </li>
+                                <li><a href="https://uiiiuiii.com/illustrator/121243588.html"
+                                        data-preview="https://images.uiiiuiii.com/wp-content/uploads/2018/01/leizingyiu_0111_AI_jonathanHarris_header_870x588.jpg">AI教程！7分钟学会视错觉插画</a>
+                                </li>
+                                <li><a href="https://weibo.com/1688314062/EkQaMdPoM"
+                                        data-preview="https://cdn.dribbble.com/users/1267463/screenshots/15996926/media/2ce23df06a6b95ff32a2cca3a9e8325a.gif">yiu_2016-12-6
+                                        12:58</a></li>
                             </ul>
                         </li>
-                        <li data-title="tutorials : platform">
+                        <li data-title="tutorials : readmore">
                             <ul>
-                                <li><a href="uiiiuiii.com">1</a></li>
-                                <li><a href="javascript:void 0">2</a></li>
+                                <li><a href="uiiiuiii.com">UIIIUIII</a></li>
+                                <li style="opacity: 0!important;"><a href="javascript:void 0">2</a></li>
                                 <li style="opacity: 0!important;">3</li>
                                 <li style="opacity: 0!important;">4</li>
                             </ul>
@@ -92,7 +98,9 @@
                     </ul>
                 </li>
                 <li data-text="about & Contact" data-title="about & Contact">
-                    <ul></ul>
+                    <ul>
+                        <li>comming soon</li>
+                    </ul>
                 </li>
             </ul>
         </li>
@@ -126,8 +134,7 @@
         }
     </script>
 
-
-
+    <script>setTimeout("document.body.classList.remove('fadeOut');", 10);</script>
     <script>
         function typing(selector) {
             let dom = document.querySelector(selector);
@@ -157,9 +164,8 @@
         typing('#cover h1');
     </script>
 
-    <script>setTimeout("document.body.classList.remove('fadeOut');", 10);</script>
-
     <script src="./js/writeSvg.js"></script>
+    <script src="./js/writeDataPreview.js"></script>
 </body>
 
 </html>
