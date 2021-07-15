@@ -51,22 +51,22 @@
                         <li data-title="tutorials : recent">
                             <ul>
                                 <li><a href="https://uiiiuiii.com/other/121291164.html"
-                                        data-preview='https://images.uiiiuiii.com/wp-content/uploads/2018/08/leizingyiu-0812-deviceorientation_370x250.gif'>酷毙了！7分钟学会插画视差效果小技巧</a>
+                                        data-preview='https://yiu-pic.oss-cn-guangzhou.aliyuncs.com/leizingyiu-0812-deviceorientation_370x250.gif'>酷毙了！7分钟学会插画视差效果小技巧</a>
                                 </li>
                                 <li><a href="https://uiiiuiii.com/aftereffects/121212834.html"
-                                        data-preview='https://images.uiiiuiii.com/wp-content/uploads/2017/09/leizingyiu_0902_AE_fireLoop_header_870x588.gif'>AE教程！火焰粒子循环动效（含插件）</a>
+                                        data-preview='https://yiu-pic.oss-cn-guangzhou.aliyuncs.com/leizingyiu_0902_AE_fireLoop_header_870x588.gif'>AE教程！火焰粒子循环动效（含插件）</a>
                                 </li>
                                 <li><a href="https://uiiiuiii.com/illustrator/121243588.html"
-                                        data-preview="https://images.uiiiuiii.com/wp-content/uploads/2018/01/leizingyiu_0111_AI_jonathanHarris_header_870x588.jpg">AI教程！7分钟学会视错觉插画</a>
+                                        data-preview="https://yiu-pic.oss-cn-guangzhou.aliyuncs.com/leizingyiu_0111_AI_jonathanHarris_header_870x588.jpg">AI教程！7分钟学会视错觉插画</a>
                                 </li>
                                 <li><a href="https://weibo.com/1688314062/EkQaMdPoM"
-                                        data-preview="https://cdn.dribbble.com/users/1267463/screenshots/15996926/media/2ce23df06a6b95ff32a2cca3a9e8325a.gif">yiu_2016-12-6
+                                        data-preview="https://yiu-pic.oss-cn-guangzhou.aliyuncs.com/64a1a0cegw1fagzf1yobmg20b40b4e82.gif">yiu_2016-12-6
                                         12:58</a></li>
                             </ul>
                         </li>
                         <li data-title="tutorials : readmore">
                             <ul>
-                                <li><a href="uiiiuiii.com">UIIIUIII</a></li>
+                                <li><a href="https://uiiiuiii.com/author/leizingyiu">UIIIUIII</a></li>
                                 <li style="opacity: 0!important;"><a href="javascript:void 0">2</a></li>
                                 <li style="opacity: 0!important;">3</li>
                                 <li style="opacity: 0!important;">4</li>
@@ -74,7 +74,12 @@
                         </li>
                     </ul>
                 </li>
-                <li data-text="more">
+                <li data-text="about & Contact" data-title="about & Contact">
+                    <ul>
+                        <li>comming soon</li>
+                    </ul>
+                </li>
+                <li data-text="more" style="opacity: 0!important;">
                     <ul>
                         <!-- <li data-title="design : recent">
                             <ul>
@@ -101,11 +106,6 @@
                         </li>
                     </ul>
                 </li>
-                <li data-text="about & Contact" data-title="about & Contact">
-                    <ul>
-                        <li>comming soon</li>
-                    </ul>
-                </li>
             </ul>
         </li>
         <li id="recent" class="active" data-title="recent">
@@ -124,11 +124,7 @@
         </li>
     </ul>
 
-
-    <script type="text/javascript" src=".\js\script.js"></script>
-
-    <!-- 统计 -->
-    <!-- <script script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1280029923&web_id=1280029923"></script> -->
+    <!-- 统计  script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1280029923&web_id=1280029923" -->
     <script>
         window.onload = function () {
             var script = document.createElement('script');
@@ -138,53 +134,10 @@
         }
     </script>
 
+    <script type="text/javascript" src=".\js\script.js"></script>
     <script>setTimeout("document.body.classList.remove('fadeOut');", 10);</script>
-    <script>
-        function typing(selector) {
-            let dom = document.querySelector(selector);
-
-            if ('undefined' == typeof i) { i = 1; }
-            if ('undefined' == typeof timer) { timer = 0; }
-            if ('undefined' == typeof str) {
-                if (dom.innerText) {
-                    str = dom.innerText.replace(/\n/g, '➾');
-
-                } else { str = ""; }
-            }
-            if ('undefined' == typeof typingHtml) { typingHtml = dom.innerHTML; }
-
-            if (i <= str.length) {
-                dom.innerHTML = str.slice(0, i++).replace(/➾/g, '<br>') + (Date.now() % 2 == 0 ? '|' : '');
-                let ranTime = Math.random() * 249;
-                var nextTyping = function () { typing(selector) };
-                timer = setTimeout(nextTyping, ranTime);
-            }
-            else {
-                /*dom.innerHTML = str.replace(/➾/g, '<br>');*/
-                dom.innerHTML = typingHtml;
-                clearTimeout(timer)
-            }
-        };
-        typing('#cover h1');
-    </script>
-
+    <script src="./js/typing.js">typing('#cover h1');</script>
     <script src="./js/writeDataPreview.js"></script>
-    <!-- <script>
-        [...document.querySelectorAll('a[data-preview]')].map(a => {
-            var bgImage = "--bg-image: url('" + a.getAttribute('data-preview') + "');";
-            if (a.hasAttribute('style') && a.style.cssText.indexOf("--bg-image") == -1) {
-                a.style = a.style + ';' + bgImage;
-            } else if (a.hasAttribute('style') && a.style.cssText.indexOf('--bg-image') != -1) {
-
-                a.style = a.style.cssText.replace(/(--bg-image:\surl\(['"])[^'"]*(['"]\);)/g, '$1' + a.getAttribute('data-preview') + '$2');
-            } else {
-                a.setAttribute('style', bgImage);
-            }
-        })
-    </script> -->
-
-    <!-- <script src="./js/writeSvg.js"></script> -->
-
 </body>
 
 </html>
