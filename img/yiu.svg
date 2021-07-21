@@ -24,7 +24,7 @@ width='100%' height='100%'	 viewBox="0 0 360 360" style="transform:translate(16%
 
 
 <filter id="filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-	<feGaussianBlur stdDeviation="20" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur">
+	<feGaussianBlur stdDeviation="0" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur">
 	<animate attributeName='stdDeviation'
 			 attributeType="XML"
              values="0;8;2;10;6;0"
