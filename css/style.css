@@ -294,7 +294,8 @@ body {
   content: "";
   background-image: var(--bg-image);
   background-position: center;
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
 
   display: block;
   width: 100%;

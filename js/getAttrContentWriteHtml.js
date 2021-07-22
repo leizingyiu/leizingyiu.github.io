@@ -8,3 +8,4 @@ function getAttrContentWriteHtml(selector, attr) {
         dom.removeAttribute(attr);
     });
 }
+console.log('run getAttrContentWriteHtml');
