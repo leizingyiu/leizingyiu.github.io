@@ -141,9 +141,25 @@
     <script>setTimeout("document.body.classList.remove('fadeOut');", 10);</script>
     <script src="./js/typing.js">typing('#cover h1');</script>
     <script src="./js/writeDataPreview.js"></script>
-    <iframe width="0" height="0" rel="alternate" src="http://blog.leizingyiu.net/atom.xml" type="application/atom+xml"
-        title="Atom" id="blogRss"></iframe>
 
+
+    <script>
+        var iframe = document.createElement('iframe');
+        iframe.src = window.location.origin.match('leizingyiu.net') ? location.protocol + '//blog.leizingyiu.net/rssPage/index.html' : '';
+        iframe.id = 'rssReader';
+        iframe.style.cssText = 'opacity:0;overflow:hidden;';
+        iframe.frameborder = '0';
+        iframe.width = iframe.height = 0;
+
+        document.getElementsByTagName('body')[0].appendChild(iframe);
+
+
+        window.addEventListener("message", function (e) {  //通过监听message事件，可以监听对方发送的消息。
+            console.log(e.data);
+        }, false);
+    </script>
+
+    <!--     <iframe src="https://blog.leizingyiu.net/rssPage/index.html" frameborder="0" width="0" height="0"></iframe> -->
 </body>
 
 </html>
