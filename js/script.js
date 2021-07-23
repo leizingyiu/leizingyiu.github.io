@@ -12,7 +12,7 @@ var activeClassName = 'active';
 
         var p = li.parentNode;
         switch (true) {
-            case (li.querySelector('ul,ol') != null && li.className.indexOf(activeClassName) == -1 && li.hasAttribute('data-text')):
+            case (li.querySelector('ul,ol') != null && li.className.indexOf(activeClassName) == -1 && li.hasAttribute('data-openInside')):
                 /* 点击方块，方块切换成active */
 
                 while (p.className.indexOf(activeClassName) == -1) {

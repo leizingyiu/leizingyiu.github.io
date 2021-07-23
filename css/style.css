@@ -119,7 +119,8 @@ body {
 }
 
 #main li.active[data-title]::before,
-#main li.active[data-text] > ul > li[data-title]::before {
+#main li.active[data-text] > ul > li[data-title]::before,
+#main li.active[data-openInside] > ul > li[data-title]::before  {
   /* 容器本身的before标题
      子级别被点击后成为容器 的before标题 */
   opacity: 1;
@@ -129,7 +130,7 @@ body {
   font-weight: 400;
   letter-spacing: 0.05em;
   text-transform: capitalize;
-  position: absolute;
+  position: relative;
   left: 0;
   top: 0;
   transform: scale(1);
@@ -142,7 +143,9 @@ body {
 }
 
 #main li.active[data-text][data-title]::after,
-#main li.active[data-text] > ul > li[data-title]::after {
+#main li.active[data-text] > ul > li[data-title]::after,
+#main li.active[data-openInside][data-title]::after,
+#main li.active[data-openInside] > ul > li[data-title]::after {
   /* 已激活容器的标题栏 右边的关闭 */
   opacity: 1;
   content: "⤬";
@@ -157,7 +160,8 @@ body {
 }
 
 #main li.active[data-title] > ul,
-#main li.active[data-text] > ul > li[data-title] > ul {
+#main li.active[data-text] > ul > li[data-title] > ul,
+#main li.active[data-openInside] > ul > li[data-title] > ul {
   /* 已激活的容器 */
   opacity: 1;
   display: flex;
@@ -171,7 +175,8 @@ body {
 }
 
 #main li.active[data-title] > ul > li,
-#main li.active[data-text] > ul > li[data-title] > ul > li {
+#main li.active[data-text] > ul > li[data-title] > ul > li ,
+#main li.active[data-openInside] > ul > li[data-title] > ul > li {
   /* 激活 容器里面的 方块 */
   display: block;
   opacity: 1;
@@ -196,7 +201,8 @@ body {
 
 /* hover 方块 hover效果 参考 downloa的按钮 */
 #main li.active[data-title] > ul > li:hover,
-#main li.active[data-text] > ul > li[data-title] > ul > li:hover {
+#main li.active[data-text] > ul > li[data-title] > ul > li:hover ,
+#main li.active[data-openInside] > ul > li[data-title] > ul > li:hover {
   transform: translate(0, -6px) scale(1.02);
   box-shadow: 0 0 0px 0 hsl(0deg 0% 0% / 8%), 0 6px 12px 0 hsl(0deg 0% 0% / 8%);
 }
@@ -204,7 +210,10 @@ body {
 #main li.active[data-title] > ul > li[data-text]:before,
 #main li.active[data-text] > ul > li[data-title] > ul > li[data-text]::before,
 #main li.active[data-title] > ul > li > *,
-#main li.active[data-text] > ul > li[data-title] > ul > li > * {
+#main li.active[data-text] > ul > li[data-title] > ul > li > * ,
+#main li.active[data-title] > ul > li[data-openInside]:before,
+#main li.active[data-openInside] > ul > li[data-title] > ul > li[data-openInside]::before,
+#main li.active[data-openInside] > ul > li[data-title] > ul > li > * {
   /* 方块的data文本 */
   /* 方块内部的超链接 */
   opacity: 1;
@@ -230,7 +239,8 @@ body {
 }
 
 #main li.active[data-title] > ul > li::after,
-#main li.active[data-text] > ul > li[data-title] > ul > li::after {
+#main li.active[data-text] > ul > li[data-title] > ul > li::after ,
+#main li.active[data-openInside] > ul > li[data-title] > ul > li::after {
   /* 把方块撑成正方形 */
   opacity: 1;
   content: "";
@@ -240,21 +250,21 @@ body {
   display: block;
 }
 
-#main a[data-description] {
+#main .active ul a[data-description] {
   transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
   opacity: 1;
 }
 
-#main li:hover > a[data-description],
-#main li > a[data-description]:hover {
+#main .active ul li:hover > a[data-description],
+#main .active ul li > a[data-description]:hover {
   transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
   transform: translate(-50%, -100%) !important;
   color: hsla(0, 0%, 0%, 0) !important;
   opacity: 1 !important;
 }
 
-#main li > a[data-description]::before,
-#main a[data-description]::before {
+#main .active ul li > a[data-description]::before,
+#main .active ul a[data-description]::before {
   content: attr(data-description);
   position: absolute;
   bottom: 0%;
@@ -269,8 +279,8 @@ body {
   width: 90%;
 }
 
-#main li:hover > a[data-description]::before,
-#main a[data-description]:hover::before {
+#main .active ul li:hover > a[data-description]::before,
+#main .active ul a[data-description]:hover::before {
   transform: translate(-50%, 50%) scale(1);
   color: hsla(0, 0%, 0%, 0.8);
   opacity: 1;
