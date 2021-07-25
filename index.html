@@ -84,9 +84,16 @@
                         <li>comming soon</li>
                     </ul>
                 </li>
-                <li data-openInside data-text="comming soon" onclick="alert('在写了在写了 ( ´•̥̥̥ω•̥̥̥` )')"></li>
-                <li data-openInside data-text="more" style="display: none !important; opacity: 0!important;">
+                <!-- <li data-openInside>
+                    <a data-description='在写了在写了 ( ´•̥̥̥ω•̥̥̥` )' onclick="alert('在写了在写了 ( ´•̥̥̥ω•̥̥̥` )')">comming <br>
+                        soon</a>
+
+                </li> -->
+                <li data-openInside>
+                    <a data-description='阅读更多（暂时上了博客'> m o r e </a>
                     <ul>
+                        <li data-title="blog" id="blog">
+                        </li>
                         <!-- <li data-title="design : recent">
                             <ul>
                                 <li><a href="javascript:void 0"></a></li>
@@ -102,30 +109,22 @@
                                 <li><a href="javascript:void 0"></a></li>
                             </ul>
                         </li> -->
-                        <li data-title="blog" readmore>
-                            <ul>
-                                <li><a href="javascript:void 0">comming soon</a></li>
-                                <li><a href="javascript:void 0" style="display: none;"></a></li>
-                                <li><a href="javascript:void 0" style="display: none;"></a></li>
-                                <li><a href="javascript:void 0" style="display: none;"></a></li>
-                            </ul>
-                        </li>
                     </ul>
                 </li>
             </ul>
         </li>
         <li id="recent" class="active" data-title="recent">
             <ul>
-                <li><a
-                        href="http://leizingyiu.net/AfterEffectsExpressions/?orginalExpressions=AE%E8%B7%AF%E5%BE%84%E5%BC%B9%E6%80%A7%E8%A1%A8%E8%BE%BE%E5%BC%8F">AE表达式:<br>路径属性可以用的<br>弹性表达式</a>
+                <li><a href="http://leizingyiu.net/AfterEffectsExpressions/?orginalExpressions=AE%E8%B7%AF%E5%BE%84%E5%BC%B9%E6%80%A7%E8%A1%A8%E8%BE%BE%E5%BC%8F"
+                        data-description='overshoot and bounceback for path'>AE表达式:<br>路径属性可以用的<br>弹性表达式</a>
                 </li>
-                <li><a
-                        href="http://leizingyiu.net/AfterEffectsExpressions/?orginalExpressions=%E4%B8%89%E8%A7%92%E6%B3%A2%E4%B8%8E%E9%94%AF%E9%BD%BF%E6%B3%A2">AE表达式:<br>可以在其他地方模拟loopOut的<br>三角波与锯齿波</a>
+                <li><a href="http://leizingyiu.net/AfterEffectsExpressions/?orginalExpressions=%E4%B8%89%E8%A7%92%E6%B3%A2%E4%B8%8E%E9%94%AF%E9%BD%BF%E6%B3%A2"
+                        data-description='triWave and sawWave'>AE表达式:<br>可以在其他地方模拟loopOut的<br>三角波与锯齿波</a>
                 </li>
-                <li><a
-                        href="http://leizingyiu.net/AfterEffectsPresets/?browsing=yiu_loop">AE预设:<br>yiu_loop<br>任意属性自动循环<br>比loopOut更好用</a>
+                <li><a href="http://leizingyiu.net/AfterEffectsPresets/?browsing=yiu_loop"
+                        data-description='loop and loopAuto for any property'>AE预设:<br>yiu_loop<br>任意属性自动循环<br>比loopOut更好用</a>
                 </li>
-                <li><a href="javascript:void 0;">comming<br>soon</a></li>
+                <li><a href="javascript:void 0;" data-description='快了快了😭'>comming<br>soon</a></li>
             </ul>
         </li>
     </ul>
@@ -147,22 +146,56 @@
 
 
     <script>
-        var iframe = document.createElement('iframe');
-        iframe.src = window.location.origin.match('leizingyiu.net') ? location.protocol + '//blog.leizingyiu.net/rssPage/index.html' : '';
+        iframe = document.createElement('iframe');
+        iframe.src = window.location.origin.match('leizingyiu.net') ? location.protocol + '//blog.leizingyiu.net/rssPage/index.html' : 'http://localhost:4000/rssPage/index.html';
         iframe.id = 'rssReader';
         iframe.style.cssText = 'opacity:0;overflow:hidden;';
         iframe.frameborder = '0';
         iframe.width = iframe.height = 0;
 
+        iframe.onload = function () {
+            document.getElementById(iframe.id).contentWindow.postMessage('LatestBlog:8', iframe.src.match(/.*:[\/]{2}[^\/]+/)[0]);
+        }
+
         document.getElementsByTagName('body')[0].appendChild(iframe);
 
 
-        window.addEventListener("message", function (e) {  //通过监听message事件，可以监听对方发送的消息。
-            console.log(e.data);
-        }, false);
-    </script>
+        function writeContents(contents, containerSelector) {
+            var ul = document.createElement('ul');
+            if (!document.querySelector(containerSelector)) { return; }
+            document.querySelector(containerSelector).appendChild(ul);
+            contents.map(function (c) {
+                li = document.createElement('li');
+                a = document.createElement('a');
+                a.href = c.href;
+                a.innerText = c.title;
+                ul.appendChild(li);
+                li.appendChild(a);
+            })
+        }
 
-    <!--     <iframe src="https://blog.leizingyiu.net/rssPage/index.html" frameborder="0" width="0" height="0"></iframe> -->
+
+        window.addEventListener('message', function (e) {
+            console.log(e)
+            console.log(e.data);
+
+            var messageObj = {};
+            try {
+                messageObj = JSON.parse(e.data);
+            } catch (err) {
+                console.log(err);
+                return;
+            }
+            Object.keys(messageObj).map(function (k) {
+                writeContents(messageObj[k], '#' + k);
+            });
+
+        }, false);
+
+    </script>
+    <script>
+
+    </script>
 </body>
 
 </html>
