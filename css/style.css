@@ -9,7 +9,7 @@
 html{
   font-size: 1.5vmin;
 }
-body * {
+body>* {
   transform: translate(0, 0) scale(1);
 }
 .fadeOut * {
@@ -93,6 +93,7 @@ body {
   opacity: 1 !important;
   font-size: 2rem;
   margin-bottom: 8rem;
+  transform: translate(0, 0) scale(1);
 }
 
 #main li.active[data-title],
@@ -294,6 +295,7 @@ body {
 #main a[data-preview] {
   transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
   opacity: 1;
+  position: relative;
 }
 
 #main li:hover > a[data-preview],
