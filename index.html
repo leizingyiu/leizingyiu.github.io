@@ -1,9 +1,12 @@
+<!-- 
+Created= "2021/07/01 11:00:01" 
+Last modified= "2021/07/26 16:19:09"
+-->
 <html>
 
 <head>
     <meta name="referrer" content="no-referrer" />
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-
     <link rel="icon" href="animated_favicon.gif" type="image/gif">
     <link rel="stylesheet" type="text/css" href="./css/tbDefaultCss.min.css">
     <link rel="stylesheet" href="./css/default.css">
@@ -92,7 +95,7 @@
                 <li data-openInside>
                     <a data-description='阅读更多（暂时上了博客'> m o r e </a>
                     <ul>
-                        <li data-title="blog" id="blog">
+                        <li data-title="more:blog" id="blog">
                         </li>
                         <!-- <li data-title="design : recent">
                             <ul>
@@ -140,60 +143,10 @@
     </script>
 
     <script type="text/javascript" src=".\js\script.js"></script>
-    <script>setTimeout("document.body.classList.remove('fadeOut');", 10);</script>
     <script src="./js/typing.js">typing('#cover h1');</script>
     <script src="./js/writeDataPreview.js"></script>
-
-
-    <script>
-        iframe = document.createElement('iframe');
-        iframe.src = window.location.origin.match('leizingyiu.net') ? location.protocol + '//blog.leizingyiu.net/rssPage/index.html' : 'http://localhost:4000/rssPage/index.html';
-        iframe.id = 'rssReader';
-        iframe.style.cssText = 'opacity:0;overflow:hidden;';
-        iframe.frameborder = '0';
-        iframe.width = iframe.height = 0;
-
-        iframe.onload = function () {
-            document.getElementById(iframe.id).contentWindow.postMessage('LatestBlog:8', iframe.src.match(/.*:[\/]{2}[^\/]+/)[0]);
-        }
-
-        document.getElementsByTagName('body')[0].appendChild(iframe);
-
-
-        function writeContents(contents, containerSelector) {
-            var ul = document.createElement('ul');
-            if (!document.querySelector(containerSelector)) { return; }
-            document.querySelector(containerSelector).appendChild(ul);
-            contents.map(function (c) {
-                li = document.createElement('li');
-                a = document.createElement('a');
-                a.href = c.href;
-                a.innerText = c.title;
-                ul.appendChild(li);
-                li.appendChild(a);
-            })
-        }
-
-
-        window.addEventListener('message', function (e) {
-            var messageObj = {};
-            try {
-                messageObj = JSON.parse(e.data);
-            } catch (err) {
-                console.log(err);
-                return;
-            }
-            Object.keys(messageObj).map(function (k) {
-                writeContents(messageObj[k], '#' + k);
-                aDelay('#' + k + ' a');
-            });
-
-        }, false);
-
-    </script>
-    <script>
-
-    </script>
+    <script src="./js/blogRssReader.js"></script>
+    <script>setTimeout("document.body.classList.remove('fadeOut');", 10);</script>
 </body>
 
 </html>
