@@ -24,10 +24,11 @@ function write_ul_li_a(contents, containerSelector) {
         a.innerText = c.title;
         ul.appendChild(li);
         li.appendChild(a);
-    })
+    });
 }
 
-write_ul_li_a([{ 'href': '', 'title': ' 数 据 加 载 中 ， 请 稍 后 ' }], '#blog');
+write_ul_li_a([{ 'href': 'html://blog.leizingyiu.net', 'title': ' 数 据 加 载 中 请 稍 后 \n\n 点 击 前 往 博 客' }], '#blog');
+aSetup();
 window.addEventListener('message', function (e) {
     var messageObj = {};
     try {

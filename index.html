@@ -14,6 +14,9 @@ Last modified= "2021/07/26 16:19:09"
 
     <embed id='background' type="image/svg+xml" src="./img/background.svg"></embed>
 
+
+    <link rel="stylesheet" href="./css/markdown.css">
+
     <script src="./js/getAttrContentWriteHtml.js"></script>
 </head>
 
@@ -84,7 +87,7 @@ Last modified= "2021/07/26 16:19:09"
                 <li data-openInside data-title="about & Contact">
                     <a data-description='简介以及联系方式'>about <br> & <br> Contact</a>
                     <ul>
-                        <li>comming soon</li>
+                        <li class="markdown-body" data-mdFile='./md/aboutAndContact.md'></li>
                     </ul>
                 </li>
                 <!-- <li data-openInside>
@@ -147,6 +150,11 @@ Last modified= "2021/07/26 16:19:09"
     <script src="./js/writeDataPreview.js"></script>
     <script src="./js/blogRssReader.js"></script>
     <script>setTimeout("document.body.classList.remove('fadeOut');", 10);</script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+
+    </script>
 </body>
 
 </html>

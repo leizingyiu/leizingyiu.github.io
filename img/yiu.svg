@@ -8,7 +8,9 @@ width='100%' height='100%'	 viewBox="0 0 360 360" style="transform:translate(16%
 
 #y,#i,#u{display:none;}
 
+/*
 #bold{filter:url(#filter);}
+*/
 </style>
 <defs>
 <filter id="goo">
