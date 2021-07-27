@@ -12,12 +12,8 @@ Last modified= "2021/07/26 16:19:09"
     <link rel="stylesheet" href="./css/default.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
 
-    <embed id='background' type="image/svg+xml" src="./img/background.svg"></embed>
-
-
-    <link rel="stylesheet" href="./css/markdown.css">
-
     <script src="./js/getAttrContentWriteHtml.js"></script>
+    <embed id='background' type="image/svg+xml" src="./img/background.svg"></embed>
 </head>
 
 <body class="fadeOut">
@@ -153,8 +149,19 @@ Last modified= "2021/07/26 16:19:09"
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
+        [...document.querySelectorAll("*[data-mdFile]")].map(function (dom) {
+            fetch(dom.getAttribute("data-mdFile")).then(function (response) {
+                return response.text();
+            }).then(function (r) {
+                dom.innerHTML = marked(r);
+                dom.setAttribute('written-' + attr, dom.getAttribute('written-' + attr) + ';' + dom.getAttribute(attr));
+                dom.removeAttribute(attr);
+            });
 
+        })
     </script>
+    <link rel="stylesheet" type="text/css" href="./css/main_active_markdown.css">
+
 </body>
 
 </html>
