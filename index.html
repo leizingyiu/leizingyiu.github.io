@@ -154,13 +154,35 @@ Last modified= "2021/07/26 16:19:09"
                 return response.text();
             }).then(function (r) {
                 dom.innerHTML = marked(r);
-                dom.setAttribute('written-' + attr, dom.getAttribute('written-' + attr) + ';' + dom.getAttribute(attr));
-                dom.removeAttribute(attr);
+                // dom.setAttribute('written-' + attr, dom.getAttribute('written-' + attr) + ';' + dom.getAttribute(attr));
+                // dom.removeAttribute(attr);
+            });
+
+        });
+
+        [...document.querySelectorAll('#main .markdown-body')].map(function (dom) {
+            console.log(dom);
+            if (!dom.hasAttribute('id')) {
+                do {
+                    var domId = 'markdown_body_' + Math.floor(Math.random() * 100000);
+                    console.log(domId);
+                } while (document.querySelectorAll('#' + domId).length != 0)
+                dom.setAttribute('id', domId);
+            } else {
+                var domId = dom.id;
+            }
+            fetch("./css/markdown.css").then(function (response) {
+                return response.text();
+            }).then(function (r) {
+                var style = document.createElement('style');
+                r = r.replace(/\.markdown-body/g, '#main #' + domId);
+                style.innerHTML = (r);
+                document.getElementsByTagName('body')[0].appendChild(style);
             });
 
         })
     </script>
-    <link rel="stylesheet" type="text/css" href="./css/main_active_markdown.css">
+    <link rel="stylesheet" type="text/css" href="./css/markdown.css">
 
 </body>
 

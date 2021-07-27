@@ -345,6 +345,8 @@ display: none;
 #main li.active>ul> li.markdown-body{
   max-width: none!important;
   display: block;
+  padding: 1em;
+  cursor: initial;
 }
 #main li.active>ul> li.markdown-body:hover{
   transform: none;
