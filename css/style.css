@@ -342,6 +342,9 @@ display: none;
   opacity: 0.8;
 }
 
+#main li.active[data-title="about & Contact"]>ul{
+  flex-direction: column;
+}
 #main li.active>ul> li.markdown-body{
   max-width: none!important;
   display: block;

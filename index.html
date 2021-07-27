@@ -84,6 +84,7 @@ Last modified= "2021/07/26 16:19:09"
                     <a data-description='简介以及联系方式'>about <br> & <br> Contact</a>
                     <ul>
                         <li class="markdown-body" data-mdFile='./md/aboutAndContact.md'></li>
+                        <li class="markdown-body" data-mdFile='./md/a.md'></li>
                     </ul>
                 </li>
                 <!-- <li data-openInside>
@@ -160,7 +161,7 @@ Last modified= "2021/07/26 16:19:09"
 
         });
 
-        [...document.querySelectorAll('#main .markdown-body')].map(function (dom) {
+        var markdownList = [...document.querySelectorAll('#main .markdown-body')].map(function (dom) {
             console.log(dom);
             if (!dom.hasAttribute('id')) {
                 do {
@@ -171,16 +172,17 @@ Last modified= "2021/07/26 16:19:09"
             } else {
                 var domId = dom.id;
             }
-            fetch("./css/markdown.css").then(function (response) {
-                return response.text();
-            }).then(function (r) {
-                var style = document.createElement('style');
-                r = r.replace(/\.markdown-body/g, '#main #' + domId);
-                style.innerHTML = (r);
-                document.getElementsByTagName('body')[0].appendChild(style);
-            });
+            return domId;
+        });
 
-        })
+        fetch("./css/markdown.css").then(function (response) {
+            return response.text();
+        }).then(function (r) {
+            var style = document.createElement('style');
+            r = r.replace(/\.markdown-body([^{]+)/g, markdownList.map(id => '#main #' + id + ' $1').join(','));
+            style.innerHTML = (r);
+            document.getElementsByTagName('body')[0].appendChild(style);
+        });
     </script>
     <link rel="stylesheet" type="text/css" href="./css/markdown.css">
 
