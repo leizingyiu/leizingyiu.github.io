@@ -355,20 +355,21 @@ body {
   opacity: 0.8;
 }
 
-#main li.active[data-title="about & Contact"] > ul {
+#main li.active > ul[column] {
   flex-direction: column;
 }
-#main li.active > ul > li.markdown-body {
+#main li.active > ul[column] > li {
+  width: 100%;
   max-width: none !important;
   display: block;
   padding: 1em;
   cursor: initial;
 }
-#main li.active > ul > li.markdown-body:hover {
+#main li.active > ul[column] > li:hover {
   transform: none;
   box-shadow: 0 0 12px 0 hsl(0deg 0% 0% / 8%), 0 0px 0px 0 hsl(0deg 0% 0% / 0%);
 }
-#main li.active > ul > li.markdown-body * {
+#main li.active > ul[column] > li * {
   height: auto;
   position: inherit;
   top: 0;
@@ -377,7 +378,7 @@ body {
   display: inherit;
   text-align: left;
 }
-#main li.active > ul > li.markdown-body::after {
+#main li.active > ul[column] > li::after {
   content: none;
 }
 
