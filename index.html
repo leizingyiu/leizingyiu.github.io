@@ -86,7 +86,9 @@ Last modified= "2021/07/29 13:15:20"
                         <li class="markdown-body" data-mdFile='./page/about.md'></li>
                         <li class="markdown-body" data-mdFile='./page/contact.md'></li>
                         <li>
-                            <object data='./page/donate.html'></object>
+                            <object
+                                onload="this.style.height=this.contentWindow.document.getElementsByTagName('html')[0].scrollHeight"
+                                style='box-sizing: content-box;' data='./page/donate.html'></object>
                         </li>
                     </ul>
                 </li>
