@@ -6,11 +6,11 @@
   transform-origin: top center;
   box-sizing: border-box;
 }
-html{
+html {
   font-size: 1.5vmin;
   transition: opacity 0.8s ease, background-color 0.8s ease, transform 0.8s ease;
 }
-body>* {
+body > * {
   transform: translate(0, 0) scale(1);
   transition: opacity 0.8s ease, background-color 0.8s ease, transform 0.8s ease;
 }
@@ -73,7 +73,6 @@ body {
 #main li {
   width: 100%;
   height: auto;
-  
 }
 
 #main {
@@ -82,8 +81,8 @@ body {
   position: relative;
   font-size: 0;
 }
-#main object{
-display: none;
+#main object {
+  display: none;
 }
 #main li.active * {
   /* 活动容器下方所有，包含活动容器中未激活部分 */
@@ -91,7 +90,7 @@ display: none;
   text-align: left;
   font-size: 0.5rem;
 }
-#main li.active object{
+#main li.active object {
   display: initial;
 }
 
@@ -104,11 +103,11 @@ display: none;
   margin-bottom: 8rem;
   transform: translate(0, 0) scale(1);
 }
- #main li.active>a{
-   height: 0;
-   overflow: hidden;
-   display: none;
- }
+#main li.active > a {
+  height: 0;
+  overflow: hidden;
+  display: none;
+}
 #main li.active[data-title],
 #main li.active[data-text] > ul > li[data-title] {
   /* 已经激活 带标题 容器 */
@@ -136,7 +135,7 @@ display: none;
 
 #main li.active[data-title]::before,
 #main li.active[data-text] > ul > li[data-title]::before,
-#main li.active[data-openInside] > ul > li[data-title]::before  {
+#main li.active[data-openInside] > ul > li[data-title]::before {
   /* 容器本身的before标题
      子级别被点击后成为容器 的before标题 */
   opacity: 1;
@@ -163,16 +162,25 @@ display: none;
 #main li.active[data-openInside][data-title]::after,
 #main li.active[data-openInside] > ul > li[data-title]::after {
   /* 已激活容器的标题栏 右边的关闭 */
-  opacity: 1;
+  opacity: 0.6;
   content: "⤬";
-  font-size: 0.8em;
-  font-weight: 100;
+  font-size: 1em;
+  font-weight: 400;
   position: absolute;
   right: 0;
   top: 0;
   cursor: pointer;
   pointer-events: all;
-  transform: scale(1);
+  transform: scale(0.8);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+#main li.active[data-text][data-title]:hover:after,
+#main li.active[data-text] > ul > li[data-title]:hover::after,
+#main li.active[data-openInside][data-title]:hover::after,
+#main li.active[data-openInside] > ul > li[data-title]:hover::after {
+  /* 已激活容器 hover 的标题栏 右边的关闭 */
+  opacity: 1;
+  transform: rotate(180deg) scale(1);
 }
 
 #main li.active[data-title] > ul,
@@ -192,7 +200,7 @@ display: none;
 }
 
 #main li.active[data-title] > ul > li,
-#main li.active[data-text] > ul > li[data-title] > ul > li ,
+#main li.active[data-text] > ul > li[data-title] > ul > li,
 #main li.active[data-openInside] > ul > li[data-title] > ul > li {
   /* 激活 容器里面的 方块 */
   display: block;
@@ -203,7 +211,7 @@ display: none;
   font-size: 1.25rem;
   flex: 1 0 24%;
   margin-bottom: 3rem;
-  
+
   transform: translate(0, 0) scale(1);
   transform-origin: bottom;
   height: 100%;
@@ -219,7 +227,7 @@ display: none;
 
 /* hover 方块 hover效果 参考 downloa的按钮 */
 #main li.active[data-title] > ul > li:hover,
-#main li.active[data-text] > ul > li[data-title] > ul > li:hover ,
+#main li.active[data-text] > ul > li[data-title] > ul > li:hover,
 #main li.active[data-openInside] > ul > li[data-title] > ul > li:hover {
   transform: translate(0, -6px) scale(1.02);
   box-shadow: 0 0 0px 0 hsl(0deg 0% 0% / 8%), 0 6px 12px 0 hsl(0deg 0% 0% / 8%);
@@ -228,9 +236,14 @@ display: none;
 #main li.active[data-title] > ul > li[data-text]:before,
 #main li.active[data-text] > ul > li[data-title] > ul > li[data-text]::before,
 #main li.active[data-title] > ul > li > *,
-#main li.active[data-text] > ul > li[data-title] > ul > li > * ,
-#main li.active[data-title] > ul > li[data-openInside]:before,
-#main li.active[data-openInside] > ul > li[data-title] > ul > li[data-openInside]::before,
+#main li.active[data-text] > ul > li[data-title] > ul > li > *,
+#main li.active[data-title] > ul > li[data-openInside]::before,
+#main
+  li.active[data-openInside]
+  > ul
+  > li[data-title]
+  > ul
+  > li[data-openInside]::before,
 #main li.active[data-openInside] > ul > li[data-title] > ul > li > * {
   /* 方块的data文本 */
   /* 方块内部的超链接 */
@@ -247,7 +260,7 @@ display: none;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   padding: 1em;
-  font-size: 1rem;
+  font-size: 1.25rem;
 
   line-height: 2em;
   letter-spacing: 0.05em;
@@ -257,7 +270,7 @@ display: none;
 }
 
 #main li.active[data-title] > ul > li::after,
-#main li.active[data-text] > ul > li[data-title] > ul > li::after ,
+#main li.active[data-text] > ul > li[data-title] > ul > li::after,
 #main li.active[data-openInside] > ul > li[data-title] > ul > li::after {
   /* 把方块撑成正方形 */
   opacity: 1;
@@ -290,7 +303,7 @@ display: none;
   transform: translate(-50%, 100%) scale(0);
   transform-origin: center top;
   opacity: 0;
-  font-size: 0.9em;
+  font-size: 0.9rem;
   color: hsla(0, 0%, 0%, 0);
   text-align: center;
   transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
@@ -342,20 +355,20 @@ display: none;
   opacity: 0.8;
 }
 
-#main li.active[data-title="about & Contact"]>ul{
+#main li.active[data-title="about & Contact"] > ul {
   flex-direction: column;
 }
-#main li.active>ul> li.markdown-body{
-  max-width: none!important;
+#main li.active > ul > li.markdown-body {
+  max-width: none !important;
   display: block;
   padding: 1em;
   cursor: initial;
 }
-#main li.active>ul> li.markdown-body:hover{
+#main li.active > ul > li.markdown-body:hover {
   transform: none;
   box-shadow: 0 0 12px 0 hsl(0deg 0% 0% / 8%), 0 0px 0px 0 hsl(0deg 0% 0% / 0%);
 }
-#main li.active>ul> li.markdown-body *{
+#main li.active > ul > li.markdown-body * {
   height: auto;
   position: inherit;
   top: 0;
@@ -364,7 +377,7 @@ display: none;
   display: inherit;
   text-align: left;
 }
-#main li.active>ul> li.markdown-body::after{
+#main li.active > ul > li.markdown-body::after {
   content: none;
 }
 
