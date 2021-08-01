@@ -66,7 +66,6 @@ function liSetup(selector = '#main li') {
     });
 }
 
-
 function aSetup() {
     [...document.querySelectorAll('a[href]')].map(function (a) {
         a.setAttribute('nextStation', a.href);
@@ -80,8 +79,26 @@ function aSetup() {
         }, false);
     });
 }
+function randomSelectionBGC() {
+    var style = document.createElement('style');
+    var h = Math.floor(Math.random() * 36) * 10 + 'deg';
+    var s = Math.random() * 20 + 70 + '%';
+    var l = Math.random() * 20 + 50 + '%';
+    var a = Math.random() * 0.2 + 0.2;
+    style.innerHTML = '::selection{background-color:hsla(' + h + ',' + s + ',' + l + ',' + a + ');}';
+    document.body.appendChild(style);
+}
+
+function setInlineStyle(selector, styleText) {
+    [...document.querySelectorAll(selector)].map(function (d) {
+        d.style.cssText = styleText;
+    })
+}
 
 liSetup();
 aSetup();
+randomSelectionBGC();
+setInlineStyle('[placeholder]', 'pointer-events: none;opacity: 0!important;');
+
 
 console.log('loaded script.js');

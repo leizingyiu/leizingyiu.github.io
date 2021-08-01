@@ -167,8 +167,9 @@ body {
   font-size: 1em;
   font-weight: 400;
   position: absolute;
-  right: 0;
-  top: 0;
+  right: -1em;
+  top: -1em;
+  padding: 1em;
   cursor: pointer;
   pointer-events: all;
   transform: scale(0.8);
@@ -179,8 +180,8 @@ body {
 #main li.active[data-openInside][data-title]:hover::after,
 #main li.active[data-openInside] > ul > li[data-title]:hover::after {
   /* 已激活容器 hover 的标题栏 右边的关闭 */
-  opacity: 1;
-  transform: rotate(180deg) scale(1);
+  opacity: 0.9;
+  transform: rotate(180deg) scale(0.9);
 }
 
 #main li.active[data-title] > ul,
@@ -318,6 +319,8 @@ body {
   transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
 }
 
+#main li.active *.markdown-body{opacity: 1!important;}
+
 #main a[data-preview] {
   transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
   opacity: 1;
@@ -381,6 +384,14 @@ body {
 #main li.active > ul[column] > li::after {
   content: none;
 }
+
+/* [placeholder]{
+pointer-events: none;
+opacity: 0!important;
+} */
+/* ::selection {
+  background-color: rgba(40, 255, 237, 0.61);
+} */
 
 a[title="站长统计"] {
   height: 1px;
