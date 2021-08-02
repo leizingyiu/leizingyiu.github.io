@@ -178,11 +178,19 @@ Last modified= "2021/07/29 13:15:20"
                 return domId;
             });
 
+            var addingStyle = ['display: unset;']
             fetch("./css/markdown.css").then(function (response) {
                 return response.text();
             }).then(function (r) {
                 var style = document.createElement('style');
                 r = r.replace(/\.markdown-body([^{]+)/g, markdownList.map(id => '#main #' + id + ' $1').join(','));
+                console.log(r);
+                addingStyle.map(function (s) {
+                    console.log(r.match(/\{/g));
+
+                    return r = r.replace(/\{/g, '{' + s + '')
+                });
+                console.log(r);
                 style.innerHTML = (r);
                 document.getElementsByTagName('body')[0].appendChild(style);
             });

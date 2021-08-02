@@ -319,7 +319,12 @@ body {
   transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
 }
 
-#main li.active *.markdown-body{opacity: 1!important;}
+#main li.active>ul>li.markdown-body,
+#main li.active>ul>li.markdown-body *{
+  opacity: 1!important;
+font-size: initial;
+display: initial;
+}
 
 #main a[data-preview] {
   transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
@@ -367,6 +372,7 @@ body {
   display: block;
   padding: 1em;
   cursor: initial;
+  text-align: left;
 }
 #main li.active > ul[column] > li:hover {
   transform: none;

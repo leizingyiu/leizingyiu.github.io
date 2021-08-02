@@ -12,6 +12,7 @@
 .markdown-body p {
   margin: 2em 0;
   line-height: 2em;
+  display: block;
 }
 .markdown-body table {
   font-size: inherit;
@@ -133,6 +134,7 @@
 }
 .markdown-body hr {
   border: 1px solid #ddd;
+  display: block;
 }
 .markdown-body ul {
   margin: 1em 0 1em 2em;
