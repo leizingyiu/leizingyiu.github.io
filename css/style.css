@@ -70,10 +70,7 @@ body {
   flex-shrink: 0;
 }
 
-#main li {
-  width: 100%;
-  height: auto;
-}
+
 
 #main {
   /* main整体 */
@@ -83,6 +80,14 @@ body {
 }
 #main object {
   display: none;
+}
+#main li {
+  width: 100%;
+  height: auto;
+}
+#main li.active+li{
+  height: 0;
+  overflow: hidden;
 }
 #main li.active * {
   /* 活动容器下方所有，包含活动容器中未激活部分 */
@@ -239,12 +244,7 @@ body {
 #main li.active[data-title] > ul > li > *,
 #main li.active[data-text] > ul > li[data-title] > ul > li > *,
 #main li.active[data-title] > ul > li[data-openInside]::before,
-#main
-  li.active[data-openInside]
-  > ul
-  > li[data-title]
-  > ul
-  > li[data-openInside]::before,
+#main  li.active[data-openInside]> ul> li[data-title]> ul> li[data-openInside]::before,
 #main li.active[data-openInside] > ul > li[data-title] > ul > li > * {
   /* 方块的data文本 */
   /* 方块内部的超链接 */
@@ -253,7 +253,6 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  display: flex;
   align-items: center;
   justify-content: center;
 
@@ -269,6 +268,12 @@ body {
   color: hsla(0, 0%, 0%, 0.8);
   letter-spacing: 0.2em;
 }
+#main li.active[data-title] > ul > li > a,
+#main li.active[data-text] > ul > li[data-title] > ul > li > a,
+#main li.active[data-openInside] > ul > li[data-title] > ul > li > a {
+  display: flex;
+}
+
 
 #main li.active[data-title] > ul > li::after,
 #main li.active[data-text] > ul > li[data-title] > ul > li::after,
@@ -323,7 +328,7 @@ body {
 #main li.active>ul>li.markdown-body *{
   opacity: 1!important;
 font-size: initial;
-display: initial;
+/* display: initial; */
 }
 
 #main a[data-preview] {
@@ -384,7 +389,7 @@ display: initial;
   top: 0;
   left: 0;
   transform: none;
-  display: inherit;
+  /* display: inherit; */
   text-align: left;
 }
 #main li.active > ul[column] > li::after {

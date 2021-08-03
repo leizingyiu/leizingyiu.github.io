@@ -5,6 +5,9 @@ Last modified= "2021/08/03 14:41:02"
 <html>
 
 <head>
+    <!-- <link rel="stylesheet" type="text/css" href="./css/markdown.css"> -->
+
+
     <meta name="referrer" content="no-referrer" />
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <link rel="icon" href="animated_favicon.gif" type="image/gif">
@@ -86,21 +89,19 @@ Last modified= "2021/08/03 14:41:02"
                         <!-- <li class="markdown-body" data-mdFile='./page/donate.md'> -->
                         <!-- <object
                                 onload="this.style.height=this.contentWindow.document.getElementsByTagName('html')[0].scrollHeight"
-                                style='' data='./page/donate.html'></object> -->
-                </li>
-            </ul>
-        </li>
-        <!-- <li data-openInside>
-                    <a data-description='在写了在写了 ( ´•̥̥̥ω•̥̥̥` )' onclick="alert('在写了在写了 ( ´•̥̥̥ω•̥̥̥` )')">comming <br>
-                        soon</a>
+                                style='' data='./page/donate.html'></object> 
+                            </li>
+                        -->
 
-                </li> -->
-        <li data-openInside>
-            <a data-description='阅读更多（暂时上了博客'> m o r e </a>
-            <ul>
-                <li data-title="more:blog" id="blog">
+                    </ul>
                 </li>
-                <!-- <li data-title="design : recent">
+
+                <li data-openInside>
+                    <a data-description='阅读更多（暂时上了博客'> m o r e </a>
+                    <ul>
+                        <li data-title="more:blog" id="blog">
+                        </li>
+                        <!-- <li data-title="design : recent">
                             <ul>
                                 <li><a href="javascript:void 0"></a></li>
                                 <li><a href="javascript:void 0"></a></li>
@@ -108,31 +109,31 @@ Last modified= "2021/08/03 14:41:02"
                                 <li><a href="javascript:void 0"></a></li>
                             </ul>
                         </li> -->
-                <!-- <li data-title="design : platform">
+                        <!-- <li data-title="design : platform">
                             <ul>
                                 <li><a href="https://dribbble.com/leizingyiu">dribbble</a></li>
                                 <li><a href="javascript:void 0"></a></li>
                                 <li><a href="javascript:void 0"></a></li>
                             </ul>
                         </li> -->
+                    </ul>
+                </li>
             </ul>
         </li>
-    </ul>
-    </li>
-    <li id="recent" class="active" data-title="recent">
-        <ul>
-            <li><a href="http://leizingyiu.net/AfterEffectsExpressions/?orginalExpressions=AE%E8%B7%AF%E5%BE%84%E5%BC%B9%E6%80%A7%E8%A1%A8%E8%BE%BE%E5%BC%8F"
-                    data-description='overshoot and bounceback for path'>路径属性可以用的<br>弹性表达式</a>
-            </li>
-            <li><a href="http://leizingyiu.net/AfterEffectsExpressions/?orginalExpressions=%E4%B8%89%E8%A7%92%E6%B3%A2%E4%B8%8E%E9%94%AF%E9%BD%BF%E6%B3%A2"
-                    data-description='triWave and sawWave'>把loopOut用在属性值的<br>三角波与锯齿波</a>
-            </li>
-            <li><a href="http://leizingyiu.net/AfterEffectsPresets/?browsing=yiu_loop"
-                    data-description='loop and loopAuto for any property'>yiu_loop<br>任意属性自动循环</a>
-            </li>
-            <li><a href="javascript:void 0;" data-description='快了快了😭'>comming<br>soon</a></li>
-        </ul>
-    </li>
+        <li id="recent" class="active" data-title="recent">
+            <ul>
+                <li><a href="http://leizingyiu.net/AfterEffectsExpressions/?orginalExpressions=AE%E8%B7%AF%E5%BE%84%E5%BC%B9%E6%80%A7%E8%A1%A8%E8%BE%BE%E5%BC%8F"
+                        data-description='overshoot and bounceback for path'>路径属性可以用的<br>弹性表达式</a>
+                </li>
+                <li><a href="http://leizingyiu.net/AfterEffectsExpressions/?orginalExpressions=%E4%B8%89%E8%A7%92%E6%B3%A2%E4%B8%8E%E9%94%AF%E9%BD%BF%E6%B3%A2"
+                        data-description='triWave and sawWave'>把loopOut用在属性值的<br>三角波与锯齿波</a>
+                </li>
+                <li><a href="http://leizingyiu.net/AfterEffectsPresets/?browsing=yiu_loop"
+                        data-description='loop and loopAuto for any property'>yiu_loop<br>任意属性自动循环</a>
+                </li>
+                <li><a href="javascript:void 0;" data-description='快了快了😭'>comming<br>soon</a></li>
+            </ul>
+        </li>
     </ul>
 
     <!-- 统计  script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1280029923&web_id=1280029923" -->
@@ -178,18 +179,17 @@ Last modified= "2021/08/03 14:41:02"
                 return domId;
             });
 
-            var addingStyle = ['display: unset;']
             fetch("./css/markdown.css").then(function (response) {
                 return response.text();
             }).then(function (r) {
                 var style = document.createElement('style');
-                r = r.replace(/\.markdown-body([^{]+)/g, markdownList.map(id => '#main #' + id + ' $1').join(','));
-                console.log(r);
-                addingStyle.map(function (s) {
-                    console.log(r.match(/\{/g));
 
-                    return r = r.replace(/\{/g, '{' + s + '')
-                });
+                console.log(r);
+                r = r.replace(/\.markdown-body([^{]+)/g, markdownList.map(function (id) {
+                    /* '#main #' + id + ' $1 display:none;} \n ' +*/
+                    '#main li.active>ul[column] > li#' + id + ' $1 '
+                }).join('\n'));
+
                 console.log(r);
                 style.innerHTML = (r);
                 document.getElementsByTagName('body')[0].appendChild(style);
@@ -209,7 +209,7 @@ Last modified= "2021/08/03 14:41:02"
 
             id = 'donatePage' + Math.floor(Math.random() * 10000);
 
-            styleHTML = styleHTML.replace(/(#donate[^{]*{)/g, '#main #' + id + ' $1');
+            styleHTML = styleHTML.replace(/(#donate[^{]*{)/g, '#main .active #' + id + ' $1');
             console.log(styleHTML);
 
             li.id = id;
@@ -223,7 +223,7 @@ Last modified= "2021/08/03 14:41:02"
 
     </script>
 
-    <link rel="stylesheet" type="text/css" href="./css/markdown.css">
+
 
 </body>
 
