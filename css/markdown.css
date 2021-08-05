@@ -14,6 +14,13 @@
   line-height: 2em;
   display: block;
 }
+.markdown-body small{
+  font-size: 0.5em;
+}
+.markdown-body small>*,
+.markdown-body small *{
+  font-size: inherit;
+}
 .markdown-body table {
   font-size: inherit;
   font: 100%;

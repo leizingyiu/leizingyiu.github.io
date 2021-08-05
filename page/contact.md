@@ -4,3 +4,6 @@
 
 **公众号** (以后希望能月更吧 <br/>
 <img src='http://pic.leizingyiu.net/leizingyiu@wx.svg' style='width:10em;'>
+
+**邮箱**
+contact_me(at)leizingyiu.net
