@@ -4,7 +4,7 @@
 	 viewBox="0 0 468 468" style="enable-background:new 0 0 468 468;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#64CBFA;}
-	.st1{fill:#FFFFFF;}
+	.st1{ fill: url(#Gradient1); }
 	#iconShadow_1_{
 		filter:blur(8px);
 		mix-blend-mode: multiply;
@@ -13,7 +13,29 @@
 		fill:hsl(210deg 30% 16%);
 		mix-blend-mode: multiply;
 	}
+	.stop1 { stop-color: #ffffff; }
+	.stop2 { stop-color: white; stop-opacity: 0; }
+	.stop3 { stop-color: #e5eaee; }
+
+	svg{transform:scale(0.8);}
 </style>
+<script>
+console.log('svg script running');
+var style=document.createElementNS('http://www.w3.org/2000/svg','style');
+
+if(window.location.href.indexOf('127')!=-1){
+	//style.innerHTML='svg{background:black}';	
+}else{
+
+}
+document.getElementsByTagName('svg')[0].appendChild(style);
+</script>
+<defs>
+	<linearGradient id="Gradient1"  x1="0" x2="1" y1="0" y2="1">
+		<stop class="stop1" offset="0%"/>
+		<stop class="stop3" offset="100%"/>
+	</linearGradient>
+</defs>
 <g id="qrCode_1_">
 	<path id="qrCode" d="M144,24v12c-5.9,0-18,0-24,0V24h-12V12c15,0,33,0,48,0v12H144z M456,12c0,27.5,0,56.5,0,84
 		c-27.5,0-56.5,0-84,0c0-27.5,0-56.5,0-84C395.4,12,456,12,456,12z M444,24c-19.2,0-40.8,0-60,0c0,19.2,0,40.8,0,60
@@ -99,4 +121,5 @@
 		C276.9,244.6,270.1,251.4,261.8,251.4z M233.3,204c3,0,5.4,2.4,5.4,5.4s-2.4,5.4-5.4,5.4c-3,0-5.4-2.4-5.4-5.4S230.3,204,233.3,204
 		z"/>
 </g>
+<p class='danmu'>内容测试</p>
 </svg>
