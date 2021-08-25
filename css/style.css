@@ -444,6 +444,25 @@ a[title="站长统计"] {
     top: 3vmin;
 }
 
+
+
+
+footer{
+    margin-bottom: 2em;
+opacity: 0.6;
+}
+footer dl{
+    display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: baseline;
+}
+footer dl *{
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+footer dl dd{text-align: right;}
+
 @media screen and (max-width: 800px) {
     html {
         font-size: 2vmin;
@@ -455,5 +474,8 @@ a[title="站长统计"] {
         /* 激活 容器里面的 方块 */
         max-width: 48% !important;
         flex: 1 0 49%;
+    }
+    #main li.active>ul>  li.markdown-body{
+        max-width: none!important;
     }
 }

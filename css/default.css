@@ -1,7 +1,7 @@
 *{
     font-family:  Helvetica, "Helvetica Neue", Tahoma, Verdana, "Gill Sans",
     "lucida grande", "lucida sans unicode", lucida, "Hiragino Sans GB",
-    "San Francisco", "PingFang SC", "STXihei", "Microsoft Yahei",
+    "San Francisco",system-ui,-apple-system, "PingFang SC", "STXihei", "Microsoft Yahei",
     "WenQuanYi Micro Hei", sans-serif;
     font-weight: 500!important;
     letter-spacing: 0.05em;
