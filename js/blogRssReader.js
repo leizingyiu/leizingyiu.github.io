@@ -40,11 +40,11 @@ function write_ul_li_a(contents, containerSelector) {
         li.appendChild(a);
     });
 }
-//initRssIframe('http://blog.leizingyiu.net/rssPage/index.html', 8)
-//initRssIframe('http://design.leizingyiu.net/index.html', 8)
+initRssIframe('http://blog.leizingyiu.net/rssPage/index.html', 8)
+initRssIframe('http://design.leizingyiu.net/index.html', 8)
 
-initRssIframe('http://localhost:4000/rssPage/index.html', 8)//blog
-initRssIframe('http://192.168.0.60:8000//index.html', 8)//design
+//initRssIframe('http://localhost:4000/rssPage/index.html', 8)//blog
+//initRssIframe('http://192.168.0.60:8000//index.html', 8)//design
 
 
 write_ul_li_a([{ 'href': 'html://blog.leizingyiu.net', 'innerText': ' 数 据 加 载 中 请 稍 候 \n\n 点 击 前 往 博 客' }], '#blog');
