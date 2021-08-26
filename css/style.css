@@ -1,253 +1,253 @@
 * {
-    /* transition: opacity 0.8s ease, background-color 0.8s ease, transform 0.8s ease; */
-    opacity: 1;
-    color: hsla(0, 0%, 0%, 1);
-    /* transform: translate(0 ,0) scale(1); */
-    transform-origin: top center;
-    box-sizing: border-box;
+  /* transition: opacity 0.8s ease, background-color 0.8s ease, transform 0.8s ease; */
+  opacity: 1;
+  color: hsla(0, 0%, 0%, 1);
+  /* transform: translate(0 ,0) scale(1); */
+  transform-origin: top center;
+  box-sizing: border-box;
 }
 
 html {
-    font-size: 1.5vmin !important;
-    transition: opacity 0.8s ease, background-color 0.8s ease, transform 0.8s ease;
+  font-size: 1.5vmin !important;
+  transition: opacity 0.8s ease, background-color 0.8s ease, transform 0.8s ease;
 }
 
 body > * {
-    transform: translate(0, 0) scale(1);
-    transition: opacity 0.8s ease, background-color 0.8s ease, transform 0.8s ease;
+  transform: translate(0, 0) scale(1);
+  transition: opacity 0.8s ease, background-color 0.8s ease, transform 0.8s ease;
 }
 
 .fadeOut * {
-    opacity: 0;
-    transform: translate(0, -25%) scale(1, 0.5);
+  opacity: 0;
+  transform: translate(0, -25%) scale(1, 0.5);
 }
 
 body {
-    /* background: url(https://source.unsplash.com/random) no-repeat center/cover fixed; */
-    background: #fafafa;
-    width: 1280px;
-    max-width: 75vw;
-    margin: 0 auto;
-    overflow-x: hidden;
-    transform: none;
-    transition: opacity 0.8s ease, background-color 0.8s ease, transform 0.8s ease;
-    /* background-image: url(http://bradjasper.com/subtle-patterns-bookmarklet/patterns/rockywall.png);*/
-    /* background-image: url(../temp.svg);
+  /* background: url(https://source.unsplash.com/random) no-repeat center/cover fixed; */
+  background: #fafafa;
+  width: 1280px;
+  max-width: 75vw;
+  margin: 0 auto;
+  overflow-x: hidden;
+  transform: none;
+  transition: opacity 0.8s ease, background-color 0.8s ease, transform 0.8s ease;
+  /* background-image: url(http://bradjasper.com/subtle-patterns-bookmarklet/patterns/rockywall.png);*/
+  /* background-image: url(../temp.svg);
   background-repeat: no-repeat;
   background-size: auto;  */
 
-    transform: translate(0 0) scale(1);
+  transform: translate(0 0) scale(1);
 }
 
 #background {
-    transition: none;
-    width: 100vmax;
-    height: 100vmax;
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, 0) scale(1) !important;
-    z-index: -9999999999;
-    opacity: 0.08;
-    filter: blur(0px);
+  transition: none;
+  width: 100vmax;
+  height: 100vmax;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0) scale(1) !important;
+  z-index: -9999999999;
+  opacity: 0.08;
+  filter: blur(0px);
 }
 
 #cover {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 
-    height: 60vmin;
-    padding: 5vmin 0;
+  height: 60vmin;
+  padding: 5vmin 0;
 
-    font-size: 2.5rem;
-    letter-spacing: 0.25em;
+  font-size: 2.5rem;
+  letter-spacing: 0.25em;
 }
 
 #cover > * {
-    flex-grow: 1;
-    flex-shrink: 1;
+  flex-grow: 1;
+  flex-shrink: 1;
 }
 
 #cover > dt {
-    flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 #main {
-    /* main整体 */
-    height: auto;
-    position: relative;
-    font-size: 0;
+  /* main整体 */
+  height: auto;
+  position: relative;
+  font-size: 0;
 }
 
 #main object {
-    display: none;
+  display: none;
 }
 
 #main li {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 #main li.active + li {
-    height: 0;
-    overflow: hidden;
+  height: 0;
+  overflow: hidden;
 }
 
 #main li.active * {
-    /* 活动容器下方所有，包含活动容器中未激活部分 */
-    opacity: 0;
-    text-align: left;
-    font-size: 0.5rem;
+  /* 活动容器下方所有，包含活动容器中未激活部分 */
+  opacity: 0;
+  text-align: left;
+  font-size: 0.5rem;
 }
 
 #main li.active object {
-    display: initial;
+  display: initial;
 }
 
 #main li.active > ul,
 #main li.active > ul > li {
-    max-width: 999vw !important;
-    max-height: 999vh !important;
-    opacity: 1 !important;
-    font-size: 2rem;
-    margin-bottom: 8rem;
-    transform: translate(0, 0) scale(1);
+  max-width: 999vw !important;
+  max-height: 999vh !important;
+  opacity: 1 !important;
+  font-size: 2rem;
+  margin-bottom: 8rem;
+  transform: translate(0, 0) scale(1);
 }
 
 #main li.active > a {
-    height: 0;
-    overflow: hidden;
-    display: none;
+  height: 0;
+  overflow: hidden;
+  display: none;
 }
 
 #main li.active[data-title],
 #main li.active[data-text] > ul > li[data-title] {
-    /* 已经激活 带标题 容器 */
-    height: auto;
-    position: relative;
-    font-size: 2rem;
-    /* padding-top: 2em; */
-    margin-bottom: 4em;
-    pointer-events: none;
-    transform: scale(1);
+  /* 已经激活 带标题 容器 */
+  height: auto;
+  position: relative;
+  font-size: 2rem;
+  /* padding-top: 2em; */
+  margin-bottom: 4em;
+  pointer-events: none;
+  transform: scale(1);
 }
 
 #main li.active[data-title] > ul > li[data-text] * {
-    /* 已激活 内层 折叠 部分 */
-    /* display: none; */
-    width: 100%;
-    /* height: 0; */
-    opacity: 0;
-    transform: scale(1, 0);
-    left: 0;
-    pointer-events: none;
-    font-size: 0;
-    /* overflow: hidden; */
+  /* 已激活 内层 折叠 部分 */
+  /* display: none; */
+  width: 100%;
+  /* height: 0; */
+  opacity: 0;
+  transform: scale(1, 0);
+  left: 0;
+  pointer-events: none;
+  font-size: 0;
+  /* overflow: hidden; */
 }
 
 #main li.active[data-title]::before,
 #main li.active[data-text] > ul > li[data-title]::before,
 #main li.active[data-openInside] > ul > li[data-title]::before {
-    /* 容器本身的before标题
+  /* 容器本身的before标题
      子级别被点击后成为容器 的before标题 */
-    opacity: 1;
-    content: attr(data-title);
-    color: hsla(200deg 80% 10% / 48%);
-    font-size: 2rem;
-    font-weight: 400;
-    letter-spacing: 0.05em;
-    text-transform: capitalize;
-    position: relative;
-    left: 0;
-    top: 0;
-    transform: scale(1);
-    transition: letter-spacing 0.2s ease, opacity 0.2s ease, color 0.2s ease;
+  opacity: 1;
+  content: attr(data-title);
+  color: hsla(200deg 80% 10% / 48%);
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+  position: relative;
+  left: 0;
+  top: 0;
+  transform: scale(1);
+  transition: letter-spacing 0.2s ease, opacity 0.2s ease, color 0.2s ease;
 }
 
 #main li.active[data-title]:hover::before,
 #main li.active[data-text] > ul > li[data-title]:hover::before {
-    color: hsla(210deg 80% 10% / 72%);
-    letter-spacing: 0.2em;
+  color: hsla(210deg 80% 10% / 72%);
+  letter-spacing: 0.2em;
 }
 
 #main li.active[data-text][data-title]::after,
 #main li.active[data-text] > ul > li[data-title]::after,
 #main li.active[data-openInside][data-title]::after,
 #main li.active[data-openInside] > ul > li[data-title]::after {
-    /* 已激活容器的标题栏 右边的关闭 */
-    opacity: 0.6;
-    content: "⤬";
-    font-size: 1em;
-    font-weight: 400;
-    position: absolute;
-    right: -1em;
-    top: -1em;
-    padding: 1em;
-    cursor: pointer;
-    pointer-events: all;
-    transform: scale(0.8);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+  /* 已激活容器的标题栏 右边的关闭 */
+  opacity: 0.6;
+  content: "⤬";
+  font-size: 1em;
+  font-weight: 400;
+  position: absolute;
+  right: -1em;
+  top: -1em;
+  padding: 1em;
+  cursor: pointer;
+  pointer-events: all;
+  transform: scale(0.8);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 #main li.active[data-text][data-title]:hover:after,
 #main li.active[data-text] > ul > li[data-title]:hover::after,
 #main li.active[data-openInside][data-title]:hover::after,
 #main li.active[data-openInside] > ul > li[data-title]:hover::after {
-    /* 已激活容器 hover 的标题栏 右边的关闭 */
-    opacity: 0.9;
-    transform: rotate(180deg) scale(0.9);
+  /* 已激活容器 hover 的标题栏 右边的关闭 */
+  opacity: 0.9;
+  transform: rotate(180deg) scale(0.9);
 }
 
 #main li.active[data-title] > ul,
 #main li.active[data-text] > ul > li[data-title] > ul,
 #main li.active[data-openInside] > ul > li[data-title] > ul {
-    /* 已激活的容器 */
-    opacity: 1;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: center;
-    width: 100% !important;
-    padding-top: 2em;
-    pointer-events: all;
-    transform: scale(1);
+  /* 已激活的容器 */
+  opacity: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+  width: 100% !important;
+  padding-top: 2em;
+  pointer-events: all;
+  transform: scale(1);
 }
 
 #main li.active[data-title] > ul > li,
 #main li.active[data-text] > ul > li[data-title] > ul > li,
 #main li.active[data-openInside] > ul > li[data-title] > ul > li {
-    /* 激活 容器里面的 方块 */
-    display: block;
-    opacity: 1;
-    max-width: 22.5% !important;
-    text-align: center;
-    position: relative;
-    font-size: 1.25rem;
-    flex: 1 0 24%;
-    margin-bottom: 3rem;
+  /* 激活 容器里面的 方块 */
+  display: block;
+  opacity: 1;
+  max-width: 22.5% !important;
+  text-align: center;
+  position: relative;
+  font-size: 1.25rem;
+  flex: 1 0 24%;
+  margin-bottom: 3rem;
 
-    transform: translate(0, 0) scale(1);
-    transform-origin: bottom;
-    height: 100%;
-    cursor: pointer;
+  transform: translate(0, 0) scale(1);
+  transform-origin: bottom;
+  height: 100%;
+  cursor: pointer;
 
-    backdrop-filter: blur(6px);
-    background: hsla(0, 100%, 100%, 0.12) !important;
-    box-shadow: 0 0 12px 0 hsl(0deg 0% 0% / 8%), 0 0px 0px 0 hsl(0deg 0% 0% / 0%);
-    border-radius: 4px;
+  backdrop-filter: blur(6px);
+  background: hsla(0, 100%, 100%, 0.12) !important;
+  box-shadow: 0 0 12px 0 hsl(0deg 0% 0% / 8%), 0 0px 0px 0 hsl(0deg 0% 0% / 0%);
+  border-radius: 4px;
 
-    transition: box-shadow 0.4s ease, transform 0.4s ease, color 0.4s ease;
+  transition: box-shadow 0.4s ease, transform 0.4s ease, color 0.4s ease;
 }
 
 /* hover 方块 hover效果 参考 downloa的按钮 */
 #main li.active[data-title] > ul > li:hover,
 #main li.active[data-text] > ul > li[data-title] > ul > li:hover,
 #main li.active[data-openInside] > ul > li[data-title] > ul > li:hover {
-    transform: translate(0, -6px) scale(1.02);
-    box-shadow: 0 0 0px 0 hsl(0deg 0% 0% / 8%), 0 6px 12px 0 hsl(0deg 0% 0% / 8%);
+  transform: translate(0, -6px) scale(1.02);
+  box-shadow: 0 0 0px 0 hsl(0deg 0% 0% / 8%), 0 6px 12px 0 hsl(0deg 0% 0% / 8%);
 }
 
 #main li.active[data-title] > ul > li[data-text]:before,
@@ -255,160 +255,167 @@ body {
 #main li.active[data-title] > ul > li > *,
 #main li.active[data-text] > ul > li[data-title] > ul > li > *,
 #main li.active[data-title] > ul > li[data-openInside]::before,
-#main li.active[data-openInside] > ul > li[data-title] > ul > li[data-openInside]::before,
+#main
+  li.active[data-openInside]
+  > ul
+  > li[data-title]
+  > ul
+  > li[data-openInside]::before,
 #main li.active[data-openInside] > ul > li[data-title] > ul > li > * {
-    /* 方块的data文本 */
-    /* 方块内部的超链接 */
-    opacity: 1;
-    content: attr(data-text);
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
+  /* 方块的data文本 */
+  /* 方块内部的超链接 */
+  opacity: 1;
+  content: attr(data-text);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    padding: 1em;
-    font-size: 1.25rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  padding: 1em;
+  font-size: 1.08rem;
 
-    line-height: 2em;
-    letter-spacing: 0.05em;
-    text-align: center;
-    color: hsla(0, 0%, 0%, 0.8);
-    letter-spacing: 0.2em;
+  line-height: 2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  color: hsla(0, 0%, 0%, 0.8);
+  letter-spacing: 0.2em;
 }
 
 #main li.active[data-title] > ul > li > a,
 #main li.active[data-text] > ul > li[data-title] > ul > li > a,
 #main li.active[data-openInside] > ul > li[data-title] > ul > li > a {
-    display: flex;
+  display: flex;
 }
 
 #main li.active[data-title] > ul > li::after,
 #main li.active[data-text] > ul > li[data-title] > ul > li::after,
 #main li.active[data-openInside] > ul > li[data-title] > ul > li::after {
-    /* 把方块撑成正方形 */
-    opacity: 1;
-    content: "";
-    padding-top: 100%;
-    transform: scale(1);
-    /* vertical-align: middle; */
-    display: block;
+  /* 把方块撑成正方形 */
+  opacity: 1;
+  content: "";
+  padding-top: 100%;
+  transform: scale(1);
+  /* vertical-align: middle; */
+  display: block;
 }
 
 #main .active ul a[data-description] {
-    transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
-    opacity: 1;
+  transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
+  opacity: 1;
 }
 
 #main .active ul li:hover > a[data-description],
 #main .active ul li > a[data-description]:hover {
-    transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
-    transform: translate(-50%, -100%) !important;
-    color: hsla(0, 0%, 0%, 0) !important;
-    opacity: 1 !important;
+  transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
+  transform: translate(-50%, -100%) !important;
+  color: hsla(0, 0%, 0%, 0) !important;
+  opacity: 1 !important;
 }
 
 #main .active ul li > a[data-description]::before,
 #main .active ul a[data-description]::before {
-    content: attr(data-description);
-    position: absolute;
-    bottom: 0%;
-    left: 50%;
-    transform: translate(-50%, 100%) scale(0);
-    transform-origin: center top;
-    opacity: 0;
-    font-size: 0.9rem;
-    color: hsla(0, 0%, 0%, 0);
-    text-align: center;
-    transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
-    width: 90%;
+  content: attr(data-description);
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, 100%) scale(0);
+  transform-origin: center top;
+  opacity: 0;
+  font-size: 0.9rem;
+  color: hsla(0, 0%, 0%, 0);
+  text-align: center;
+  transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
+  width: 90%;
 }
 
 #main .active ul li:hover > a[data-description]::before,
 #main .active ul a[data-description]:hover::before {
-    transform: translate(-50%, 50%) scale(1);
-    color: hsla(0, 0%, 0%, 0.8);
-    opacity: 1;
-    transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
+  transform: translate(-50%, 50%) scale(1);
+  color: hsla(0, 0%, 0%, 0.8);
+  opacity: 1;
+  transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
 }
 
 #main li.active > ul > li.markdown-body,
 #main li.active > ul > li.markdown-body * {
-    opacity: 1 !important;
-    font-size: initial;
-    /* display: initial; */
+  opacity: 1 !important;
+  font-size: initial;
+  /* display: initial; */
 }
 
 #main a[data-preview] {
-    transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
-    opacity: 1;
-    position: relative;
+  transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
+  opacity: 1;
+  position: relative;
 }
 
 #main li:hover > a[data-preview],
 #main li > a[data-preview]:hover {
-    transition: height 0.5s ease;
-    height: 100% !important;
+  transition: height 0.5s ease;
+  height: 100% !important;
 }
 
 #main li > a[data-preview]::before,
 #main a[data-preview]::before {
-    transition: opacity 0.5s ease;
-    content: "";
-    background-image: var(--bg-image);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+  transition: opacity 0.5s ease;
+  content: "";
+  background-image: var(--bg-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: var(--bg-size);
+  background-size: cover;
 
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 
-    opacity: 0.08;
+  color: #fafafa;
+  opacity: 0.04;
 }
 
 #main li:hover > a[data-preview]::before,
 #main a[data-preview]:hover::before {
-    transition: opacity 0.5s ease;
-    opacity: 0.8;
+  transition: opacity 0.5s ease;
+  opacity: 0.75;
 }
 
 #main li.active > ul[column] {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 #main li.active > ul[column] > li {
-    width: 100%;
-    max-width: none !important;
-    display: block;
-    padding: 1em;
-    cursor: initial;
-    text-align: left;
+  width: 100%;
+  max-width: none !important;
+  display: block;
+  padding: 1em;
+  cursor: initial;
+  text-align: left;
 }
 
 #main li.active > ul[column] > li:hover {
-    transform: none;
-    box-shadow: 0 0 12px 0 hsl(0deg 0% 0% / 8%), 0 0px 0px 0 hsl(0deg 0% 0% / 0%);
+  transform: none;
+  box-shadow: 0 0 12px 0 hsl(0deg 0% 0% / 8%), 0 0px 0px 0 hsl(0deg 0% 0% / 0%);
 }
 
 #main li.active > ul[column] > li * {
-    height: auto;
-    position: inherit;
-    top: 0;
-    left: 0;
-    transform: none;
-    /* display: inherit; */
-    text-align: left;
+  height: auto;
+  position: inherit;
+  top: 0;
+  left: 0;
+  transform: none;
+  /* display: inherit; */
+  text-align: left;
 }
 
 #main li.active > ul[column] > li::after {
-    content: none;
+  content: none;
 }
 
 /* [placeholder]{
@@ -420,62 +427,61 @@ opacity: 0!important;
 } */
 
 a[title="站长统计"] {
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
 }
 
 .backup {
-    display: block;
-    width: 26vw;
-    height: 26vh;
-    position: fixed;
-    z-index: 999;
-    backdrop-filter: blur(4px);
-    background: hsla(0, 0%, 100%, 0.1) !important;
-    box-shadow: 0 0 12px 0 hsl(0deg 0% 0% / 24%);
-    color: #fefefe !important;
-    /* border: 1px solid hsla(0,0%,100%,0.8)!important; */
-    left: 8vmin;
-    top: 3vmin;
+  display: block;
+  width: 26vw;
+  height: 26vh;
+  position: fixed;
+  z-index: 999;
+  backdrop-filter: blur(4px);
+  background: hsla(0, 0%, 100%, 0.1) !important;
+  box-shadow: 0 0 12px 0 hsl(0deg 0% 0% / 24%);
+  color: #fefefe !important;
+  /* border: 1px solid hsla(0,0%,100%,0.8)!important; */
+  left: 8vmin;
+  top: 3vmin;
 }
 
-
-
-
-footer{
-    margin-bottom: 2em;
-opacity: 0.6;
+footer {
+  margin-bottom: 2em;
+  opacity: 0.6;
 }
-footer dl{
-    display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: baseline;
+footer dl {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
 }
-footer dl *{
-    flex-grow: 1;
-    flex-shrink: 1;
+footer dl * {
+  flex-grow: 1;
+  flex-shrink: 1;
 }
-footer dl dd{text-align: right;}
+footer dl dd {
+  text-align: right;
+}
 
 @media screen and (max-width: 800px) {
-    html {
-        font-size: 2vmin;
-    }
+  html {
+    font-size: 2vmin;
+  }
 
-    #main li.active[data-title] > ul > li,
-    #main li.active[data-text] > ul > li[data-title] > ul > li,
-    #main li.active[data-openInside] > ul > li[data-title] > ul > li {
-        /* 激活 容器里面的 方块 */
-        max-width: 48% !important;
-        flex: 1 0 49%;
-    }
-    #main li.active>ul>  li.markdown-body{
-        max-width: none!important;
-    }
+  #main li.active[data-title] > ul > li,
+  #main li.active[data-text] > ul > li[data-title] > ul > li,
+  #main li.active[data-openInside] > ul > li[data-title] > ul > li {
+    /* 激活 容器里面的 方块 */
+    max-width: 48% !important;
+    flex: 1 0 49%;
+  }
+  #main li.active > ul > li.markdown-body {
+    max-width: none !important;
+  }
 }
