@@ -48,7 +48,7 @@ body {
   left: 50%;
   transform: translate(-50%, 0) scale(1) !important;
   z-index: -9999999999;
-  opacity: 0.08;
+  opacity: 0.2;
   filter: blur(0px);
 }
 
@@ -234,9 +234,9 @@ body {
   height: 100%;
   cursor: pointer;
 
-  backdrop-filter: blur(6px);
   background: hsla(0, 100%, 100%, 0.12) !important;
   box-shadow: 0 0 12px 0 hsl(0deg 0% 0% / 8%), 0 0px 0px 0 hsl(0deg 0% 0% / 0%);
+  /* backdrop-filter: blur(0px); */
   border-radius: 4px;
 
   transition: box-shadow 0.4s ease, transform 0.4s ease, color 0.4s ease;
@@ -248,6 +248,7 @@ body {
 #main li.active[data-openInside] > ul > li[data-title] > ul > li:hover {
   transform: translate(0, -6px) scale(1.02);
   box-shadow: 0 0 0px 0 hsl(0deg 0% 0% / 8%), 0 6px 12px 0 hsl(0deg 0% 0% / 8%);
+  /* backdrop-filter: blur(0px); */
 }
 
 #main li.active[data-title] > ul > li[data-text]:before,
@@ -255,12 +256,7 @@ body {
 #main li.active[data-title] > ul > li > *,
 #main li.active[data-text] > ul > li[data-title] > ul > li > *,
 #main li.active[data-title] > ul > li[data-openInside]::before,
-#main
-  li.active[data-openInside]
-  > ul
-  > li[data-title]
-  > ul
-  > li[data-openInside]::before,
+#main li.active[data-openInside]> ul > li[data-title]  > ul > li[data-openInside]::before,
 #main li.active[data-openInside] > ul > li[data-title] > ul > li > * {
   /* 方块的data文本 */
   /* 方块内部的超链接 */
@@ -285,33 +281,42 @@ body {
   letter-spacing: 0.2em;
 }
 
+/* 把方块撑成正方形 */
+#main li.active[data-title] > ul > li::after,
+#main li.active[data-text] > ul > li[data-title] > ul > li::after,
+#main li.active[data-openInside] > ul > li[data-title] > ul > li::after {
+  opacity: 1;
+  content: "";
+  padding-top: 100%;
+  transform: scale(1);
+  display: block;
+}
+
+
+
+
+
 #main li.active[data-title] > ul > li > a,
 #main li.active[data-text] > ul > li[data-title] > ul > li > a,
 #main li.active[data-openInside] > ul > li[data-title] > ul > li > a {
   display: flex;
 }
 
-#main li.active[data-title] > ul > li::after,
-#main li.active[data-text] > ul > li[data-title] > ul > li::after,
-#main li.active[data-openInside] > ul > li[data-title] > ul > li::after {
-  /* 把方块撑成正方形 */
-  opacity: 1;
-  content: "";
-  padding-top: 100%;
-  transform: scale(1);
-  /* vertical-align: middle; */
-  display: block;
-}
-
-#main .active ul a[data-description] {
-  transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
+#main .active ul a[data-description],
+#main .active ul a[data-title],
+#main .active ul a[data-description]::before,
+#main .active ul a[data-title]::before,
+#main .active ul a[data-description]::after,
+#main .active ul a[data-title]::after{
+  font-size: 1.2rem;
+  transition: top 0.5s ease , bottom 0.5s ease, transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
   opacity: 1;
 }
 
 #main .active ul li:hover > a[data-description],
 #main .active ul li > a[data-description]:hover {
   transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
-  transform: translate(-50%, -100%) !important;
+  /* transform: translate(-50%, -100%) !important; */
   color: hsla(0, 0%, 0%, 0) !important;
   opacity: 1 !important;
 }
@@ -322,13 +327,13 @@ body {
   position: absolute;
   bottom: 0%;
   left: 50%;
-  transform: translate(-50%, 100%) scale(0);
+  transform: translate(-50%, 100%) scale(0.5);
   transform-origin: center top;
   opacity: 0;
   font-size: 0.9rem;
   color: hsla(0, 0%, 0%, 0);
   text-align: center;
-  transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
+  transition: top 0.5s ease , bottom 0.5s ease, transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
   width: 90%;
 }
 
@@ -338,7 +343,40 @@ body {
   color: hsla(0, 0%, 0%, 0.8);
   opacity: 1;
   transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
+  bottom: 50%;
 }
+
+/* _________ */
+
+#main .active ul li > a[data-title]::after,
+#main .active ul a[data-title]::after {
+  content: attr(data-title);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transform-origin: center top;
+  opacity: 1;
+  font-size: 0.9rem;
+  color: hsla(0, 0%, 0%, 1);
+  text-align: center;
+  transition: top 0.5s ease , bottom 0.5s ease, transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
+  width: 90%;
+}
+#main .active ul li:hover > a[data-title]::after,
+#main .active ul li > a[data-title]:hover::after,
+#main .active ul a[data-title]:hover::after {
+  top: 0%;
+  transform: translate(-50%, 0%) scale(0.5);
+  transform-origin: center top;
+  opacity: 0;
+  color: hsla(0, 0%, 0%, 0);
+}
+
+
+/* _______ */
+
+
 
 #main li.active > ul > li.markdown-body,
 #main li.active > ul > li.markdown-body * {
