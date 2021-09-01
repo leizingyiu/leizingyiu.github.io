@@ -1,7 +1,10 @@
+:root{
+  --font-colour:hsl(210deg,48%,12%,0.9);
+}
 * {
   /* transition: opacity 0.8s ease, background-color 0.8s ease, transform 0.8s ease; */
   opacity: 1;
-  color: hsla(0, 0%, 0%, 1);
+  color: var(--font-colour);
   /* transform: translate(0 ,0) scale(1); */
   transform-origin: top center;
   box-sizing: border-box;
@@ -48,7 +51,7 @@ body {
   left: 50%;
   transform: translate(-50%, 0) scale(1) !important;
   z-index: -9999999999;
-  opacity: 0.2;
+  opacity: 0.16;
   filter: blur(0px);
 }
 
@@ -57,21 +60,35 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
   height: 60vmin;
   padding: 5vmin 0;
-
   font-size: 2.5rem;
   letter-spacing: 0.25em;
 }
-
-#cover > * {
+#cover *{overflow: visible;}
+#cover > dt{
   flex-grow: 1;
-  flex-shrink: 1;
+}
+#cover > dd {
+  height: 60vmin;
+  flex-grow: 0;
+  flex-shrink: 0;
+  max-width: 33%;
+  min-width: 30%;
 }
 
-#cover > dt {
-  flex-shrink: 0;
+#cover #coverSvg_yiu{
+  top: 50%;
+  position: absolute;
+  transform: translate(0px, -50%);
+}
+
+#cover #coverSvg_yiu svg{
+  /* transform: scale(0.6); */
+  /* transform-origin: right center; */
+overflow: visible;
+width: 100%;
+    height: auto;
 }
 
 #main {
@@ -168,7 +185,7 @@ body {
 
 #main li.active[data-title]:hover::before,
 #main li.active[data-text] > ul > li[data-title]:hover::before {
-  color: hsla(210deg 80% 10% / 72%);
+  color: var(--font-colour);
   letter-spacing: 0.2em;
 }
 
@@ -234,7 +251,7 @@ body {
   height: 100%;
   cursor: pointer;
 
-  background: hsla(0, 100%, 100%, 0.12) !important;
+  background: rgba(255, 255, 255, 0.16) !important;
   box-shadow: 0 0 12px 0 hsl(0deg 0% 0% / 8%), 0 0px 0px 0 hsl(0deg 0% 0% / 0%);
   /* backdrop-filter: blur(0px); */
   border-radius: 4px;
@@ -246,9 +263,10 @@ body {
 #main li.active[data-title] > ul > li:hover,
 #main li.active[data-text] > ul > li[data-title] > ul > li:hover,
 #main li.active[data-openInside] > ul > li[data-title] > ul > li:hover {
+  background: rgba(255, 255, 255, 0.24) !important;
   transform: translate(0, -6px) scale(1.02);
   box-shadow: 0 0 0px 0 hsl(0deg 0% 0% / 8%), 0 6px 12px 0 hsl(0deg 0% 0% / 8%);
-  /* backdrop-filter: blur(0px); */
+  /* backdrop-filter: blur(4px); */
 }
 
 #main li.active[data-title] > ul > li[data-text]:before,
@@ -277,7 +295,7 @@ body {
   line-height: 2em;
   letter-spacing: 0.05em;
   text-align: center;
-  color: hsla(0, 0%, 0%, 0.8);
+  color: var(--font-colour);
   letter-spacing: 0.2em;
 }
 
@@ -312,12 +330,15 @@ body {
   transition: top 0.5s ease , bottom 0.5s ease, transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
   opacity: 1;
 }
+#main #menu>ul>li>a,#main #menu>ul>li>a::before,#main #menu>ul>li>a::after{
+  font-size: 1.6rem;
+}
 
 #main .active ul li:hover > a[data-description],
 #main .active ul li > a[data-description]:hover {
   transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
   /* transform: translate(-50%, -100%) !important; */
-  color: hsla(0, 0%, 0%, 0) !important;
+  color:var(--font-colour)!important;
   opacity: 1 !important;
 }
 
@@ -330,8 +351,7 @@ body {
   transform: translate(-50%, 100%) scale(0.5);
   transform-origin: center top;
   opacity: 0;
-  font-size: 0.9rem;
-  color: hsla(0, 0%, 0%, 0);
+  color: var(--font-colour);
   text-align: center;
   transition: top 0.5s ease , bottom 0.5s ease, transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
   width: 90%;
@@ -340,7 +360,7 @@ body {
 #main .active ul li:hover > a[data-description]::before,
 #main .active ul a[data-description]:hover::before {
   transform: translate(-50%, 50%) scale(1);
-  color: hsla(0, 0%, 0%, 0.8);
+  color:var(--font-colour);
   opacity: 1;
   transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
   bottom: 50%;
@@ -357,8 +377,7 @@ body {
   transform: translate(-50%, -50%) scale(1);
   transform-origin: center top;
   opacity: 1;
-  font-size: 0.9rem;
-  color: hsla(0, 0%, 0%, 1);
+  color: var(--font-colour);
   text-align: center;
   transition: top 0.5s ease , bottom 0.5s ease, transform 0.5s ease, opacity 0.5s ease, color 0.5s ease !important;
   width: 90%;
@@ -370,7 +389,7 @@ body {
   transform: translate(-50%, 0%) scale(0.5);
   transform-origin: center top;
   opacity: 0;
-  color: hsla(0, 0%, 0%, 0);
+  color: var(--font-colour);
 }
 
 
@@ -381,7 +400,9 @@ body {
 #main li.active > ul > li.markdown-body,
 #main li.active > ul > li.markdown-body * {
   opacity: 1 !important;
-  font-size: initial;
+  /* font-size: initial; */
+  font-size: 80%;
+  line-height: 200%;
   /* display: initial; */
 }
 
@@ -397,8 +418,8 @@ body {
   height: 100% !important;
 }
 
-#main li > a[data-preview]::before,
-#main a[data-preview]::before {
+#main li > a[data-preview]::after,
+#main a[data-preview]::after {
   transition: opacity 0.5s ease;
   content: "";
   background-image: var(--bg-image);
@@ -418,10 +439,17 @@ body {
   opacity: 0.04;
 }
 
-#main li:hover > a[data-preview]::before,
-#main a[data-preview]:hover::before {
+#main li:hover > a[data-preview]::after,
+#main a[data-preview]:hover::after {
   transition: opacity 0.5s ease;
-  opacity: 0.75;
+  opacity: 0.12;
+  mix-blend-mode: multiply;
+}
+
+#main li:hover > a[data-preview][data-description]::before,
+#main a[data-preview][data-description]:hover::before {
+  transition: opacity 0.5s ease;
+  opacity: 1;
 }
 
 #main li.active > ul[column] {
@@ -492,6 +520,23 @@ a[title="站长统计"] {
 footer {
   margin-bottom: 2em;
   opacity: 0.6;
+}
+footer *{
+  font-size: 1rem;
+  font-weight: initial!important;
+}
+footer [href],footer [onclick]{
+  text-decoration: underline;
+}
+footer table tr{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+footer table tr td{
+  margin: 0 2em 0 0;
+  flex-grow: 1;
 }
 footer dl {
   display: flex;

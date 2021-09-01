@@ -1,10 +1,20 @@
 <!-- 
 Created= "2021/07/01 11:00:01" 
-Last modified= "2021/08/29 17:58:13"
+Last modified= "2021/09/02 01:36:39"
 -->
 <html>
 
 <head>
+    <script>
+        let logDebug = location.href.indexOf('leizingyiu.net') == -1;
+        console.log = (function (oriLogFunc) {
+            return function () {
+                if (logDebug) {
+                    oriLogFunc.apply(this, arguments);
+                }
+            }
+        })(console.log);
+    </script>
     <!-- <link rel="stylesheet" type="text/css" href="./css/markdown.css"> -->
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
@@ -26,24 +36,23 @@ Last modified= "2021/08/29 17:58:13"
             <h1>[nihao]你好[ya]呀！<br>[wo]我[shi]是 Leizingyiu <br>[keyi]可以[jiao]叫[wo]我[zhenyaoshushu]镇妖蜀黍😉<br></h1>
         </dt>
         <dd>
-            <div id="coverSvg_yiu" style="transform: scale(0.6);transform-origin: right center;"
-                data-svg-src='../img/yiu.svg'>
-                <script>getAttrContentWriteHtml('#coverSvg_yiu', 'data-svg-src')</script>
+            <div id="coverSvg_yiu" data-svg-src='../img/yiu.svg'>
+                <object data="../img/yiu.svg" width="100%" height="100%"></object>
+                <!-- <script>getAttrContentWriteHtml('#coverSvg_yiu', 'data-svg-src')</script> -->
             </div>
         </dd>
     </dl>
-
 
     <ul id="main">
         <li id="menu" class="active" data-title='menu'>
             <ul>
                 <li data-openInside data-title="projects menu">
-                    <a data-description='造的一些轮子'>projects</a>
+                    <a data-description='造的一些轮子' data-title="projects"></a>
                     <ul>
-                        <li><a href="http://leizingyiu.net/AfterEffectsExpressions/" data-description='原创表达式，和一些笔记'
+                        <li><a href="http://www.leizingyiu.net/AfterEffectsExpressions/" data-description='原创表达式，和一些笔记'
                                 data-title='AfterEffects Expressions'></a>
                         </li>
-                        <li><a href="https://leizingyiu.net/AfterEffectsPresets/"
+                        <li><a href="https://www.leizingyiu.net/AfterEffectsPresets/"
                                 data-description="一些AE预设，基本都是针对特定场景使用的" data-title="AfterEffects Presets"></a>
                         </li>
                         <li placeholder> </li>
@@ -51,22 +60,25 @@ Last modified= "2021/08/29 17:58:13"
                     </ul>
                 </li>
                 <li data-openInside>
-                    <a data-description='总结的一些教程'>tutorials</a>
+                    <a data-title="tutorials" data-description='总结的一些教程'></a>
                     <ul>
                         <li data-title="tutorials : recent">
                             <ul>
                                 <li><a href="https://uiiiuiii.com/other/121291164.html"
-                                        data-preview='http://pic.leizingyiu.net/leizingyiu-0812-deviceorientation_370x250.gif'>酷毙了！7分钟学会插画视差效果小技巧</a>
+                                        data-preview='http://pic.leizingyiu.net/leizingyiu-0812-deviceorientation_370x250.gif'
+                                        data-description="酷毙了！7分钟学会插画视差效果小技巧"></a>
                                 </li>
                                 <li><a href="https://uiiiuiii.com/aftereffects/121212834.html"
-                                        data-preview='http://pic.leizingyiu.net/leizingyiu_0902_AE_fireLoop_header_870x588.gif'>AE教程！火焰粒子循环动效（含插件）</a>
+                                        data-preview='http://pic.leizingyiu.net/leizingyiu_0902_AE_fireLoop_header_870x588.gif'
+                                        data-description="AE教程！火焰粒子循环动效（含插件）"></a>
                                 </li>
                                 <li><a href="https://uiiiuiii.com/illustrator/121243588.html"
-                                        data-preview="http://pic.leizingyiu.net/leizingyiu_0111_AI_jonathanHarris_header_870x588.jpg">AI教程！7分钟学会视错觉插画</a>
+                                        data-preview="http://pic.leizingyiu.net/leizingyiu_0111_AI_jonathanHarris_header_870x588.jpg"
+                                        data-description="AI教程！7分钟学会视错觉插画"></a>
                                 </li>
                                 <li><a href="https://weibo.com/1688314062/EkQaMdPoM"
-                                        data-preview="http://pic.leizingyiu.net/64a1a0cegw1fagzf1yobmg20b40b4e82.gif">yiu_2016-12-6
-                                        12:58</a></li>
+                                        data-preview="http://pic.leizingyiu.net/64a1a0cegw1fagzf1yobmg20b40b4e82.gif"
+                                        data-description="yiu_2016-12-6 12:58"></a></li>
                             </ul>
                         </li>
                         <li data-title="tutorials : readmore">
@@ -82,7 +94,7 @@ Last modified= "2021/08/29 17:58:13"
                     </ul>
                 </li>
                 <li data-openInside>
-                    <a data-description=' blog  and  design '> m o r e </a>
+                    <a data-description=' blog  and  design ' data-title=" m o r e "></a>
                     <ul>
                         <li data-title="more:design" id="design">
                         </li>
@@ -107,7 +119,7 @@ Last modified= "2021/08/29 17:58:13"
                     </ul>
                 </li>
                 <li data-openInside data-title="about & Contact">
-                    <a data-description='简介以及联系方式'>about <br> & <br> Contact</a>
+                    <a data-description='简介以及联系方式' data-title="about   &   Contact"></a>
                     <ul column>
                         <li class="markdown-body" data-mdFile='./page/about.md'></li>
                         <li class="markdown-body" data-mdFile='./page/contact.md'></li>
@@ -127,24 +139,41 @@ Last modified= "2021/08/29 17:58:13"
         <li id="recent" class="active" data-title="recent">
             <ul>
                 <li><a href="http://leizingyiu.net/AfterEffectsExpressions/?orginalExpressions=AE%E8%B7%AF%E5%BE%84%E5%BC%B9%E6%80%A7%E8%A1%A8%E8%BE%BE%E5%BC%8F"
-                        data-description='overshoot and bounceback for path'>路径属性可以用的<br>弹性表达式</a>
+                        data-description='overshoot and bounceback for path' data-title="路径属性可以用的,弹性表达式"></a>
                 </li>
                 <li><a href="http://leizingyiu.net/AfterEffectsExpressions/?orginalExpressions=%E4%B8%89%E8%A7%92%E6%B3%A2%E4%B8%8E%E9%94%AF%E9%BD%BF%E6%B3%A2"
-                        data-description='triWave and sawWave'>把loopOut用在属性值的<br>三角波与锯齿波</a>
+                        data-description='triWave and sawWave' data-title="把loopOut用在属性值的,三角波与锯齿波"></a>
                 </li>
                 <li><a href="http://leizingyiu.net/AfterEffectsPresets/?browsing=yiu_loop"
-                        data-description='loop and loopAuto for any property'>yiu_loop<br>任意属性自动循环</a>
+                        data-description='loop and loopAuto for any property' data-title="yiu_loop,任意属性自动循环"></a>
                 </li>
-                <li><a href="javascript:void 0;" data-description='快了快了😭'>comming<br>soon</a></li>
+                <li><a href="javascript:void 0;" data-description='快了快了😭' data-title="comming soon"></a></li>
             </ul>
         </li>
     </ul>
     <footer>
-        <dl>
-            <dt>Designed & Powerd by Leizingyiu | Copyright© Leizingyiu.net</dt>
-            <dd>粤ICP备2020086793号-1</dd>
-        </dl>
+        <!-- <ul>
+            <li class="markdown-body" data-mdFile='./page/footer.md'></li>
+        </ul> -->
     </footer>
+    <script>
+        fetch('page/footer.html').then(function (response) {
+            return response.text();
+        }).then(function (resText) {
+            document.querySelector('footer').innerHTML = resText;
+        }).then(function () {
+
+            fetch('page/footer_links.json').then(function (response) {
+                return response.json();
+            }).then(function (resJson) {
+                Object.keys(resJson).map(function (k) {
+                    document.querySelector('#' + k.replace(/\[[^\]]*\]/, '')).innerHTML += '<tr' + ' class="inside" ' + '><td><b>' + k.match(/\[[^\]]*\]/) + '</b></td></tr>';
+                    document.querySelector('#' + k.replace(/\[[^\]]*\]/, '')).width = (100 - 100 / Object.keys(resJson[k]).length) + '%'
+                    Object.keys(resJson[k]).map(l => document.querySelector('#' + k.replace(/\[[^\]]*\]/, '') + ' .inside').innerHTML += '<td><a href="' + resJson[k][l] + '">' + l + '</a></td>');
+                })
+            });
+        });
+    </script>
 
     <!-- 统计  script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1280029923&web_id=1280029923" -->
     <script>
@@ -157,13 +186,31 @@ Last modified= "2021/08/29 17:58:13"
     </script>
 
     <script type="text/javascript" src=".\js\script.js"></script>
-    <script src="./js/typing.js"></script>
+
     <script src="./js/writeDataPreview.js"></script>
     <script src="./js/blogRssReader.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="./js/loadMarkdownFile.js"></script>
     <script src="./js/loadDataHoverPreview.js"> </script>
-    <script>setTimeout("document.body.classList.remove('fadeOut');", 10);</script>
+    <script src="./js/typing.js"></script>
+    <script>
+        // function setSvgPositionAbsolute(selector) {
+        //     let style;
+        //     if (document.querySelector('#svgReset_' + selector) != null) {
+        //         style = document.querySelector('#svgReset_' + selector);
+        //         style.parentElement.removeChild(style);
+        //     } else {
+        //         style = document.createElement('style');
+        //         style.id = '#svgReset_' + selector;
+        //         style.innerText = 'svg ' + selector + '{position:absolute;}'
+        //     }
+        //     document.body.appendChild(style);
+        // }
+        function startPage() {
+            document.body.classList.remove('fadeOut');
+            typingWithSpellingBrackets('#cover h1');
+        }
+        setTimeout("startPage();", 10);</script>
     <!-- <script>
 
         function loadDonate() {

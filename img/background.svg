@@ -31,6 +31,10 @@
   </path> -->
 
   <script type="text/javascript">
+          let logDebug = location.href.indexOf('leizingyiu.net') == -1;
+        console.log = logDebug?console.log:()=>void 0;
+
+
     function vAdd() {
       let arg = [...arguments];
       if (arg.length > 2) {
