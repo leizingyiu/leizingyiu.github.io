@@ -1,10 +1,17 @@
 <!-- 
-Created= "2021/07/01 11:00:01" 
-Last modified= "2021/09/02 01:36:39"
+Created= "2021/10/17 11:04:01" 
+Last modified= "2021/10/17 16:36:22"
 -->
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
     <script>
         let logDebug = location.href.indexOf('leizingyiu.net') == -1;
         console.log = (function (oriLogFunc) {
@@ -15,227 +22,610 @@ Last modified= "2021/09/02 01:36:39"
             }
         })(console.log);
     </script>
-    <!-- <link rel="stylesheet" type="text/css" href="./css/markdown.css"> -->
+    <link rel="stylesheet" href="./css/tbDefaultCss.min.css">
+    <style>
+        html {
+            font-size: 14px;
+        }
 
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-    <meta name="referrer" content="no-referrer" />
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <link rel="icon" href="animated_favicon.gif" type="image/gif">
-    <link rel="stylesheet" type="text/css" href="./css/tbDefaultCss.min.css">
-    <link rel="stylesheet" href="./css/default.css">
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+        main {
+            width: 80vw;
+            max-width: 1440px;
+            margin: 0 auto;
+            height: 100vh;
+            overflow: hidden;
+            letter-spacing: 0.08em;
+        }
 
-    <script src="./js/getAttrContentWriteHtml.js"></script>
-    <embed id='background' type="image/svg+xml" src="./img/background.svg"></embed>
+        main * {
+            cursor: default;
+        }
+
+        main .lang {
+            display: flex;
+            justify-content: space-around;
+            height: 100%;
+        }
+
+        main .lang>* {
+            flex-grow: 1;
+            overflow: scroll;
+
+            height: fit-content;
+            margin: auto 0;
+
+            /* padding: 5em 0; */
+        }
+
+        main .lang #left {
+            min-width: 222px;
+            text-align: center;
+
+            background-image: linear-gradient(to left, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0));
+            height: 100%;
+
+            display: flex;
+            justify-content: center;
+        }
+
+        main .lang #left dl {
+            height: fit-content;
+            margin: auto 0;
+            overflow: visible;
+        }
+
+        main .lang #left dt {
+            font-size: 1.5rem;
+        }
+
+        main .lang #left dd>* {
+            margin-top: 1em;
+        }
+
+        main .lang #left dd ol li,
+        main .lang #left dd ul li {
+            display: inline-block;
+            margin: 0 0.5em;
+        }
+
+
+        main .lang #right {
+            line-height: 2em;
+            padding: 0 1.5em 0 3em;
+
+            height: 100%;
+            overflow: scroll;
+            position: relative;
+        }
+
+        main .lang #right::after {
+            content: '';
+            display: block;
+            height: 100%;
+            width: 2em;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+            transform: translate(calc(100% - 1.5em), 0);
+        }
+
+        main .lang #right>* {
+            padding: 1rem 0 4rem;
+        }
+
+        main .lang #right>ul>li>dl>dt {
+            margin-top: 1.5em;
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            margin-bottom: 0.5em;
+        }
+
+        main .lang #right>ul>li>dl>dd {
+            margin-top: 1rem;
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        main .lang #right>ul>li>dl>dd ul {
+            margin-left: 1rem;
+            position: relative;
+            line-height: 2.5em;
+        }
+
+        main .lang #right>ul>li>dl>dd ul>li>*:first-child {
+            position: absolute;
+            left: 6em;
+        }
+
+        main #en #right>ul>li>dl>dd ul>li>*:first-child {
+            position: absolute;
+            left: 10em;
+        }
+
+        main .lang #right>ul>li>dl>dd ol>li {
+            display: inline-block;
+            margin-right: 0.5em;
+        }
+
+        li[link] {
+            cursor: pointer;
+        }
+
+        .wechat {
+            position: relative;
+            overflow: visible;
+        }
+
+        .wechat i {
+            position: absolute;
+            background-image: url('data:image/svg+xml; charset=utf8,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20xmlns:xlink=%22http://www.w3.org/1999/xlink%22%20version=%221.1%22%20id=%22wechatQr%22%20x=%220px%22%20y=%220px%22%20viewBox=%220%200%20468%20468%22%20style=%22enable-background:new%200%200%20468%20468%22%20xml:space=%22preserve%22%3E%3Cdesc/%3E%3Cg%20id=%22wechatQrPath%22%3E%3Cpath%20d=%22M156,24h-12v12h-24V24h-12V12h48V24L156,24z%20M444,12h12v84h-84V12H444L444,12z%20M444,36V24h-60v60h60V36L444,36z%20M252,24h-12%20%20v12h12V24L252,24z%20M228,36V24h-12V12h-12v36h36V36H228L228,36z%20M300,48V36h36v12h-12v12h12v24h12v24h12V72h-12V60h12V24h-12V12h-36%20%20v12h-24v12h-24v12h12v12h12V48H300L300,48z%20M408,36h-12v36h36V36H408L408,36z%20M108,48v12h12V48H108L108,48z%20M180,60V48h12V36h-12V24%20%20h-24v12h-12v12h12v12h-12v12h24V60H180L180,60z%20M60,72h12V36H36v36H60L60,72z%20M216,60v12h12V60H216L216,60z%20M264,72V60h-12V48h-12%20%20v24H264L264,72z%20M132,72V60h-12v24h12V72L132,72z%20M276,84V72h-12v12H276L276,84z%20M300,72h12v12h12V60h-36v24h12V72L300,72z%20M36,96%20%20H12V12h84v84H36L36,96z%20M24,72v12h60V24H24V72L24,72z%20M120,84h-12v12h12V84L120,84z%20M144,96V84h-12v12H144L144,96z%20M216,96V84h-12%20%20v12H216L216,96z%20M252,96h12V84h-12V96L252,96z%20M288,96V84h-12v12H288L288,96z%20M324,96h12V84h-12V96L324,96z%20M228,108v12h12V72h-12%20%20v24h-12v12H228L228,108z%20M36,120h12v-12H36V120L36,120z%20M84,120h12v-12H60v24h12v-12H84L84,120z%20M108,108v12h12v-12H108L108,108z%20%20%20M204,108v12h12v-12H204L204,108z%20M336,108v12h12v-12H336L336,108z%20M372,120v-12h-12v12H372L372,120z%20M444,120h-12v12h12v12h-12v12%20%20h12v12h-24v-24h-12v-12h-36v12h12v12h-12v36h36v-12h-24v-12h12v-12h12v24h12v12h12v12h12v-12h12v-84h-12V120L444,120z%20M348,132h12%20%20v-12h-12V132L348,132z%20M420,120v-12h-12v24h12V120L420,120z%20M48,132H36v12h12V132L48,132z%20M180,144v-12h-24v12H180L180,144z%20%20%20M192,144v12h24v12h24v-12h-12v-36h-12v24h-12v-24h-12v-12h12V96h-12V84h12V72h-12V60h-12v12h-12v12h12v12h-12V84h-12v36h24v12h12%20%20V144L192,144z%20M60,156v-12H48v12H60L60,156z%20M156,144h-12v12h12V144L156,144z%20M348,144v12h12v24h-24v-24h-12v12h-12v12h12v12h12v12%20%20h-12v48h-24v12h-36v-12h-24v-24h-12v36h-24v-12h-12v12h12v24h12v-12h12v-12h12v12h12v12h12v-12h24v12h12v12h12v-12h12v36h-12v12h84%20%20v12h24v12h-12v36h12v12h-24v12h12v12h12v12h-12v12h-12v-24h-12v-24h-12v12h-12v-12h-12v-12h-12v12h-12v12h-12v-12h-12v12h-12v-36h12%20%20v12h12v-12h24v-12h12v-12h-12v-12h-12v12h-12v-12h-12v-12h-24v-12h-12v-12h12v-12h-48v12h24v36h12v12h24v-12h12v12h12v24h-12v-12%20%20h-48v-12h-12v-36h-12v12h-12v-12h-12v12h-12v-48h-24v12h-12v-24h12v-12h12v-12h-24v-60h-12v24h-36v12h36v24h-24v12h12v12h-12v36h-12%20%20v-12H96v-12h12v-12H96v-12h12v-24H84v-12h12v-12H84v12H72v24h24v12H84v12h12v12H72v12H24v-12H12v-12h24v12h12v-12h24v-12H24v-12h12%20%20v-12H24v12H12v-24h12v-12h12v-12h24v-12h12v-12H60v12H48v-12H24v24H12v-72h12v12h12v12h12v12h12v-12h12v12h12v12h12v-12H84v-12h12%20%20v-12H72v-12h48v-12h24v12h-12v24h-12v-12h-12v12h12v12h-12v24H84v12h36v-36h12v-12h12v12h12v12h12v24h12v-36h36v12h12v12h-36v12h12%20%20v12h24v-24h12v-12h12v12h12v-12h12v-48h-12v36h-12v-24h-12v-24h12v-12h12v12h12v-12h12V96h12V84h12v12h12v48H348L348,144z%20M60,240%20%20v-24H48v24H60L60,240z%20M396,372v-12h-36v36h36V372L396,372z%20M216,300h-12v12h12V300L216,300z%20M216,240v-12h-24v-12h-12v12h-12v12%20%20H216L216,240z%20M288,132v12h12v-12h12v-24h-12v24H288L288,132z%20M264,204h-12v12h12V204L264,204z%20M312,240v-12h-24v-12h-12v12h-12v12%20%20h12v12h12v-12H312L312,240z%20M300,192v-12h-12v12H300L300,192z%20M288,168h12v-12h-12V168L288,168z%20M360,144v12h12v-12H360L360,144z%20%20%20M168,156h-12v12h24v-12H168L168,156z%20M432,216h-12v-12h-12v36h36v12h12v-36H432L432,216z%20M384,240h-24v-24h12v12h12v-12h12v-12h-48%20%20v48h-12v12h24v24h12v-24h24v-12h-12V240L384,240z%20M396,252h12v-12h-12V252L396,252z%20M144,264h12v-12h-12V264L144,264z%20M432,264h-12%20%20v12h12v24h24v-36H432L432,264z%20M144,288v-12h-12v12H144L144,288z%20M300,288h12v-24h-12V288L300,288z%20M396,276v12h24v-12H396L396,276z%20%20%20M348,300h12v-12h-12V300L348,300z%20M12,312h12v-12H12V312L12,312z%20M84,312h12v-12H84V312L84,312z%20M336,312h12v-12h-12V312L336,312z%20%20%20M372,312h-12v12h24v-12h24v-12h-24v-12h-12V312L372,312z%20M444,324h-12v12h12v12h12v-36h-12V324L444,324z%20M12,324v12h12v-12H12%20%20L12,324z%20M84,336h12v-12H60v-12H48v12H36v12H24v12h12v12h12v-12h24v-12H84L84,336z%20M120,348v-12H96v12H72v12h36v-12H120L120,348z%20%20%20M180,348h12v-12h-12V348L180,348z%20M216,348v-12h-12v12H216L216,348z%20M12,360h12v-12H12V360L12,360z%20M432,360h12v-12h-12V360%20%20L432,360z%20M216,360h12v12h-48v24h12v12h-12v36h-12v12h-48v-24h24v-24h12v12h12v-12h-12v-12h-24v12h-24v-24h12v-12h-12v-12h24v-48h12%20%20v-12h12v12h12v12h12v12h-12v12h12v12h12v-12h12v12H216L216,360z%20M144,336v12h12v-12H144L144,336z%20M168,384v-12h-36v12H168L168,384z%20%20%20M72,372h24v84H12v-84H72L72,372z%20M84,396v-12H24v60h60V396L84,396z%20M372,384h12v-12h-12V384L372,384z%20M432,372h-12v12h36v-24h-12%20%20v12H432L432,372z%20M276,384h-12v12h12V384L276,384z%20M48,396H36v36h36v-36H48L48,396z%20M204,396v12h12v-12H204L204,396z%20M216,420h12%20%20v-12h-12V420L216,420z%20M264,408v-12h-12v-24h-24v36h24v12h24v-12H264L264,408z%20M432,420h12v12h12v-24h-36v12H432L432,420z%20M108,420%20%20v12h12v-12H108L108,420z%20M276,420v12h12v-12H276L276,420z%20M336,420v12h-24v12h-12v-12h-12v12h-24v12h60v-12h24v12h36v-12h-12v-12%20%20h-12v-12H336L336,420z%20M216,432h-12v12h12V432L216,432z%20M240,432h-12v12h12V432L240,432z%20M432,444v12h24v-12h-12v-12h-12V444%20%20L432,444z%20M192,456h12v-12h-24v12H192L192,456z%20M228,456v-12h-12v12H228L228,456z%22/%3E%3C/g%3E%3C/svg%3E');
+            left: 0;
+            top: 0;
+            width: 100%;
+            padding-top: 100%;
+            transform: translate(0px, -100%);
+            background-color: rgba(255, 255, 255, 0.8);
+            opacity: 0;
+            z-index: -999;
+            transition: opacity 0.5s ease;
+        }
+
+        .wechat:hover i {
+            opacity: 1;
+            z-index: 999;
+        }
+
+        /* .wechat i::after {
+            content: url("data:image/svg+xml;%20charset=utf8, %3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20xmlns:xlink=%22http://www.w3.org/1999/xlink%22%20version=%221.1%22%20viewBox=%220%200%20468%20468%22%20style=%22position:absolute;left:0;width:10em;bottom:100%25;background:hsla(0,0%25,100%25,.8)%22%20xml:space=%22preserve%22%3E%3Cuse%20x=%220%22%20y=%220%22%20xlink:href=%22#wechatQrPath%22/%3E%3C/svg%3E;");
+            opacity: 0;
+            z-index: -999;
+            width: 100%;
+            padding-top: 100%;
+            transition: opacity 0.2s ease;
+        }
+
+        .wechat i:hover::after {
+            opacity: 1;
+            z-index: 999;
+        } */
+
+
+        .underline {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .underline::before,
+        .underline::after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: 0em;
+            transition: transform 0.5s ease;
+        }
+
+        .underline::before {
+            background-color: #000;
+            transform: scale(0, 100%);
+            transform-origin: left;
+        }
+
+        .underline::after {
+            background-color: #aaa;
+            transform: scale(100%, 100%);
+            transform-origin: right;
+        }
+
+        .underline:hover::before {
+            transform: scale(100%, 100%);
+        }
+
+        .underline:hover::after {
+            transform: scale(0%, 100%);
+        }
+
+
+        ::-webkit-scrollbar {
+            width: 2px;
+            height: 2px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.08);
+        }
+
+        *:hover::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.32);
+        }
+
+        ::-webkit-scrollbar-track {
+            border-radius: 0;
+            background: rgba(0, 0, 0, 0);
+        }
+
+        * {
+            scrollbar-color: rgba(0, 0, 0, 0.02) rgba(0, 0, 0, 0);
+            scrollbar-width: thin;
+        }
+
+        *:hover {
+            scrollbar-color: rgba(0, 0, 0, 0.08) rgba(0, 0, 0, 0);
+            scrollbar-width: thin;
+        }
+
+
+
+        @media screen and (max-width: 1024px) {
+            main {
+                width: 100%;
+                max-width: none;
+            }
+        }
+
+        @media screen and (max-width: 800px) {
+
+            html {
+                font-size: 3vmin;
+                overflow-x: hidden;
+            }
+
+            main {
+                overflow: scroll;
+                height: fit-content;
+                overflow-x: hidden;
+
+            }
+
+            main .lang {
+                flex-direction: column;
+            }
+
+            main .lang #left {
+                min-height: 50vmin;
+            }
+
+            main .lang #left>dl {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+                justify-content: space-between;
+                width: 100%;
+                padding: 0 3rem;
+            }
+
+            main .lang #right {
+                padding: 0 3rem;
+                overflow-x: hidden;
+
+            }
+
+            main .lang #right::after {
+
+                width: 4em;
+
+                transform: translate(calc(100% - 3em), 0);
+            }
+
+            main #en #right>ul>li>dl>dd ul>li>*:first-child {
+                left: 13em;
+            }
+        }
+    </style>
 </head>
 
-<body class="fadeOut">
+<body>
+    <main>
 
-    <dl id="cover">
-        <dt>
-            <h1>[nihao]你好[ya]呀！<br>[wo]我[shi]是 Leizingyiu <br>[keyi]可以[jiao]叫[wo]我[zhenyaoshushu]镇妖蜀黍😉<br></h1>
-        </dt>
-        <dd>
-            <div id="coverSvg_yiu" data-svg-src='../img/yiu.svg'>
-                <object data="../img/yiu.svg" width="100%" height="100%"></object>
-                <!-- <script>getAttrContentWriteHtml('#coverSvg_yiu', 'data-svg-src')</script> -->
-            </div>
-        </dd>
-    </dl>
+        <dl id='cn' class="lang">
 
-    <ul id="main">
-        <li id="menu" class="active" data-title='menu'>
-            <ul>
-                <li data-openInside data-title="projects menu">
-                    <a data-description='造的一些轮子' data-title="projects"></a>
-                    <ul>
-                        <li><a href="http://www.leizingyiu.net/AfterEffectsExpressions/" data-description='原创表达式，和一些笔记'
-                                data-title='AfterEffects Expressions'></a>
-                        </li>
-                        <li><a href="https://www.leizingyiu.net/AfterEffectsPresets/"
-                                data-description="一些AE预设，基本都是针对特定场景使用的" data-title="AfterEffects Presets"></a>
-                        </li>
-                        <li placeholder> </li>
-                        <li placeholder> </li>
-                    </ul>
-                </li>
-                <li data-openInside>
-                    <a data-title="tutorials" data-description='总结的一些教程'></a>
-                    <ul>
-                        <li data-title="tutorials : recent">
-                            <ul>
-                                <li><a href="https://uiiiuiii.com/other/121291164.html"
-                                        data-preview='http://pic.leizingyiu.net/leizingyiu-0812-deviceorientation_370x250.gif'
-                                        data-description="酷毙了！7分钟学会插画视差效果小技巧"></a>
-                                </li>
-                                <li><a href="https://uiiiuiii.com/aftereffects/121212834.html"
-                                        data-preview='http://pic.leizingyiu.net/leizingyiu_0902_AE_fireLoop_header_870x588.gif'
-                                        data-description="AE教程！火焰粒子循环动效（含插件）"></a>
-                                </li>
-                                <li><a href="https://uiiiuiii.com/illustrator/121243588.html"
-                                        data-preview="http://pic.leizingyiu.net/leizingyiu_0111_AI_jonathanHarris_header_870x588.jpg"
-                                        data-description="AI教程！7分钟学会视错觉插画"></a>
-                                </li>
-                                <li><a href="https://weibo.com/1688314062/EkQaMdPoM"
-                                        data-preview="http://pic.leizingyiu.net/64a1a0cegw1fagzf1yobmg20b40b4e82.gif"
-                                        data-description="yiu_2016-12-6 12:58"></a></li>
-                            </ul>
-                        </li>
-                        <li data-title="tutorials : readmore">
-                            <ul>
-                                <li><a href="https://uiiiuiii.com/author/leizingyiu" style="--bg-size:contain;"
-                                        data-preview="https://images.uiiiuiii.com/wp-content/uploads/2020/03/uu-logo-motion.gif">UIIIUIII</a>
-                                </li>
-                                <li style="opacity: 0!important;">2</li>
-                                <li style="opacity: 0!important;">3</li>
-                                <li style="opacity: 0!important;">4</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li data-openInside>
-                    <a data-description=' blog  and  design ' data-title=" m o r e "></a>
-                    <ul>
-                        <li data-title="more:design" id="design">
-                        </li>
-                        <li data-title="more:blog" id="blog">
-                        </li>
+            <dt id="left">
+                <dl>
+                    <dt>Leizingyiu</dt>
+                    <dd>
+                        <ol>
+                            <li><a class="underline" href="https://weibo.com/744714610">weibo</a></li>
+                            <li class="wechat underline">wechat<i></i></li>
+                        </ol>
+                    </dd>
+                </dl>
+            </dt>
 
-                        <!-- <li data-title="design : recent">
-                            <ul>
-                                <li><a href="javascript:void 0"></a></li>
-                                <li><a href="javascript:void 0"></a></li>
-                                <li><a href="javascript:void 0"></a></li>
-                                <li><a href="javascript:void 0"></a></li>
-                            </ul>
-                        </li> -->
-                        <!-- <li data-title="design : platform">
-                            <ul>
-                                <li><a href="https://dribbble.com/leizingyiu">dribbble</a></li>
-                                <li><a href="javascript:void 0"></a></li>
-                                <li><a href="javascript:void 0"></a></li>
-                            </ul>
-                        </li> -->
-                    </ul>
-                </li>
-                <li data-openInside data-title="about & Contact">
-                    <a data-description='简介以及联系方式' data-title="about   &   Contact"></a>
-                    <ul column>
-                        <li class="markdown-body" data-mdFile='./page/about.md'></li>
-                        <li class="markdown-body" data-mdFile='./page/contact.md'></li>
-                        <!-- <li class="markdown-body" data-mdFile='./page/donate.md'> -->
-                        <!-- <object
-                                onload="this.style.height=this.contentWindow.document.getElementsByTagName('html')[0].scrollHeight"
-                                style='' data='./page/donate.html'></object> 
-                            </li>
-                        -->
+            <dd id="right">
+                <ul>
+                    <li>
+                        <dl>
+                            <dt>我是</dt>
+                            <dd>
+                                <p>Leizingyiu，可以叫我镇妖蜀黍. <br>
+                                    是个会一点点代码的设计师。<br>
+                                    设计师觉得我是程序员，<br>
+                                    程序员又觉得我是设计师。<span style='font-size: 1.5em;'>🤣</span></p>
+                            </dd>
+                        </dl>
+                    </li>
 
-                    </ul>
-                </li>
+                    <li>
+                        <dl>
+                            <dt>作品集</dt>
+                            <dd>
+                                <p>近两年写bug比较多，整理了一些练习： <a link>http://design.leizingyiu.net/</a></p>
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt>教程</dt>
+                            <dd>
+                                <p>一些答疑遇到的常见问题，就顺便做成教程了： <a link>https://uiiiuiii.com/designer/leizingyiu</a></p>
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt>个人项目</dt>
+                            <dd>
+                                <p>把一些在自己工作中，以及在当助教答疑时，的通用解决方案，提炼出来。<br />算是造的一些轮子吧</p>
+                                <ul>
+                                    <li>AE表达式 <a link>https://www.leizingyiu.net/AfterEffectsExpressions/</a>
+                                    </li>
+                                    <li>AE预设 <a link>https://www.leizingyiu.net/AfterEffectsPresets/</a>
+                                    </li>
+                                    <li>AE脚本 <a link>https://script.leizingyiu.net/</a>
+                                    </li>
+                                    <li>书签JS <a link>https://bookmark.leizingyiu.net/</a>
+                                    </li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </li>
 
 
-            </ul>
-        </li>
-        <li id="recent" class="active" data-title="recent">
-            <ul>
-                <li><a href="http://leizingyiu.net/AfterEffectsExpressions/?orginalExpressions=AE%E8%B7%AF%E5%BE%84%E5%BC%B9%E6%80%A7%E8%A1%A8%E8%BE%BE%E5%BC%8F"
-                        data-description='overshoot and bounceback for path' data-title="路径属性可以用的,弹性表达式"></a>
-                </li>
-                <li><a href="http://leizingyiu.net/AfterEffectsExpressions/?orginalExpressions=%E4%B8%89%E8%A7%92%E6%B3%A2%E4%B8%8E%E9%94%AF%E9%BD%BF%E6%B3%A2"
-                        data-description='triWave and sawWave' data-title="把loopOut用在属性值的,三角波与锯齿波"></a>
-                </li>
-                <li><a href="http://leizingyiu.net/AfterEffectsPresets/?browsing=yiu_loop"
-                        data-description='loop and loopAuto for any property' data-title="yiu_loop,任意属性自动循环"></a>
-                </li>
-                <li><a href="javascript:void 0;" data-description='快了快了😭' data-title="comming soon"></a></li>
-            </ul>
-        </li>
-    </ul>
-    <footer>
-        <!-- <ul>
-            <li class="markdown-body" data-mdFile='./page/footer.md'></li>
-        </ul> -->
-    </footer>
+                    <li>
+                        <dl>
+                            <dt>关注我</dt>
+                            <dd>
+                                <ol>
+                                    <li link="https://github.com/leizingyiu">github</li>
+                                    <li link="https://dribbble.com/leizingyiu">dribbble</li>
+                                    <li link="https://www.behance.net/LEIZINGYIU">behance</li>
+                                    <li link="https://weibo.com/744714610/">weibo</li>
+                                    <li class="underline wechat">wechat<i></i>
+                                    </li>
+                                </ol>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>email</dt>
+                            <dd><a class="underline"
+                                    onmouseover="this.innerText=this.innerText.replace('(at)','@');this.href='mailto:'+this.innerText.replace('(at)','@');"
+                                    onmouseout="this.innerText=this.innerText.replace('@','(at)')"
+                                    href="mailto:contact_me@leizingyiu.net">contact_me(at)leizingyiu.net</a></dd>
+                        </dl>
+                    </li>
+
+                </ul>
+            </dd>
+        </dl>
+
+        <dl id='en' class="lang">
+
+            <dt id="left">
+                <dl>
+                    <dt>Leizingyiu</dt>
+                    <dd>
+                        <ol>
+                            <li><a class="underline" href="https://weibo.com/744714610">weibo</a></li>
+                            <li class="wechat underline">wechat<i></i></li>
+                        </ol>
+                    </dd>
+                </dl>
+            </dt>
+
+            <dd id="right">
+                <ul>
+                    <li>
+                        <dl>
+                            <dt>I'm</dt>
+                            <dd>
+                                <p>Leizingyiu. <br>
+                                    I am a designer who knows some code.<br>
+                                    The designer thinks I am a programmer, <br>
+                                    and the programmer thinks I am a designer.<span style='font-size: 1.5em;'>🤣</span>
+                                </p>
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt>Portfolio</dt>
+                            <dd>
+                                <p>There have been a lot of bugs in the past two years, and some exercises have been
+                                    sorted out:
+                                    <a link>http://design.leizingyiu.net/</a>
+                                </p>
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt>Tutorials</dt>
+                            <dd>
+                                <p>Some common questions encountered in Q&A are made into tutorials by the way:
+                                    <a link>https://uiiiuiii.com/designer/leizingyiu</a>
+                                </p>
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt>personal project</dt>
+                            <dd>
+                                <p>Distill some common solutions in my own work and when answering questions as a
+                                    teaching assistant.<br />It's some wheels made, right?</p>
+                                <ul>
+                                    <li>AE Expressions <a link>https://www.leizingyiu.net/AfterEffectsExpressions/</a>
+                                    </li>
+                                    <li>AE Presets <a link>https://www.leizingyiu.net/AfterEffectsPresets/</a>
+                                    </li>
+                                    <li>AE scripts <a link>https://script.leizingyiu.net/</a>
+                                    </li>
+                                    <li>Bookmark JS <a link>https://bookmark.leizingyiu.net/</a>
+                                    </li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </li>
+
+
+                    <li>
+                        <dl>
+                            <dt>Follow me</dt>
+                            <dd>
+                                <ol>
+                                    <li link="https://github.com/leizingyiu">github</li>
+                                    <li link="https://dribbble.com/leizingyiu">dribbble</li>
+                                    <li link="https://www.behance.net/LEIZINGYIU">behance</li>
+                                    <li link="https://weibo.com/744714610/">weibo</li>
+                                    <li class="underline wechat">wechat<i></i>
+                                    </li>
+                                </ol>
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt>email</dt>
+                            <dd><a class="underline"
+                                    onmouseover="this.innerText=this.innerText.replace('(at)','@');this.href='mailto:'+this.innerText.replace('(at)','@');"
+                                    onmouseout="this.innerText=this.innerText.replace('@','(at)')"
+                                    href="mailto:contact_me@leizingyiu.net">contact_me(at)leizingyiu.net</a></dd>
+                        </dl>
+                    </li>
+
+                </ul>
+            </dd>
+        </dl>
+
+
+    </main>
     <script>
-        fetch('page/footer.html').then(function (response) {
-            return response.text();
-        }).then(function (resText) {
-            document.querySelector('footer').innerHTML = resText;
-        }).then(function () {
-
-            fetch('page/footer_links.json').then(function (response) {
-                return response.json();
-            }).then(function (resJson) {
-                Object.keys(resJson).map(function (k) {
-                    document.querySelector('#' + k.replace(/\[[^\]]*\]/, '')).innerHTML += '<tr' + ' class="inside" ' + '><td><b>' + k.match(/\[[^\]]*\]/) + '</b></td></tr>';
-                    document.querySelector('#' + k.replace(/\[[^\]]*\]/, '')).width = (100 - 100 / Object.keys(resJson[k]).length) + '%'
-                    Object.keys(resJson[k]).map(l => document.querySelector('#' + k.replace(/\[[^\]]*\]/, '') + ' .inside').innerHTML += '<td><a href="' + resJson[k][l] + '">' + l + '</a></td>');
-                })
+        function getQueryJson() {
+            /** https://www.cnblogs.com/wangshucheng/p/11203097.html */
+            let url = location.href;
+            let param = {};
+            url.replace(/([^?&]+)=([^?&]+)/g, function (s, v, k) {
+                param[v] = decodeURIComponent(k);
+                return k + '=' + v;
             });
-        });
-    </script>
+            return param;
+        };
 
-    <!-- 统计  script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1280029923&web_id=1280029923" -->
-    <script>
-        window.onload = function () {
-            var script = document.createElement('script');
-            script.src = "https://s9.cnzz.com/z_stat.php?id=1280029923&web_id=1280029923";
-            script.type = "text/javascript";
-            document.body.appendChild(script);
+        function jsonToSearch(json) {
+            return JSON.stringify(json).replace(/(^\{)|(\}$)/g, '').replace(/['"]/g, '').replace(/:/g, '=').replace(
+                /,/g, '&');
+        };
+        const rootPath = (location.origin + location.pathname).replace(/\/[^/]*$/g, '/');
+        var searchJson = getQueryJson();
+        var lang = Object.keys(searchJson).indexOf('lang') != -1 ? searchJson.lang : 'cn';
+        console.log(lang);
+
+        if (lang == 'cn') {
+            let en = document.getElementById('en');
+            en.parentElement.removeChild(en);
+        } else {
+            let cn = document.getElementById('cn');
+            cn.parentElement.removeChild(cn);
+        }
+
+        {
+            /** lang setting */
+            let langArr = ['cn', 'en'];
+            let ul = document.createElement('ul');
+            document.querySelector('#' + lang + ' #left>dl>dd').appendChild(ul);
+            let langli = document.createElement('li');
+            langli.innerText = 'lang: ';
+            ul.appendChild(langli);
+
+            langArr.map(l => {
+                let li = document.createElement('li');
+                li.onclick = function () {
+                    searchJson.lang = l;
+                    window.location = rootPath + '?' + jsonToSearch(searchJson);
+                };
+                li.innerText = l;
+                li.classList.add('underline');
+                ul.appendChild(li);
+                return l;
+            });
+        }
+
+        {/** link setting */
+            [...document.querySelectorAll('a[link]')].map(a => {
+                a.href = a.innerText;
+                a.classList.add('underline');
+            });
+            [...document.querySelectorAll('li[link]')].map(li => {
+                li.classList.add('underline');
+                let link = li.getAttribute('link');
+                li.onclick = () => {
+                    window.location = link;
+                }
+            });
+        }
+
+        {
+            /** link hover color setting */
+            [...document.querySelectorAll('a[link],.underline,li[link],li>dl>dt')].map(dom => {
+                let ran = (Math.random() - 0.5) * 2;
+                let w = 48;
+                let step = 2;
+                let mid = 200;
+                dom.style.cssText += '--hover-color:hsla(' + ((ran * w) - (ran * w) % step + mid) + ',100%,32%,1)';
+            });
+
+            let style = document.createElement('style');
+            style.innerHTML = `
+            a[link],.underline,li[link],li>dl>dt{
+            transition:color 0.5s ease;
+            }
+            a[link]:hover,.underline:hover,li[link]:hover,li>dl:hover>dt{
+                color:var(--hover-color);
+            }
+            `;
+            document.body.appendChild(style);
+        }
+
+        {/** site title setting */
+            [...document.querySelectorAll('#' + lang + '#left>dl>dt')].map(d => {
+                d.href = 'https://leizingyiu.net';
+                d.style.cssText = 'cursor:pointer';
+            });
         }
     </script>
-
-    <script type="text/javascript" src=".\js\script.js"></script>
-
-    <script src="./js/writeDataPreview.js"></script>
-    <script src="./js/blogRssReader.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="./js/loadMarkdownFile.js"></script>
-    <script src="./js/loadDataHoverPreview.js"> </script>
-    <script src="./js/typing.js"></script>
-    <script>
-        // function setSvgPositionAbsolute(selector) {
-        //     let style;
-        //     if (document.querySelector('#svgReset_' + selector) != null) {
-        //         style = document.querySelector('#svgReset_' + selector);
-        //         style.parentElement.removeChild(style);
-        //     } else {
-        //         style = document.createElement('style');
-        //         style.id = '#svgReset_' + selector;
-        //         style.innerText = 'svg ' + selector + '{position:absolute;}'
-        //     }
-        //     document.body.appendChild(style);
-        // }
-        function startPage() {
-            document.body.classList.remove('fadeOut');
-            typingWithSpellingBrackets('#cover h1');
-        }
-        setTimeout("startPage();", 10);</script>
-    <!-- <script>
-
-        function loadDonate() {
-            li = document.querySelector('#menu > ul > li.active > ul > li:nth-child(3)').children[0];
-
-            bodyHtml = li.contentDocument.getElementsByTagName('body')[0].innerHTML;
-            console.log(bodyHtml);
-
-            styleHTML = li.contentDocument.querySelector('head style').innerHTML;
-
-            id = 'donatePage' + Math.floor(Math.random() * 10000);
-
-            styleHTML = styleHTML.replace(/(#donate[^{]*{)/g, '#main .active #' + id + ' $1');
-            console.log(styleHTML);
-
-            li.id = id;
-
-            style = document.createElement('style');
-            style.innerHTML = styleHTML;
-            document.getElementsByTagName('body')[0].appendChild(style);
-
-            li.innerHTML = bodyHtml;
-        }
-
-    </script> -->
 </body>
 
 </html>
+<!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="wechatQr"
+        x="0px" y="0px" viewBox="0 0 468 468" style="enable-background:new 0 0 468 468;" xml:space="preserve">
+        <desc />
+        
+            <g id='wechatQrPath'>
+                <path
+                    d="M156,24h-12v12h-24V24h-12V12h48V24L156,24z M444,12h12v84h-84V12H444L444,12z M444,36V24h-60v60h60V36L444,36z M252,24h-12  v12h12V24L252,24z M228,36V24h-12V12h-12v36h36V36H228L228,36z M300,48V36h36v12h-12v12h12v24h12v24h12V72h-12V60h12V24h-12V12h-36  v12h-24v12h-24v12h12v12h12V48H300L300,48z M408,36h-12v36h36V36H408L408,36z M108,48v12h12V48H108L108,48z M180,60V48h12V36h-12V24  h-24v12h-12v12h12v12h-12v12h24V60H180L180,60z M60,72h12V36H36v36H60L60,72z M216,60v12h12V60H216L216,60z M264,72V60h-12V48h-12  v24H264L264,72z M132,72V60h-12v24h12V72L132,72z M276,84V72h-12v12H276L276,84z M300,72h12v12h12V60h-36v24h12V72L300,72z M36,96  H12V12h84v84H36L36,96z M24,72v12h60V24H24V72L24,72z M120,84h-12v12h12V84L120,84z M144,96V84h-12v12H144L144,96z M216,96V84h-12  v12H216L216,96z M252,96h12V84h-12V96L252,96z M288,96V84h-12v12H288L288,96z M324,96h12V84h-12V96L324,96z M228,108v12h12V72h-12  v24h-12v12H228L228,108z M36,120h12v-12H36V120L36,120z M84,120h12v-12H60v24h12v-12H84L84,120z M108,108v12h12v-12H108L108,108z   M204,108v12h12v-12H204L204,108z M336,108v12h12v-12H336L336,108z M372,120v-12h-12v12H372L372,120z M444,120h-12v12h12v12h-12v12  h12v12h-24v-24h-12v-12h-36v12h12v12h-12v36h36v-12h-24v-12h12v-12h12v24h12v12h12v12h12v-12h12v-84h-12V120L444,120z M348,132h12  v-12h-12V132L348,132z M420,120v-12h-12v24h12V120L420,120z M48,132H36v12h12V132L48,132z M180,144v-12h-24v12H180L180,144z   M192,144v12h24v12h24v-12h-12v-36h-12v24h-12v-24h-12v-12h12V96h-12V84h12V72h-12V60h-12v12h-12v12h12v12h-12V84h-12v36h24v12h12  V144L192,144z M60,156v-12H48v12H60L60,156z M156,144h-12v12h12V144L156,144z M348,144v12h12v24h-24v-24h-12v12h-12v12h12v12h12v12  h-12v48h-24v12h-36v-12h-24v-24h-12v36h-24v-12h-12v12h12v24h12v-12h12v-12h12v12h12v12h12v-12h24v12h12v12h12v-12h12v36h-12v12h84  v12h24v12h-12v36h12v12h-24v12h12v12h12v12h-12v12h-12v-24h-12v-24h-12v12h-12v-12h-12v-12h-12v12h-12v12h-12v-12h-12v12h-12v-36h12  v12h12v-12h24v-12h12v-12h-12v-12h-12v12h-12v-12h-12v-12h-24v-12h-12v-12h12v-12h-48v12h24v36h12v12h24v-12h12v12h12v24h-12v-12  h-48v-12h-12v-36h-12v12h-12v-12h-12v12h-12v-48h-24v12h-12v-24h12v-12h12v-12h-24v-60h-12v24h-36v12h36v24h-24v12h12v12h-12v36h-12  v-12H96v-12h12v-12H96v-12h12v-24H84v-12h12v-12H84v12H72v24h24v12H84v12h12v12H72v12H24v-12H12v-12h24v12h12v-12h24v-12H24v-12h12  v-12H24v12H12v-24h12v-12h12v-12h24v-12h12v-12H60v12H48v-12H24v24H12v-72h12v12h12v12h12v12h12v-12h12v12h12v12h12v-12H84v-12h12  v-12H72v-12h48v-12h24v12h-12v24h-12v-12h-12v12h12v12h-12v24H84v12h36v-36h12v-12h12v12h12v12h12v24h12v-36h36v12h12v12h-36v12h12  v12h24v-24h12v-12h12v12h12v-12h12v-48h-12v36h-12v-24h-12v-24h12v-12h12v12h12v-12h12V96h12V84h12v12h12v48H348L348,144z M60,240  v-24H48v24H60L60,240z M396,372v-12h-36v36h36V372L396,372z M216,300h-12v12h12V300L216,300z M216,240v-12h-24v-12h-12v12h-12v12  H216L216,240z M288,132v12h12v-12h12v-24h-12v24H288L288,132z M264,204h-12v12h12V204L264,204z M312,240v-12h-24v-12h-12v12h-12v12  h12v12h12v-12H312L312,240z M300,192v-12h-12v12H300L300,192z M288,168h12v-12h-12V168L288,168z M360,144v12h12v-12H360L360,144z   M168,156h-12v12h24v-12H168L168,156z M432,216h-12v-12h-12v36h36v12h12v-36H432L432,216z M384,240h-24v-24h12v12h12v-12h12v-12h-48  v48h-12v12h24v24h12v-24h24v-12h-12V240L384,240z M396,252h12v-12h-12V252L396,252z M144,264h12v-12h-12V264L144,264z M432,264h-12  v12h12v24h24v-36H432L432,264z M144,288v-12h-12v12H144L144,288z M300,288h12v-24h-12V288L300,288z M396,276v12h24v-12H396L396,276z   M348,300h12v-12h-12V300L348,300z M12,312h12v-12H12V312L12,312z M84,312h12v-12H84V312L84,312z M336,312h12v-12h-12V312L336,312z   M372,312h-12v12h24v-12h24v-12h-24v-12h-12V312L372,312z M444,324h-12v12h12v12h12v-36h-12V324L444,324z M12,324v12h12v-12H12  L12,324z M84,336h12v-12H60v-12H48v12H36v12H24v12h12v12h12v-12h24v-12H84L84,336z M120,348v-12H96v12H72v12h36v-12H120L120,348z   M180,348h12v-12h-12V348L180,348z M216,348v-12h-12v12H216L216,348z M12,360h12v-12H12V360L12,360z M432,360h12v-12h-12V360  L432,360z M216,360h12v12h-48v24h12v12h-12v36h-12v12h-48v-24h24v-24h12v12h12v-12h-12v-12h-24v12h-24v-24h12v-12h-12v-12h24v-48h12  v-12h12v12h12v12h12v12h-12v12h12v12h12v-12h12v12H216L216,360z M144,336v12h12v-12H144L144,336z M168,384v-12h-36v12H168L168,384z   M72,372h24v84H12v-84H72L72,372z M84,396v-12H24v60h60V396L84,396z M372,384h12v-12h-12V384L372,384z M432,372h-12v12h36v-24h-12  v12H432L432,372z M276,384h-12v12h12V384L276,384z M48,396H36v36h36v-36H48L48,396z M204,396v12h12v-12H204L204,396z M216,420h12  v-12h-12V420L216,420z M264,408v-12h-12v-24h-24v36h24v12h24v-12H264L264,408z M432,420h12v12h12v-24h-36v12H432L432,420z M108,420  v12h12v-12H108L108,420z M276,420v12h12v-12H276L276,420z M336,420v12h-24v12h-12v-12h-12v12h-24v12h60v-12h24v12h36v-12h-12v-12  h-12v-12H336L336,420z M216,432h-12v12h12V432L216,432z M240,432h-12v12h12V432L240,432z M432,444v12h24v-12h-12v-12h-12V444  L432,444z M192,456h12v-12h-24v12H192L192,456z M228,456v-12h-12v12H228L228,456z" />
+            </g>
+        
+    </svg> -->
