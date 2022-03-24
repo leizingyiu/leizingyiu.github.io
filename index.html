@@ -1,6 +1,6 @@
 <!-- 
-Created= "2021/10/17 11:04:01" 
-Last modified= "2021/10/17 16:48:35"
+Created: "2021/10/17 11:04:01" 
+Last modified: "2022/02/13 13:14:02"
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,9 @@ Last modified= "2021/10/17 16:48:35"
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="./animated_favicon.gif" type="image/gif">
+
+    <title>Leizingyiu.net</title>
 
     <script>
         let logDebug = location.href.indexOf('leizingyiu.net') == -1;
@@ -358,9 +360,9 @@ Last modified= "2021/10/17 16:48:35"
                         <dl>
                             <dt>我是</dt>
                             <dd>
-                                <p>Leizingyiu，可以叫我镇妖蜀黍. <br>
+                                <p>Leizingyiu，可以叫我镇妖蜀黍，
                                     是个会一点点代码的设计师。<br>
-                                    设计师觉得我是程序员，<br>
+                                    设计师觉得我是程序员，
                                     程序员又觉得我是设计师。<span style='font-size: 1.5em;'>🤣</span></p>
                             </dd>
                         </dl>
@@ -433,7 +435,8 @@ Last modified= "2021/10/17 16:48:35"
                         <p>
                         <dl>
                             <dt>Designed & Powerd by Leizingyiu | Copyright© Leizingyiu.net</dt>
-                            <dd> <a href="https://beian.miit.gov.cn/" style="cursor: pointer;">粤ICP备2020086793号</a></dd>
+                            <dd> <a href="https://beian.miit.gov.cn/" style="cursor: pointer;">粤ICP备2020086793号</a>
+                            </dd>
                         </dl>
                         </p>
 
@@ -545,7 +548,8 @@ Last modified= "2021/10/17 16:48:35"
                         <p>
                         <dl>
                             <dt>Designed & Powerd by Leizingyiu | Copyright© Leizingyiu.net</dt>
-                            <dd> <a href="https://beian.miit.gov.cn/" style="cursor: pointer;">粤ICP备2020086793号</a></dd>
+                            <dd> <a href="https://beian.miit.gov.cn/" style="cursor: pointer;">粤ICP备2020086793号</a>
+                            </dd>
                         </dl>
                         </p>
 
@@ -607,7 +611,8 @@ Last modified= "2021/10/17 16:48:35"
             });
         }
 
-        {/** link setting */
+        {
+            /** link setting */
             [...document.querySelectorAll('a[link]')].map(a => {
                 a.href = a.innerText;
                 a.classList.add('underline');
@@ -628,7 +633,8 @@ Last modified= "2021/10/17 16:48:35"
                 let w = 48;
                 let step = 2;
                 let mid = 200;
-                dom.style.cssText += '--hover-color:hsla(' + ((ran * w) - (ran * w) % step + mid) + ',100%,32%,1)';
+                dom.style.cssText += '--hover-color:hsla(' + ((ran * w) - (ran * w) % step + mid) +
+                    ',100%,32%,1)';
             });
 
             let style = document.createElement('style');
@@ -643,13 +649,25 @@ Last modified= "2021/10/17 16:48:35"
             document.body.appendChild(style);
         }
 
-        {/** site title setting */
+        {
+            /** site title setting */
             [...document.querySelectorAll('#' + lang + '#left>dl>dt')].map(d => {
                 d.href = 'https://leizingyiu.net';
                 d.style.cssText = 'cursor:pointer';
             });
         }
     </script>
+
+    <!-- 统计  script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1280029923&web_id=1280029923" -->
+    <script src="http://leizingyiu.net/js/LoadStatisticsScript.js">
+        // window.onload = function () {
+        //     var script = document.createElement('script');
+        //     script.src = "https://s9.cnzz.com/z_stat.php?id=1280029923&web_id=1280029923";
+        //     script.type = "text/javascript";
+        //     document.body.appendChild(script);
+        // }
+    </script>
+
 </body>
 
 </html>
