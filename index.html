@@ -1,6 +1,6 @@
 <!-- 
 Created: "2021/10/17 11:04:01" 
-Last modified: "2022/02/13 13:14:02"
+Last modified: "2022/06/28 12:54:33"
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@ Last modified: "2022/02/13 13:14:02"
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./animated_favicon.gif" type="image/gif">
+    <link rel="icon" href="leizingyiu.net/animated_favicon.gif" type="image/gif">
 
     <title>Leizingyiu.net</title>
 
@@ -137,15 +137,35 @@ Last modified: "2022/02/13 13:14:02"
             line-height: 2.5em;
         }
 
-        main .lang #right>ul>li>dl>dd ul>li>*:first-child {
-            position: absolute;
-            left: 6em;
+        main .lang #right>ul>li>dl>dd>p,
+        main .lang #right>ul>li>dl>dd ul>li {
+            position: relative;
         }
 
-        main #en #right>ul>li>dl>dd ul>li>*:first-child {
+
+
+        main .lang #right>ul>li>dl>dd>p>a:first-of-type {
             position: absolute;
             left: 10em;
         }
+
+        main .lang #right>ul>li>dl>dd ul>li>a:first-of-type {
+            position: absolute;
+            left: 8em;
+        }
+
+
+        main #en #right>ul>li>dl>dd ul>li>a:first-of-type {
+            position: absolute;
+            left: 10em;
+        }
+
+        main #en #right>ul>li>dl>dd ul>li>a:first-of-type {
+            position: absolute;
+            left: 8em;
+        }
+
+
 
         main .lang #right>ul>li>dl>dd ol>li {
             display: inline-block;
@@ -161,6 +181,7 @@ Last modified: "2022/02/13 13:14:02"
             font-size: 1rem !important;
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
 
         main .lang #right .footer * {
@@ -360,10 +381,8 @@ Last modified: "2022/02/13 13:14:02"
                         <dl>
                             <dt>我是</dt>
                             <dd>
-                                <p>Leizingyiu，可以叫我镇妖蜀黍，
-                                    是个会一点点代码的设计师。<br>
-                                    设计师觉得我是程序员，
-                                    程序员又觉得我是设计师。<span style='font-size: 1.5em;'>🤣</span></p>
+                                <p>Leizingyiu，可以叫我镇妖蜀黍，<br>
+                                    是个会一点点代码的设计师<span style='font-size: 1.5em;'>🤣</span></p>
                             </dd>
                         </dl>
                     </li>
@@ -372,7 +391,8 @@ Last modified: "2022/02/13 13:14:02"
                         <dl>
                             <dt>作品集</dt>
                             <dd>
-                                <p>近两年写bug比较多，整理了一些练习： <a link>http://design.leizingyiu.net/</a></p>
+                                <p>一些设计作品： <a link>https://design.leizingyiu.net/</a></p>
+                                <p>一些创意编程作品：<a link>https://p5.leizingyiu.net/</a></p>
                             </dd>
                         </dl>
                     </li>
@@ -380,8 +400,8 @@ Last modified: "2022/02/13 13:14:02"
                     <li>
                         <dl>
                             <dt>教程</dt>
-                            <dd>
-                                <p>一些答疑遇到的常见问题，就顺便做成教程了： <a link>https://uiiiuiii.com/designer/leizingyiu</a></p>
+                            <dd>一些答疑遇到的常见问题，就顺便做成教程了：
+                                <p>UIIIUIII <a link>https://uiiiuiii.com/designer/leizingyiu</a></p>
                             </dd>
                         </dl>
                     </li>
@@ -400,6 +420,31 @@ Last modified: "2022/02/13 13:14:02"
                                     </li>
                                     <li>书签JS <a link>https://bookmark.leizingyiu.net/</a>
                                     </li>
+                                </ul>
+                                <br>
+                                <p>一些放在github上的小项目</p>
+                                <ul>
+                                    <li><b>LRC_Maker</b></li>
+                                    <li><small>github:</small> <a link>https://github.com/leizingyiu/LRC_Maker</a> </li>
+                                    <li><small>preview:</small><a link>https://leizingyiu.github.io/LRC_Maker/</a></li>
+                                    <li><b>LRC_Reader</b></li>
+                                    <li><small>githug:</small> <a link>https://github.com/leizingyiu/LRC_Reader</a>
+                                    </li>
+                                    <li><small>preview:</small><a link>https://leizingyiu.github.io/LRC_Reader</a></li>
+                                    <li><b>p5js_Ctrler</b></li>
+                                    <li> <small>githug:</small> <a link>https://github.com/leizingyiu/p5js_Ctrler</a>
+                                    </li>
+                                    <li><small>preview:</small><a link>https://leizingyiu.github.io/p5js_Ctrler</a></li>
+                                    <li><b>p5js_Grid</b></li>
+                                    <li> <small>githug:</small> <a link>https://github.com/leizingyiu/p5js_Grid</a>
+                                    </li>
+                                    <li><small>preview:</small><a link>https://leizingyiu.github.io/p5js_Grid</a></li>
+                                    <li><b>p5js_Layout</b></li>
+                                    <li> <small>githug:</small> <a link>https://github.com/leizingyiu/p5js_Layout</a>
+                                    </li>
+                                    <li><small>preview:</small><a link>https://leizingyiu.github.io/p5js_Layout/</a>
+                                    </li>
+
                                 </ul>
                             </dd>
                         </dl>
@@ -467,9 +512,7 @@ Last modified: "2022/02/13 13:14:02"
                             <dt>I'm</dt>
                             <dd>
                                 <p>Leizingyiu. <br>
-                                    I am a designer who knows some code.<br>
-                                    The designer thinks I am a programmer, <br>
-                                    and the programmer thinks I am a designer.<span style='font-size: 1.5em;'>🤣</span>
+                                    I am a designer who knows some code. <span style='font-size: 1.5em;'>🤣</span>
                                 </p>
                             </dd>
                         </dl>
@@ -479,10 +522,8 @@ Last modified: "2022/02/13 13:14:02"
                         <dl>
                             <dt>Portfolio</dt>
                             <dd>
-                                <p>There have been a lot of bugs in the past two years, and some exercises have been
-                                    sorted out:
-                                    <a link>http://design.leizingyiu.net/</a>
-                                </p>
+                                <p>design: <a link>https://design.leizingyiu.net/</a></p>
+                                <p>creative coding: <a link>https://p5.leizingyiu.net/</a></p>
                             </dd>
                         </dl>
                     </li>
@@ -490,11 +531,11 @@ Last modified: "2022/02/13 13:14:02"
                     <li>
                         <dl>
                             <dt>Tutorials</dt>
-                            <dd>
-                                <p>Some common questions encountered in Q&A are made into tutorials by the way:
-                                    <a link>https://uiiiuiii.com/designer/leizingyiu</a>
-                                </p>
+
+                            <dd>Some common questions encountered in Q&A are made into tutorials by the way:
+                                <p>UIIIUIII <a link>https://uiiiuiii.com/designer/leizingyiu</a></p>
                             </dd>
+
                         </dl>
                     </li>
 
@@ -513,6 +554,31 @@ Last modified: "2022/02/13 13:14:02"
                                     </li>
                                     <li>Bookmark JS <a link>https://bookmark.leizingyiu.net/</a>
                                     </li>
+                                </ul>
+                                <br>
+                                <p>some projects on github</p>
+                                <ul>
+                                    <li><b>LRC_Maker</b></li>
+                                    <li><small>github:</small> <a link>https://github.com/leizingyiu/LRC_Maker</a> </li>
+                                    <li><small>preview:</small><a link>https://leizingyiu.github.io/LRC_Maker/</a></li>
+                                    <li><b>LRC_Reader</b></li>
+                                    <li><small>githug:</small> <a link>https://github.com/leizingyiu/LRC_Reader</a>
+                                    </li>
+                                    <li><small>preview:</small><a link>https://leizingyiu.github.io/LRC_Reader</a></li>
+                                    <li><b>p5js_Ctrler</b></li>
+                                    <li> <small>githug:</small> <a link>https://github.com/leizingyiu/p5js_Ctrler</a>
+                                    </li>
+                                    <li><small>preview:</small><a link>https://leizingyiu.github.io/p5js_Ctrler</a></li>
+                                    <li><b>p5js_Grid</b></li>
+                                    <li> <small>githug:</small> <a link>https://github.com/leizingyiu/p5js_Grid</a>
+                                    </li>
+                                    <li><small>preview:</small><a link>https://leizingyiu.github.io/p5js_Grid</a></li>
+                                    <li><b>p5js_Layout</b></li>
+                                    <li> <small>githug:</small> <a link>https://github.com/leizingyiu/p5js_Layout</a>
+                                    </li>
+                                    <li><small>preview:</small><a link>https://leizingyiu.github.io/p5js_Layout/</a>
+                                    </li>
+
                                 </ul>
                             </dd>
                         </dl>
@@ -545,13 +611,13 @@ Last modified: "2022/02/13 13:14:02"
                         </dl>
                     </li>
                     <li class="footer">
-                        <p>
+
                         <dl>
                             <dt>Designed & Powerd by Leizingyiu | Copyright© Leizingyiu.net</dt>
                             <dd> <a href="https://beian.miit.gov.cn/" style="cursor: pointer;">粤ICP备2020086793号</a>
                             </dd>
                         </dl>
-                        </p>
+
 
                     </li>
                 </ul>
